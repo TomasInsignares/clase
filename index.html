@@ -206,7 +206,7 @@ body.gigante #st-coins{font-size:1.5rem;line-height:1}
 @keyframes lamp{0%,100%{opacity:1}45%{opacity:.82}52%{opacity:.95}70%{opacity:.86}}
 .bt-center{position:absolute;transform:translate(-50%,-50%);display:flex;align-items:center;gap:16px;z-index:4}
 .bt-table.nrw .bt-center{flex-wrap:wrap;justify-content:center;gap:8px}.bt-table.nrw .bt-mid{order:3;flex-basis:100%}
-.bt-mid{min-width:96px;display:flex;justify-content:center}
+.bt-mid{min-width:96px;display:flex;justify-content:center}.bt-center.drafting{z-index:7}
 .bt-cup{width:88px;height:96px;padding:0;background:none;border:0;cursor:default;filter:drop-shadow(0 12px 10px rgba(0,0,0,.55))}
 .bt-cup svg{width:100%;height:100%}
 .bt-cup.ready{cursor:pointer;animation:cupglow 1.8s ease-in-out infinite}
@@ -299,6 +299,39 @@ body.gigante #st-coins{font-size:1.5rem;line-height:1}
 .sw.on{background:#2f7a4f}.sw.on i{left:23px}
 .parch .rules{color:var(--ink);font-size:.85rem}
 .rules b.cy{color:#9c6a00}.rules b.cp{color:#5b2aa6}.rules b.cb{color:#1f4fb0}.rules b.cr{color:#a51d1d}.rules b.cg{color:#16703c}.rules b.ck{color:#a3407a}
+
+.wrap.wide{max-width:1340px}
+.bt-layout{display:block}.bt-layout.wide{display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:16px;align-items:start}
+.bt-layout.wide .bt-side{position:sticky;top:64px;max-height:calc(100vh - 80px);overflow-y:auto}
+.bt-actions{position:relative;bottom:12px;z-index:30;display:flex;justify-content:center;gap:10px;margin-top:14px;min-height:54px;align-items:center}
+.wbtn.big{font-size:1.15rem;padding:14px 34px;min-width:min(280px,90%);border-radius:14px}
+.wbtn.wgold.big{animation:actglow 1.8s ease-in-out infinite}
+@keyframes actglow{50%{box-shadow:inset 0 1px 0 #fff3c4,0 3px 0 #7a5410,0 0 26px rgba(243,204,94,.65)}}
+.bt-wait{font:italic .9rem Georgia,serif;color:#e9d6ad;padding:12px 18px;border-radius:12px;background:rgba(0,0,0,.35)}
+.dv.locked{opacity:.4;filter:grayscale(.6) drop-shadow(0 5px 3px rgba(0,0,0,.55))}
+.bt-score{margin-top:14px}
+.sc-tabs{display:flex;flex-wrap:wrap;gap:6px;margin:4px 0 10px}
+.sc-wrap{overflow-x:auto}
+.sc-t{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums;font-size:.86rem;min-width:420px}
+.sc-t th,.sc-t td{padding:5px 4px;text-align:center;border-bottom:1px solid rgba(59,36,16,.15)}
+.sc-t th{font-size:.7rem;font-weight:700;vertical-align:bottom}
+.sc-t th .sh{display:inline-block;width:24px;height:24px}.sc-t th .sh svg{width:100%;height:100%}
+.sc-t th .oth{font-size:.66rem;text-transform:uppercase;letter-spacing:.04em;opacity:.75}
+.sc-t td.rn{text-align:left;font-weight:700;white-space:nowrap;max-width:90px;overflow:hidden;text-overflow:ellipsis}
+.sc-t td.tt,.sc-t th.tt{font-weight:800;background:rgba(59,36,16,.08)}
+.sc-t td.neg{color:#a51d1d;font-weight:700}.sc-t td.zero,.sc-t td.emp{opacity:.35}
+.sc-t tr.cur td{background:rgba(243,204,94,.35)}.sc-t tr.mine td{background:rgba(243,204,94,.25)}
+.sc-t tfoot td{font-weight:800;border-top:2px solid rgba(59,36,16,.4);border-bottom:0}
+.sc-t td:nth-child(2){box-shadow:inset 3px 0 0 #f2b51d}.sc-t td:nth-child(3){box-shadow:inset 3px 0 0 #7c3fd6}.sc-t td:nth-child(4){box-shadow:inset 3px 0 0 #2f6fe0}.sc-t td:nth-child(5){box-shadow:inset 3px 0 0 #d32626}
+.sc-t td:nth-child(6){box-shadow:inset 3px 0 0 #1f9d55}.sc-t td:nth-child(7){box-shadow:inset 3px 0 0 #9fc3e0}.sc-t td:nth-child(8){box-shadow:inset 3px 0 0 #f6a8d2}
+@media(min-width:760px){.bt-actions{position:sticky}}
+@media(max-width:640px){.sc-t{min-width:0;font-size:.74rem}.sc-t th,.sc-t td{padding:4px 1px}.sc-t th .sh{width:18px;height:18px}.sc-t td.rn{max-width:64px}.sc-t th .oth{font-size:.55rem}}
+.bt-side{margin-top:14px}.bt-layout.wide .bt-side{margin-top:0}
+details.bt-side summary{cursor:pointer;list-style:none}details.bt-side summary::-webkit-details-marker{display:none}
+details.bt-side summary .ph::after{content:" ▾";opacity:.6}
+.gl-r{display:flex;gap:10px;align-items:flex-start;padding:7px 0;border-bottom:1px dashed rgba(59,36,16,.22)}
+.gl-d{width:34px;height:34px;flex:0 0 auto;filter:drop-shadow(0 3px 2px rgba(0,0,0,.35))}.gl-d svg{width:100%;height:100%}
+.gl-r b{font-size:.86rem}.gl-t{font-size:.76rem;line-height:1.35;opacity:.85}.gl-b{font-size:.68rem;opacity:.6;margin-top:2px}
 /* ===== per-game styles ===== */
 .g2048{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:8px;padding:8px;background:var(--s2);border-radius:14px;aspect-ratio:1;font-size:clamp(20px,7vw,34px);touch-action:none;user-select:none}
 .g2048 .t{border-radius:9px;background:var(--s3);display:flex;align-items:center;justify-content:center;font-weight:800;font-variant-numeric:tabular-nums}
@@ -1061,7 +1094,7 @@ const BT={
   left(S,i){return(i+1)%S.players.length},
   canTake(S,pi,d){const p=S.players[pi],dt=BT.T[d.t];if(dt.tmp)return false;if(dt.c==='y'&&p.dice.filter(x=>BT.T[x.t].c==='y').length<=1)return false;return true},
 
-  startRound(S){S.event=S.cfg.events?BT.EV.find(e=>e.id===S.deck[(S.round-1)%S.deck.length]):null;S.free={};S.phase='pre';S.players.forEach(p=>p.bet=false)},
+  startRound(S){S.event=S.cfg.events?BT.EV.find(e=>e.id===S.deck[(S.round-1)%S.deck.length]):null;S.free={};S.lock=[];S.phase='pre';S.players.forEach(p=>p.bet=false)},
   rollDie(S,d){const dt=BT.T[d.t];let v=BT.r(dt.f);if(dt.c==='g'&&S.event&&S.event.id==='calma')v=Math.min(v,BT.r(dt.f));return v},
   rollAll(S){S.roll=S.players.map(p=>p.dice.map(d=>({id:d.id,t:d.t,v:BT.rollDie(S,d)})));S.phase='rolled'},
   reroll(S,pi,id){const r=S.roll[pi].find(x=>x.id===id);if(r)r.v=BT.rollDie(S,r)},
@@ -1082,6 +1115,8 @@ const BT={
     if(arcs.length){const cs=['y','p','b','r','g','t'];const rec=(k,q)=>{if(k===arcs.length){const t=total(q);if(t>bestT){bestT=t;best=q}return}
       for(const c of cs){const q2={...q,arc:q.arc.concat(c)},v=arcs[k];if(c==='r'){q2.r+=v<=4?-v:v;q2.rc++}else q2[c]+=v;rec(k+1,q2)}};rec(0,{...o,br})}
     let t=bestT;if(ev==='tormenta')t-=3*ones;if(ev==='ron')t+=5;
+    /* cuánto aporta cada color, ya multiplicado */
+    {const q=best;best.parts={y:q.y*(ev==='viento'?2:1),p:q.p*(ev==='oro'?-2:2),b:q.b*((q.br||ev==='plata')?2:1),r:q.r*(ev==='marea'?1:q.rc),g:q.g,t:q.t*(ev==='sirenas'?3:1),k:q.k}}
     best.base=t;best.ones=ones;return best},
 
   scoreRound(S){const n=S.players.length,res=S.players.map((p,i)=>BT.score(S,i,S.roll[i]));const ev=S.event&&S.event.id;
@@ -1090,7 +1125,7 @@ const BT={
     /* apuesta: ganar la ronda */
     const mx=Math.max(...res.map(q=>q.tot));
     res.forEach((q,i)=>{q.betOk=null;if(S.players[i].bet){q.betOk=q.tot===mx;q.tot+=q.betOk?10:-5}});
-    res.forEach((q,i)=>{const p=S.players[i];p.total+=q.tot;p.hist.push(q.tot);p.last=q.tot});
+    res.forEach((q,i)=>{const p=S.players[i];p.total+=q.tot;p.hist.push(q.tot);p.last=q.tot;const pt={...q.parts};pt.o=q.tot-Object.values(q.parts).reduce((a,b)=>a+b,0);pt.tot=q.tot;(p.sc=p.sc||[]).push(pt)});
     /* orden por suma amarilla con desempates relanzando amarillos */
     const key=res.map(q=>[q.ysum]),tb=[];let groups=true,guard=0;
     while(groups&&guard++<50){groups=false;const ord=[...Array(n).keys()].sort((a,b)=>BT.cmp(key[b],key[a]));
@@ -1117,10 +1152,12 @@ const BT={
 
   /* robos: orden desde la izquierda del líder, el líder el último */
   stealQueue(S){const n=S.players.length,q=[];for(let k=1;k<=n;k++)q.push((S.leader+k)%n);return q},
-  canSteal(S,pi){if(S.event&&S.event.id==='niebla')return false;return S.free[pi]||S.players[pi].dice.some(d=>d.t==='T6')},
+  /* un transparente recién recibido no se puede usar hasta la ronda siguiente */
+  usableT(S,pi){return S.players[pi].dice.filter(d=>d.t==='T6'&&!(S.lock||[]).includes(d.id))},
+  canSteal(S,pi){if(S.event&&S.event.id==='niebla')return false;return !!S.free[pi]||BT.usableT(S,pi).length>0},
   steal(S,pi,target,id){const p=S.players[pi],d=S.players[target].dice.find(x=>x.id===id);if(!d||!BT.canTake(S,target,d))return null;
     if(S.free[pi]){S.free[pi]=0;BT.move(S,target,pi,id);return{d,free:true}}
-    const tr=p.dice.find(x=>x.t==='T6'&&x.id!==id);if(!tr)return null;BT.move(S,target,pi,id);BT.move(S,pi,target,tr.id);return{d,free:false}},
+    const tr=BT.usableT(S,pi).find(x=>x.id!==id);if(!tr)return null;BT.move(S,target,pi,id);BT.move(S,pi,target,tr.id);(S.lock=S.lock||[]).push(tr.id);return{d,free:false}},
 
   drawDraft(S){const n=S.players.length+1+(S.event&&S.event.id==='cofre'?2:0);S.draft=S.bag.splice(0,Math.min(n,S.bag.length));
     S.dq=S.event&&S.event.id==='mapa'?S.order.slice().reverse():S.order.slice();S.phase='draft'},
@@ -1146,7 +1183,7 @@ const BT={
     const dt=BT.T[d.t];let gain=BT.evOf(base.concat(d),st)-BT.evOf(base,st);
     if(dt.c==='y')gain+=1.6+(st==='y'?2:0);if(dt.c==='t')gain+=st==='t'?6:3;if(d.t==='BO'){gain=gain*(1-Math.pow(7/8,left))*8/left}
     return gain*left},
-  bestSteal(S,pi,target,free){let best=null,bv=0;const myT=S.players[pi].dice.find(x=>x.t==='T6');
+  bestSteal(S,pi,target,free){let best=null,bv=0;const myT=BT.usableT(S,pi)[0];
     S.players[target].dice.forEach(d=>{if(!BT.canTake(S,target,d)||d.t==='T6')return;const v=BT.worth(S,pi,d,free?null:myT&&myT.id)-(free?0:BT.worth(S,pi,myT||d))+BT.worth(S,target,d)*.35;if(v>bv){bv=v;best=d}});
     return best&&bv>2?best:null},
   botSteal(S,pi){let best=null;for(let j=0;j<S.players.length;j++){if(j===pi)continue;const d=BT.bestSteal(S,pi,j,!!S.free[pi]);if(d){const v=BT.worth(S,pi,d)+(S.players[j].total>=Math.max(...S.players.map(p=>p.total))?4:0);if(!best||v>best.v)best={j,d,v}}}return best},
@@ -1241,7 +1278,7 @@ reg({id:'botin',name:'Botín',emoji:'🏴‍☠️',cat:'grupo',tag:'2-10 jugado
   const sfx=k=>{if(!U.mute)Music.sfx(k)};
   const wait=ms=>new Promise(r=>setTimeout(r,ms));
   const hash=(a,b)=>{let h=(a*2654435761^b*40503)>>>0;h^=h>>>13;h=Math.imul(h,1274126177)>>>0;return h/4294967296};
-  const host=document.createElement('div');host.className='bt-host';root.appendChild(host);
+  const host=document.createElement('div');host.className='bt-host';root.appendChild(host);const wrapEl=root.closest('.wrap');if(wrapEl)wrapEl.classList.add('wide');
   host.insertAdjacentHTML('beforebegin',BTV.defs());
 
   /* ---------- configuración: la taberna ---------- */
@@ -1262,10 +1299,11 @@ reg({id:'botin',name:'Botín',emoji:'🏴‍☠️',cat:'grupo',tag:'2-10 jugado
       <li><b class="cp">Morado</b>: suma por dos. <b class="cb">Azul</b>: suma, y con un azul brillante se duplica todo lo azul.</li>
       <li><b class="cr">Rojo</b>: las caras bajas (números negros) restan y las altas (blancos) suman. El total se multiplica por cuántos rojos tienes. El bendito casi siempre suma; el maldito casi siempre resta.</li>
       <li><b class="cg">Verde</b> (20 caras) suma. <b>Transparente</b>: suma y sirve para robar. <b class="ck">Rosado</b>: consuelo para el que va peor, solo una ronda.</li></ul>
-      <p><b>Después</b> de puntuar se reparten los rosados (uno por cada dos jugadores). Luego, empezando a la izquierda del capitán, quien tenga un transparente puede cambiarlo por cualquier dado de otro jugador (menos rosados y su último amarillo). Al final salen de la bolsa tantos dados como jugadores más uno y se eligen por orden de suma amarilla.</p></div></details></div>`}
+      <p><b>Después</b> de puntuar se reparten los rosados (uno por cada dos jugadores). Luego, empezando a la izquierda del capitán, quien tenga un transparente puede cambiarlo por cualquier dado de otro jugador (menos rosados y su último amarillo). Quien recibe un transparente no puede usarlo hasta la ronda siguiente. Al final salen de la bolsa tantos dados como jugadores más uno y se eligen por orden de suma amarilla.</p></div></details></div>`}
 
   /* ---------- geometría de la mesa ---------- */
-  function geom(){const W=Math.max(300,host.clientWidth||root.clientWidth||360),n=S.players.length,narrow=W<640;
+  const wide=()=>(host.clientWidth||0)>=1040;
+  function geom(){const W=Math.max(300,(host.clientWidth||root.clientWidth||360)-(wide()?296:0)),n=S.players.length,narrow=W<640;
     const H=narrow?Math.round(Math.min(W*1.68,800)):Math.round(Math.max(540,Math.min(W*.66,680)));
     const rx=W/2-(narrow?44:78),ry=H/2-(narrow?48:52),cx=W/2,cy=H/2,h=me(),compact=narrow&&n>4,crowd=!narrow&&n>6;
     const seats=S.players.map((p,i)=>{const k=(i-h+n)%n;let deg;
@@ -1287,14 +1325,47 @@ reg({id:'botin',name:'Botín',emoji:'🏴‍☠️',cat:'grupo',tag:'2-10 jugado
     return`<div class="bdp">${h}<div class="bdr tot"><span>Ronda</span><b>${q.tot>=0?'+':''}${q.tot}</b></div></div>`}
   function ribbon(){const c=cur(),ph=S.phase,who=c>=0?nm(c):'',bot=c>=0&&S.players[c].bot,pass=humans()>1&&c>=0&&!bot?`<span class="rb-who">Turno de ${who}</span>`:'';
     if(U.rolling)return`<div class="rb-t">Los dados ruedan…</div>`;
-    if(ph==='pre')return`<div class="rb-t">Ronda ${S.round} de 10</div><div class="rb-s">${S.cfg.bet?'Deja tu ficha roja en la mesa si apuestas a ganar la ronda. ':''}Pulsa el cubilete para tirar.</div>`;
-    if(ph==='reroll')return`${pass}<div class="rb-t">Capitán ${who}</div><div class="rb-s">Toca uno de tus dados para volver a tirarlo.</div><button class="wbtn sm" data-norr>Me planto</button>`;
+    if(ph==='pre')return`<div class="rb-t">Ronda ${S.round} de 10</div><div class="rb-s">${S.cfg.bet?'Deja tu ficha roja en la mesa si apuestas a ganar la ronda. ':''}Pulsa el cubilete o el botón de abajo para tirar.</div>`;
+    if(ph==='reroll')return`${pass}<div class="rb-t">Capitán ${who}</div><div class="rb-s">Toca uno de tus dados para volver a tirarlo.</div>`;
     if(ph==='scored'){const best=Math.max(...S.res.map(q=>q.tot)),ws=S.players.map((p,i)=>S.res[i].tot===best?nm(i):null).filter(Boolean);
-      return`<div class="rb-t">Ronda ${S.round}: ${ws.join(' y ')} ${ws.length>1?'empatan':'gana'} con ${best}</div><div class="rb-s">${S.tb.length?'Desempate amarillo: '+S.tb.map(esc).join(' · ')+'. ':''}Toca un marcador para ver el desglose.</div><button class="wbtn wgold sm" data-next>${S.round>=10?'Recuento final':'Seguir'}</button>`}
+      return`<div class="rb-t">Ronda ${S.round}: ${ws.join(' y ')} ${ws.length>1?'empatan':'gana'} con ${best}</div><div class="rb-s">${S.tb.length?'Desempate amarillo: '+S.tb.map(esc).join(' · ')+'. ':''}Toca un marcador para ver el desglose.</div>`}
+    if((ph==='steal'||ph==='draft')&&c<0)return`<div class="rb-t">…</div>`;
     if(ph==='steal'){if(bot)return`<div class="rb-t">${who} mira tus dados…</div>`;const free=S.free[c];
-      return`${pass}<div class="rb-t">${free?'Robo gratis del Kraken':'¿Robas?'}</div><div class="rb-s">${free?'Toca el dado que quieras de otro jugador: es tuyo sin dar nada.':'Arrastra tu dado transparente sobre el dado que quieras, o tócalo.'}${geomCache&&geomCache.compact?' Toca un jugador para ver sus dados.':''}</div><button class="wbtn sm" data-nost>No robar</button>`}
+      return`${pass}<div class="rb-t">${free?'Robo gratis del Kraken':'¿Robas?'}</div><div class="rb-s">${free?'Toca el dado que quieras de otro jugador: es tuyo sin dar nada.':'Arrastra tu dado transparente sobre el dado que quieras, o tócalo.'}${geomCache&&geomCache.compact?' Toca un jugador para ver sus dados.':''}${S.players[c].dice.some(d=>d.t==='T6'&&(S.lock||[]).includes(d.id))?' El transparente que acabas de recibir no se puede usar hasta la ronda siguiente.':''}</div>`}
     if(ph==='draft'){if(bot)return`<div class="rb-t">${who} elige…</div>`;return`${pass}<div class="rb-t">Elige un dado</div><div class="rb-s">Arrástralo de la mesa a tu sitio, o tócalo.</div>`}
     return''}
+  function actions(){const c=cur(),ph=S.phase,bot=c>=0&&S.players[c].bot,who=c>=0?nm(c):'';
+    if(U.rolling||U.busy&&ph!=='pre')return`<div class="bt-wait">${ph==='steal'||ph==='draft'?(who?who+' está jugando…':'…'):'…'}</div>`;
+    if(ph==='pre')return`<button class="wbtn wgold big" data-roll>Tirar los dados</button>`;
+    if(ph==='reroll')return`<button class="wbtn big" data-norr>Me planto</button>`;
+    if(ph==='scored')return`<button class="wbtn wgold big" data-next>${S.round>=10?'Recuento final':'Seguir'}</button>`;
+    if(ph==='steal'&&!bot)return`<button class="wbtn big" data-nost>No robar</button>`;
+    if(bot)return`<div class="bt-wait">${who} está jugando…</div>`;
+    return''}
+  /* pizarra: rondas en filas, colores en columnas */
+  const SCOLS=[['y','Amarillo','Y6'],['p','Morado','P8'],['b','Azul','B8'],['r','Rojo','R6'],['g','Verde','G20'],['t','Transparente','T6'],['k','Rosado','K12']];
+  function scoreTable(){const tab=U.tab==null?me():U.tab,caos=S.cfg.events||S.cfg.dice||S.cfg.black||S.cfg.bet,cols=SCOLS.concat(caos?[['o','Otros',null]]:[]);
+    const cell=v=>v==null?'<td class="emp">·</td>':v===0?'<td class="zero">—</td>':`<td class="${v<0?'neg':''}">${v}</td>`;
+    const head=`<tr><th>${tab==='all'?'Jugador':'Ronda'}</th>${cols.map(([k,l,t])=>`<th title="${l}">${t?`<span class="sh">${BTV.die(t,null)}</span>`:'<span class="oth">otros</span>'}</th>`).join('')}<th class="tt">Total</th></tr>`;
+    let body='',foot='';
+    if(tab==='all'){body=S.players.map((p,i)=>{const sc=p.sc||[],sum=k=>sc.reduce((a,r)=>a+(r[k]||0),0);return`<tr${i===me()?' class="mine"':''}><td class="rn">${nm(i)}</td>${cols.map(([k])=>cell(sc.length?sum(k):null)).join('')}<td class="tt">${p.total}</td></tr>`}).join('')}
+    else{const sc=S.players[tab].sc||[];for(let r=0;r<10;r++){const row=sc[r];body+=`<tr${r===S.round-1?' class="cur"':''}><td class="rn">${r+1}</td>${cols.map(([k])=>cell(row?row[k]:null)).join('')}<td class="tt">${row?row.tot:'·'}</td></tr>`}
+      const sum=k=>sc.reduce((a,r)=>a+(r[k]||0),0);foot=`<tr><td class="rn">Total</td>${cols.map(([k])=>`<td>${sc.length?sum(k):'·'}</td>`).join('')}<td class="tt">${S.players[tab].total}</td></tr>`}
+    return`<div class="bt-score parch"><div class="ph">Pizarra de puntos</div><div class="sc-tabs">${S.players.map((p,i)=>`<button class="tg${tab===i?' on':''}" data-tab="${i}">${nm(i)}</button>`).join('')}<button class="tg${tab==='all'?' on':''}" data-tab="all">Todos</button></div>
+      <div class="sc-wrap"><table class="sc-t"><thead>${head}</thead><tbody>${body}</tbody>${foot?`<tfoot>${foot}</tfoot>`:''}</table></div>
+      <p class="pnote">Cada columna es lo que ha dado ese color, ya multiplicado.${caos?' «Otros» suma el dado negro, la bomba, el espejo, el Kraken, las cartas y las apuestas.':''}</p></div>`}
+  /* glosario de dados */
+  const GLOS=[['Y6',5,'Amarillo','Suma. La suma amarilla más alta es el capitán y elige primero.',['Y6','Y8']],['P8',7,'Morado','Suma el doble.',['P8','P12']],['B8',6,'Azul','Suma.',['B6','B8','B12']],
+    ['BB',6,'Azul brillante','Suma y duplica todo lo azul que tengas.',['BB']],['R6',5,'Rojo','Los números negros restan y los blancos suman. El total se multiplica por cuántos rojos tienes.',['R6','R8']],
+    ['RB',4,'Rojo bendito','Solo el 1 y el 2 restan.',['RB']],['RM',2,'Rojo maldito','Del 1 al 5 restan, pero cuenta para el multiplicador.',['RM']],['G20',17,'Verde','Suma. Tiene 20 caras.',['G20']],
+    ['T6',4,'Transparente','Suma. Después de puntuar puedes cambiarlo por un dado de otro jugador. Quien lo recibe no puede usarlo hasta la ronda siguiente.',['T6']],
+    ['K12',9,'Rosado','Consuelo para los que menos puntos hicieron. Suma y solo dura una ronda.',[]]];
+  const GLOS_C=[['N6',4,'Negro','Castigo para quien más puntos hizo: resta durante la ronda siguiente.',[],'black'],['AR',8,'Arcoíris','Cuenta como el color que más te convenga.',['AR'],'dice'],
+    ['BO',6,'Bomba','Suma el doble, pero si saca un 1 explota y lo pierdes.',['BO'],'dice'],['ES',5,'Espejo','Copia el dado más alto del jugador de tu izquierda.',['ES'],'dice'],
+    ['KR',3,'Kraken','Cada cara hace algo: ×2 a tu ronda, robo gratis, −10, +10, los demás −5 o pasa a tu izquierda.',['KR'],'dice']];
+  function glossary(){const inBag=t=>S.bag.filter(d=>d.t===t).length;
+    const row=([t,v,n,d,types])=>`<div class="gl-r"><span class="gl-d">${BTV.die(t,v)}</span><div><b>${n}</b><div class="gl-t">${d}</div>${types.length?`<div class="gl-b">en la bolsa: ${types.reduce((a,x)=>a+inBag(x),0)}</div>`:''}</div></div>`;
+    return`<div class="ph">Glosario de dados</div>${GLOS.map(row).join('')}${GLOS_C.filter(g=>S.cfg[g[5]]).map(row).join('')}`}
   let geomCache=null;
   function cur(){let v=-1;if(S.phase==='steal')v=S.sq[S.si];else if(S.phase==='draft')v=S.dq[S.di];else if(S.phase==='reroll')v=S.prevLeader;return v==null||v<0?-1:v}
   function render(){if(!S||S.phase==='setup')return renderSetup();if(S.phase==='end')return renderEnd();
@@ -1309,7 +1380,8 @@ reg({id:'botin',name:'Botín',emoji:'🏴‍☠️',cat:'grupo',tag:'2-10 jugado
         dice=list.map(d=>{const v=showRolls?d.v:lastVal(i,d);let attrs='',cls='';
           if(ph==='reroll'&&i===c&&!p.bot){attrs=`data-rr="${d.id}"`;cls='pick'}
           else if(tgt&&BT.canTake(S,i,d)){attrs=`data-drop="die:${i}:${d.id}" data-st="${i}:${d.id}"`;cls='pick'}
-          else if(ph==='steal'&&mineTurn&&d.t==='T6'){attrs='data-drag="trans"';cls='lift'}
+          else if(ph==='steal'&&mineTurn&&d.t==='T6'){if((S.lock||[]).includes(d.id))cls='locked';else{attrs='data-drag="trans"';cls='lift'}}
+          else if(d.t==='T6'&&ph==='steal'&&(S.lock||[]).includes(d.id))cls='locked';
           if(U.rolling)cls+=' rolling';return dieEl(d,v,ds,attrs,cls)}).join('')}
       const zw=isMe?(G.narrow?G.W-40:Math.min(G.crowd?320:380,G.rx*1.1)):(G.narrow?120:Math.max(130,Math.min(230,G.arc*.85)));
       if(!(G.compact&&!isMe))seats+=`<div class="bt-zone${isMe?' me':''}${i===c?' turn':''}" data-drop="zone:${i}" style="left:${s.zx}px;top:${s.zy}px;width:${zw}px">${dice}</div>`;
@@ -1326,13 +1398,15 @@ reg({id:'botin',name:'Botín',emoji:'🏴‍☠️',cat:'grupo',tag:'2-10 jugado
     if(ev&&U.card!==S.round){U.card=S.round;setTimeout(()=>sfx('flip'),250)}
     const sheet=G.compact&&U.focus>=0&&U.focus!==h?(()=>{const i=U.focus,p=S.players[i],tgt=ph==='steal'&&c>=0&&!S.players[c].bot&&i!==c;
       const list=showRolls?S.roll[i]:p.dice;return`<div class="bt-sheet"><div class="sh-h">${BTV.face(i,3)}<b>${nm(i)}</b><span class="sp"></span><button class="wbtn sm" data-unfocus>cerrar</button></div><div class="sh-d" data-drop="zone:${i}">${list.map(d=>{const can=tgt&&BT.canTake(S,i,d);return dieEl(d,showRolls?d.v:lastVal(i,d),40,can?`data-drop="die:${i}:${d.id}" data-st="${i}:${d.id}"`:'',can?'pick':'')}).join('')||'<span class="pnote">sin dados</span>'}</div></div>`})():'';
-    host.innerHTML=`<div class="bt-room"><div class="bt-ribbon">${ribbon()}</div>
+    const side=`<aside class="bt-side parch">${glossary()}</aside>`;
+    host.innerHTML=`<div class="bt-layout${wide()?' wide':''}"><div class="bt-mainc"><div class="bt-room"><div class="bt-ribbon">${ribbon()}</div>
       <div class="bt-table${G.narrow?' nrw':''}" style="height:${G.H}px">
         <div class="bt-rim" style="left:${G.cx-G.rx-14}px;top:${G.cy-G.ry-14}px;width:${2*G.rx+28}px;height:${2*G.ry+28}px"></div>
         <div class="bt-felt" style="left:${G.cx-G.rx}px;top:${G.cy-G.ry}px;width:${2*G.rx}px;height:${2*G.ry}px"></div>
-        <div class="bt-center" style="left:${G.cx}px;top:${G.ccy}px;${G.narrow?`width:${G.W-60}px`:''}">${card}<div class="bt-mid">${mid}</div><div class="bt-bag" data-bag><div class="bagw">${BTV.bag()}</div><span>${S.bag.length}</span></div>${S.leader<0?`<div class="bt-coinslot">${coin}</div>`:''}</div>
+        <div class="bt-center${ph==='draft'?' drafting':''}" style="left:${G.cx}px;top:${G.ccy}px;${G.narrow?`width:${G.W-(ph==='draft'?130:60)}px`:''}">${card}<div class="bt-mid">${mid}</div><div class="bt-bag" data-bag><div class="bagw">${BTV.bag()}</div><span>${S.bag.length}</span></div>${S.leader<0?`<div class="bt-coinslot">${coin}</div>`:''}</div>
         ${seats}${sheet}</div>
-      <div class="bt-foot"><div class="bt-log">${S.log.slice(0,5).map((l,k)=>`<div style="opacity:${1-k*.16}">${l}</div>`).join('')}</div><div class="bar"><button class="wbtn sm" data-mute>${U.mute?'Sonido: no':'Sonido: sí'}</button><button class="wbtn sm" data-quit>Levantarse</button></div></div></div>`;
+      <div class="bt-actions">${actions()}</div>
+      <div class="bt-foot"><div class="bt-log">${S.log.slice(0,5).map((l,k)=>`<div style="opacity:${1-k*.16}">${l}</div>`).join('')}</div><div class="bar"><button class="wbtn sm" data-mute>${U.mute?'Sonido: no':'Sonido: sí'}</button><button class="wbtn sm" data-quit>Levantarse</button></div></div></div>${scoreTable()}</div>${wide()?side:`<details class="bt-side parch"${U.glos?' open':''}><summary>${glossary().replace('<div class="ph">Glosario de dados</div>','<span class="ph">Glosario de dados</span></summary><div>')}</div></details>`}</div>`;
     flip(before);counters()}
 
   /* animaciones: cada dado vuela desde donde estaba (técnica FLIP) */
@@ -1390,8 +1464,8 @@ reg({id:'botin',name:'Botín',emoji:'🏴‍☠️',cat:'grupo',tag:'2-10 jugado
     if(U.alive){save();render()}}
   function finish(f){const hs=S.players.map((p,i)=>p.bot?-1:i).filter(i=>i>=0),bots=S.players.some(p=>p.bot),winH=!S.players[f[0].i].bot;
     if(hs.length===1)A.record(f.find(r=>r.i===hs[0]).total);if(bots&&winH&&hs.length===1){A.reward(220,60);A.ev('win',1)}else A.reward(70,15);sfx('win')}
-  function takeDraft(id){if(U.busy||S.phase!=='draft')return;const pi=S.dq[S.di];if(S.players[pi].bot)return;const d=BT.take(S,pi,id);if(d){log(`${nm(pi)} elige un ${dname(d.t)}`);sfx('clack');S.di++;save();render();advance()}}
-  function doSteal(j,id){if(U.busy||S.phase!=='steal')return;const pi=S.sq[S.si];if(S.players[pi].bot||j===pi)return;const r=BT.steal(S,pi,j,id);
+  function takeDraft(id){if(U.busy||S.phase!=='draft')return;const pi=S.dq[S.di];if(pi==null||S.players[pi].bot)return;const d=BT.take(S,pi,id);if(d){log(`${nm(pi)} elige un ${dname(d.t)}`);sfx('clack');S.di++;save();render();advance()}}
+  function doSteal(j,id){if(U.busy||S.phase!=='steal')return;const pi=S.sq[S.si];if(pi==null||S.players[pi].bot||j===pi)return;const r=BT.steal(S,pi,j,id);
     if(r){log(`${nm(pi)} roba un ${dname(r.d.t)} a ${nm(j)}${r.free?' (gratis)':''}`);sfx('slide');if(!BT.canSteal(S,pi))S.si++;U.focus=-1;save();render();advance()}}
 
   /* ---------- arrastrar con el dedo o el ratón ---------- */
@@ -1427,13 +1501,15 @@ reg({id:'botin',name:'Botín',emoji:'🏴‍☠️',cat:'grupo',tag:'2-10 jugado
     if(q('[data-st]')&&S.phase==='steal'){const[j,id]=q('[data-st]').dataset.st.split(':').map(Number);doSteal(j,id);return}
     if(q('[data-tk]')&&S.phase==='draft'){takeDraft(+q('[data-tk]').dataset.tk);return}
     if(q('[data-unfocus]')){U.focus=-1;render();return}
+    const tb=q('[data-tab]');if(tb){U.tab=tb.dataset.tab==='all'?'all':+tb.dataset.tab;render();return}
+    if(q('details.bt-side summary')){setTimeout(()=>{const d=host.querySelector('details.bt-side');U.glos=!!(d&&d.open)},0);return}
     const pl=q('[data-seat]');if(pl){const i=+pl.dataset.seat;if(geomCache&&geomCache.compact&&i!==me()){U.focus=U.focus===i?-1:i;render()}else{pl.classList.toggle('open')}return}
   });
   host.addEventListener('change',e=>{const n=e.target.closest('[data-pn]');if(n){setup.players[+n.dataset.pn].name=n.value.slice(0,14);A.set('setup',setup)}});
   const offK=onKey(e=>{if(!S||S.phase!=='pre')return;if(e.code==='Space'||e.key==='Enter'){e.preventDefault();doRoll()}});
-  let rt=null;const onR=()=>{clearTimeout(rt);rt=setTimeout(()=>{const w=host.clientWidth;if(S&&!U.busy&&S.phase!=='end'&&geomCache&&Math.abs(w-geomCache.W)>4)render()},200)};window.addEventListener('resize',onR);
+  let rt=null;const onR=()=>{clearTimeout(rt);rt=setTimeout(()=>{const w=host.clientWidth-(wide()?296:0);if(S&&!U.busy&&S.phase!=='end'&&geomCache&&Math.abs(w-geomCache.W)>4)render()},200)};window.addEventListener('resize',onR);
   if(S&&S.phase!=='end'){if(S.phase==='rolled')S.phase='pre';render();if(['steal','draft'].includes(S.phase))setTimeout(advance,300)}else{S=null;renderSetup()}
-  return()=>{U.alive=false;Music.amb(false);offK();window.removeEventListener('resize',onR);window.removeEventListener('pointermove',pmove);window.removeEventListener('pointerup',pup);if(drag&&drag.ghost)drag.ghost.remove()};
+  return()=>{U.alive=false;if(wrapEl)wrapEl.classList.remove('wide');Music.amb(false);offK();window.removeEventListener('resize',onR);window.removeEventListener('pointermove',pmove);window.removeEventListener('pointerup',pup);if(drag&&drag.ghost)drag.ghost.remove()};
 }});
 
 /* ================= 2048 ================= */
