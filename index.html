@@ -196,10 +196,10 @@ body.gigante #st-coins{font-size:1.5rem;line-height:1}
 .rb-who{background:var(--ink);color:var(--parch1);border-radius:99px;padding:2px 10px;font-size:.74rem;font-weight:700}
 .bt-table{position:relative;margin-top:12px;user-select:none;-webkit-user-select:none;touch-action:manipulation}
 .bt-rim{position:absolute;border-radius:50%;
-  background:repeating-linear-gradient(115deg,rgba(255,235,200,.05) 0 3px,transparent 3px 11px),repeating-linear-gradient(25deg,rgba(0,0,0,.08) 0 2px,transparent 2px 17px),radial-gradient(ellipse at 50% 28%,#9a6638,#5e381a 58%,#2c1809);
-  box-shadow:0 34px 60px rgba(0,0,0,.7),0 0 0 2px #1a0e05,inset 0 0 0 3px #b07a43,inset 0 7px 14px rgba(255,220,170,.28),inset 0 -8px 16px rgba(0,0,0,.45)}
+  background:var(--rimbg,radial-gradient(ellipse at 50% 28%,#9a6638,#5e381a 58%,#2c1809));
+  box-shadow:0 34px 60px rgba(0,0,0,.7),0 0 0 2px #1a0e05,inset 0 0 0 3px var(--ring,#b07a43),inset 0 7px 14px rgba(255,220,170,.28),inset 0 -8px 16px rgba(0,0,0,.45)}
 .bt-felt{position:absolute;border-radius:50%;overflow:hidden;
-  background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .28 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>"),radial-gradient(ellipse at 50% 42%,#287f53 0%,#16573a 52%,#0b3423 100%);
+  background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .28 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>"),radial-gradient(ellipse at 50% 42%,var(--f1,#287f53) 0%,var(--f2,#16573a) 52%,var(--f3,#0b3423) 100%);
   box-shadow:inset 0 0 48px rgba(0,0,0,.7),inset 0 0 0 3px rgba(0,0,0,.45)}
 .bt-felt::before{content:"";position:absolute;inset:7%;border-radius:50%;border:2px solid rgba(233,214,173,.13)}
 .bt-felt::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 38%,rgba(255,206,130,.2),transparent 58%);animation:lamp 5s ease-in-out infinite}
@@ -327,7 +327,62 @@ body.gigante #st-coins{font-size:1.5rem;line-height:1}
 @media(min-width:760px){.bt-actions{position:sticky}}
 @media(max-width:640px){.sc-t{min-width:0;font-size:.74rem}.sc-t th,.sc-t td{padding:4px 1px}.sc-t th .sh{width:18px;height:18px}.sc-t td.rn{max-width:64px}.sc-t th .oth{font-size:.55rem}}
 .bt-side{margin-top:14px}.bt-layout.wide .bt-side{margin-top:0}
-details.bt-side summary{cursor:pointer;list-style:none}details.bt-side summary::-webkit-details-marker{display:none}
+details.bt-side summary{cursor:pointer;list-style:none}
+/* póker: el casino */
+.pk-room{background:repeating-linear-gradient(90deg,rgba(0,0,0,.18) 0 2px,transparent 2px 64px),radial-gradient(ellipse at 50% 30%,#3b1420 0%,#1c0a10 55%,#090306 100%)}
+.pk-sign{background:repeating-linear-gradient(0deg,rgba(0,0,0,.12) 0 2px,transparent 2px 14px),linear-gradient(#5a1424,#2e0812);box-shadow:0 10px 24px rgba(0,0,0,.6),inset 0 0 0 3px #c9a227}
+.pk-opt{display:block;padding:10px 12px;margin:6px 0;border-radius:10px;border:1px solid rgba(59,36,16,.3);cursor:pointer;background:rgba(255,255,255,.3)}
+.pk-opt b{display:block}.pk-opt span{font-size:.8rem;opacity:.85}.pk-opt em{float:right;font-size:.72rem;font-style:normal;opacity:.7}
+.pk-opt.on{background:var(--ink);color:var(--parch1);border-color:var(--ink)}
+.pk-card{width:var(--w);height:calc(var(--w)*1.4);flex:0 0 auto;filter:drop-shadow(0 4px 3px rgba(0,0,0,.45));transition:transform .25s,opacity .25s,filter .25s}
+.pk-card svg{width:100%;height:100%;display:block}
+.pk-card.hi{transform:translateY(-7px);filter:drop-shadow(0 0 7px rgba(255,214,120,.95)) drop-shadow(0 4px 3px rgba(0,0,0,.45))}
+.pk-card.dim{opacity:.45;filter:grayscale(.5) drop-shadow(0 4px 3px rgba(0,0,0,.45))}
+.pk-card.reveal{animation:pkrev .5s ease}
+@keyframes pkrev{0%{transform:rotateY(90deg) scale(.9)}100%{transform:rotateY(0)}}
+.pk-slot{width:var(--w);height:calc(var(--w)*1.4);border-radius:6px;border:2px dashed rgba(233,214,173,.16);flex:0 0 auto}
+.pk-center{position:absolute;transform:translate(-50%,-50%);display:flex;align-items:center;gap:16px;z-index:3}
+.pk-board{display:flex;gap:6px}
+.pk-pot{display:flex;align-items:flex-end;justify-content:center;gap:8px;margin-top:10px;min-height:30px;font:700 .95rem Georgia,serif;color:#f3e3bf;text-shadow:0 1px 2px #000}
+.pk-deck{width:46px;height:64px;position:relative;filter:drop-shadow(3px 3px 0 #ddd3bf) drop-shadow(3px 3px 0 #cfc4ad) drop-shadow(0 8px 6px rgba(0,0,0,.5))}
+.pk-deck svg{width:100%;height:100%}
+.pk-deck.nd{position:absolute;width:30px;height:42px;transform:translate(-50%,-50%);opacity:0;pointer-events:none}
+.pk-stack{position:relative;width:24px;display:inline-block;flex:0 0 auto}
+.pk-stack i{position:absolute;left:0;width:24px;height:24px;filter:drop-shadow(0 1px 1px rgba(0,0,0,.5))}.pk-stack svg{width:100%;height:100%;display:block}
+.pk-bet{position:absolute;transform:translate(-50%,-50%);display:flex;align-items:flex-end;gap:5px;z-index:4;font:700 .8rem Georgia,serif;color:#f3e3bf;text-shadow:0 1px 2px #000;white-space:nowrap}
+.pk-fly{position:fixed;z-index:400;pointer-events:none;transform:translate(-50%,-50%)}
+.pk-dealer{position:absolute;width:26px;height:26px;border-radius:50%;transform:translate(-50%,-50%);z-index:6;display:grid;place-items:center;font:800 .74rem Georgia,serif;color:#2a1a0c;
+  background:radial-gradient(circle at 40% 35%,#fffdf6,#e8dcc2);box-shadow:0 3px 5px rgba(0,0,0,.55),inset 0 0 0 2px #c9b48a;transition:left .5s,top .5s}
+.pk-plate{padding-right:14px}
+.pk-plate .pk-hole{display:flex;gap:2px;margin-left:4px}
+.pk-plate .pk-hole .pk-card:first-child{rotate:-5deg}.pk-plate .pk-hole .pk-card:last-child{rotate:6deg}
+.pk-plate.fold{opacity:.5}.pk-plate.out{opacity:.35;cursor:default}
+.pk-plate.win{border-color:#ffd27a;box-shadow:0 0 0 4px rgba(255,210,122,.45),0 0 26px rgba(255,210,122,.55),0 7px 16px rgba(0,0,0,.6)}
+.pk-tag{position:absolute;left:50%;bottom:calc(100% + 4px);transform:translateX(-50%);padding:2px 9px;border-radius:99px;font:700 .68rem Georgia,serif;white-space:nowrap;background:#f6e7c4;color:#3b2410;box-shadow:0 3px 8px rgba(0,0,0,.5);pointer-events:none}
+.bt-plate.lo .pk-tag{bottom:auto;top:calc(100% + 4px)}
+.pk-tag.fold{background:#5a4a3a;color:#e9d6ad}.pk-tag.raise,.pk-tag.allin{background:#b91c1c;color:#fff}.pk-tag.win{background:#f3cc5e}
+.pk-mine{position:absolute;transform:translate(-50%,-50%);display:flex;gap:6px;z-index:6}
+.pk-mine .pk-card:first-child{rotate:-4deg}.pk-mine .pk-card:last-child{rotate:4deg}
+.pk-mine.fold{opacity:.45;filter:grayscale(.7)}
+.pk-help{display:inline-block;margin-left:4px}
+.pk-info{font-size:.72rem;opacity:.7;flex-basis:100%;font-family:Georgia,serif}
+.pk-raise{display:flex;flex-direction:column;gap:8px;padding:10px 12px;border-radius:14px;background:rgba(0,0,0,.55);box-shadow:0 8px 20px rgba(0,0,0,.5);width:min(460px,100%)}
+.pk-rq{display:flex;gap:6px;justify-content:center;flex-wrap:wrap}
+.pk-rr{display:flex;align-items:center;gap:10px;color:#f3e3bf;font:700 1rem Georgia,serif}.pk-rr input{flex:1;accent-color:#f3cc5e}.pk-rr b{min-width:64px;text-align:right}
+.pk-rk{display:flex;align-items:center;gap:8px;padding:5px 0;border-bottom:1px dashed rgba(59,36,16,.22);font-size:.8rem}.pk-rkc{display:flex;gap:1px;flex:0 0 auto}.pk-rk .pk-card{filter:none}
+.bt-table.nrw .pk-center{flex-direction:column;gap:6px}
+.bt-table.nrw .pk-plate .pk-hole{margin:2px 0 0}
+.bt-table.nrw .pk-plate.mini .pk-hole{justify-content:center}
+.bt-table.nrw .pk-bet{font-size:.7rem}.bt-table.nrw .pk-tag{font-size:.6rem;padding:1px 6px}
+.bt-table.nrw .pk-dealer{width:22px;height:22px;font-size:.66rem}
+.bt-plate.mini.pk-plate{display:grid;grid-template-columns:auto auto;align-items:center;column-gap:4px;row-gap:3px;padding:4px 7px;border-radius:12px}
+.bt-plate.mini.pk-plate .pk-hole{grid-column:1/3;justify-content:center;margin:0}
+.bt-table.nrw .bt-plate.mini.pk-plate .face{width:22px;height:22px}.bt-table.nrw .bt-plate.mini.pk-plate .pl-n{max-width:54px;font-size:.6rem}.bt-table.nrw .bt-plate.mini.pk-plate .pl-s b{font-size:.82rem}.bt-plate.mini.pk-plate .pl-s{justify-content:flex-start}
+.cs-pv{width:44px;height:44px;flex:0 0 auto;display:grid;place-items:center}.cs-pv svg{width:100%;height:100%}
+.cs-felt{width:40px;height:40px;border-radius:50%;box-shadow:inset 0 0 8px rgba(0,0,0,.6)}
+.cs-rim{width:40px;height:40px;border-radius:50%;display:grid;place-items:center}.cs-rim i{width:24px;height:24px;border-radius:50%;background:#16573a}
+.cs-back{width:30px;height:42px}.cs-dice{display:flex;gap:2px;width:auto}.cs-dice svg{width:30px;height:30px}
+details.bt-side summary::-webkit-details-marker{display:none}
 details.bt-side summary .ph::after{content:" ▾";opacity:.6}
 .gl-r{display:flex;gap:10px;align-items:flex-start;padding:7px 0;border-bottom:1px dashed rgba(59,36,16,.22)}
 .gl-d{width:34px;height:34px;flex:0 0 auto;filter:drop-shadow(0 3px 2px rgba(0,0,0,.35))}.gl-d svg{width:100%;height:100%}
@@ -573,6 +628,7 @@ const MPOOL=[
   {k:'mm',t:'Descifra un código en Mastermind',g:1,game:'mastermind',type:'win'},
   {k:'dinero',t:'Llega a 1 M € en Dinero rápido',g:1e6,game:'dinero',type:'max'},
   {k:'botin',t:'Gana una partida de Botín a los bots',g:1,game:'botin',type:'win'},
+  {k:'poker',t:'Gana un torneo de póker',g:1,game:'poker',type:'win'},
 ];
 function genMissions(){return[{k:'distinct',p:0,d:false},...shuffle(MPOOL.filter(m=>m.k!=='distinct')).slice(0,2).map(m=>({k:m.k,p:0,d:false}))]}
 
@@ -699,17 +755,26 @@ function cosmRow(it){const own=owns(it.id),locked=it.req&&!it.req();let btn;
   const extra=it.id==='nada'&&P.nada?`<div class="o">Comprado ${P.nada} ${P.nada===1?'vez':'veces'}. Sigue sin hacer nada.</div>`:own&&it.slot&&P.eq[it.slot]===it.id?'<div class="o">equipado</div>':'';
   return`<div class="si"><span class="ic">${it.ic}</span><div><div class="t">${it.n}</div><div class="d">${it.d}</div>${extra}</div>${btn}</div>`}
 function openShop(tab){if(tab)shopTab=tab;
-  const tabs=[['util','Útiles'],['cosm','Cosméticos'],['music','Música'],['color','Colores']];
+  const tabs=[['util','Útiles'],['cosm','Cosméticos'],['casino','Casino'],['music','Música'],['color','Colores']];
   let body='';
   if(shopTab==='util')body=SHOP.map((s,i)=>{const c=s.cost();return`<div class="si"><span class="ic">${s.ic}</span><div><div class="t">${s.n}</div><div class="d">${s.d}</div><div class="o">${s.own()}</div></div><button class="btn sm ac" data-buy="${i}" ${P.coins<c?'disabled':''}>${c===Infinity?'máx.':fmt(c)+' 🪙'}</button></div>`}).join('');
   else if(shopTab==='cosm'){body='<p class="muted" style="font-size:.78rem">Todo esto es completamente inútil. Por eso mola.</p>'+COSM.filter(x=>!x.slot).map(cosmRow).join('');
     Object.entries(SLOTN).forEach(([k,l])=>{body+=`<div class="mt" style="margin-top:8px"><span>${l}</span></div>`+COSM.filter(x=>x.slot===k).map(cosmRow).join('')})}
+  else if(shopTab==='casino'){body=`<div style="position:absolute;width:0;height:0;overflow:hidden">${BTV.defs()}</div><p class="muted" style="font-size:.78rem">Cambia cómo se ven las mesas de Póker y Botín. Las fichas del póker no se compran: aquí solo eliges su aspecto.</p>`;
+    Object.entries(CASINO).forEach(([slot,g])=>{body+=`<div class="mt" style="margin-top:8px"><span>${g.n}</span></div>`+g.items.map(it=>casinoRow(slot,it)).join('')})}
   else if(shopTab==='music'){const any=MUSIC.some(m=>owns(m.id));
     body=`<p class="muted" style="font-size:.78rem">Música generada en directo por tu navegador, sin descargas. Se para sola en el modo profe. Cuando tengas una, aparece el botón 🎵 arriba.</p>`+MUSIC.map(m=>{const own=owns(m.id),cur=P.music.track===m.id&&P.music.on;return`<div class="si"><span class="ic">${m.ic}</span><div><div class="t">${m.n}</div><div class="d">${m.d}</div>${cur?'<div class="o">sonando ahora</div>':''}</div>${own?shopBtn(`data-mp="${m.id}"`,cur?'⏸ parar':'▶ poner',!cur):shopBtn(`data-cb="${m.id}" ${P.coins<m.cost?'disabled':''}`,fmt(m.cost)+' 🪙',1)}</div>`}).join('')+
       (any?`<div class="row2" style="border:0"><span>🔊 Volumen</span><input type="range" min="0" max="100" value="${Math.round(P.music.vol*100)}" data-vol style="width:55%"></div>`:'')}
   else body=Object.entries(THEMES).map(([k,c])=>{const owned=P.themes.includes(k),act=P.theme===k;return`<div class="si"><span class="ic" style="width:26px;height:26px;border-radius:50%;background:${c}"></span><div><div class="t">Color ${k}</div><div class="d">Cambia el color de acento de todo el sitio.</div></div><button class="btn sm${act?'':' ac'}" data-theme="${k}" ${act?'disabled':''}>${act?'en uso':owned?'usar':'400 🪙'}</button></div>`}).join('');
   openModal(`<h3>Tienda</h3><p class="muted" style="font-size:.82rem">Tienes <b style="color:var(--tx)">${fmt(P.coins)} 🪙</b> · nivel ${level()} · ${fmt(P.xp)} XP</p><div class="seg mt1">${tabs.map(([k,l])=>`<button data-stab="${k}" class="${k===shopTab?'on':''}">${l}</button>`).join('')}</div><div class="shop">${body}</div>`);
 }
+function casinoPrev(slot,it){if(slot==='felt')return`<span class="cs-felt" style="background:radial-gradient(circle at 50% 42%,${it.c[0]},${it.c[1]} 55%,${it.c[2]})"></span>`;
+  if(slot==='rim')return`<span class="cs-rim" style="background:${it.bg};box-shadow:inset 0 0 0 2px ${it.ring},0 2px 4px rgba(0,0,0,.4)"><i style="background:radial-gradient(circle,${casinoSkin('felt').c[0]},${casinoSkin('felt').c[2]})"></i></span>`;
+  if(slot==='chips')return CHIPV.svg(0,it);if(slot==='back')return`<span class="cs-back">${PKV.back(it)}</span>`;
+  return`<span class="cs-dice">${BTV.die('Y6',5,it.id)}${BTV.die('P8',8,it.id)}${BTV.die('R6',2,it.id)}</span>`}
+function casinoRow(slot,it){const own=it.cost===0||owns(it.id),eq=casinoSkin(slot).id===it.id;
+  const btn=!own?shopBtn(`data-kb="${it.id}" ${P.coins<it.cost?'disabled':''}`,fmt(it.cost)+' 🪙',1):eq?shopBtn('disabled','en uso',0):shopBtn(`data-ke="${slot}:${it.id}"`,'usar',1);
+  return`<div class="si"><span class="ic cs-pv"${slot==='dice'?' style="width:auto"':''}>${casinoPrev(slot,it)}</span><div><div class="t">${it.n}</div>${it.d?`<div class="d">${it.d}</div>`:''}${eq?'<div class="o">equipado</div>':''}</div>${btn}</div>`}
 function buyCosm(id){const it=COSM.find(x=>x.id===id)||MUSIC.find(x=>x.id===id);if(!it||P.coins<it.cost||(it.req&&!it.req()))return;
   P.coins-=it.cost;
   if(it.kind==='rep'){P.nada=(P.nada||0)+1;toast(cpick(['📦 Has comprado nada. Enhorabuena.','📦 Sigue sin hacer nada.','📦 Gran inversión.','📦 Nada nuevo bajo el sol.']))}
@@ -1211,6 +1276,57 @@ const BTM={y:['#ffe58a','#f2b51d','#9c6a00','#3a2600'],p:['#c9a2ff','#7c3fd6','#
   r:['#ff8f8f','#d32626','#6e0b0b','#fff','#140000'],rb:['#ffc2cc','#ff5c75','#9c1d36','#fff','#140000'],rm:['#b74242','#5a0b0b','#250202','#ffd9d9','#000'],
   g:['#8ff0b5','#1f9d55','#0b4f29','#fff'],t:['rgba(255,255,255,.62)','rgba(190,225,255,.2)','rgba(110,160,210,.38)','#f3fbff'],k:['#fff3fa','#f6a8d2','#c77ac9','#6b1d4a'],
   n:['#4a4a4a','#141414','#000','#ef3340'],a:['#fff','#f0f','#00f','#fff'],o:['#5a5a5a','#1d1d1d','#000','#f6b73c'],e:['#ffffff','#b8c0ca','#5c6570','#1f2937'],x:['#3fd0bf','#0f6158','#052b27','#d6fff9']};
+/* ================= skins de casino (se compran con 🪙) ================= */
+const RIM_DEF='repeating-linear-gradient(115deg,rgba(255,235,200,.05) 0 3px,transparent 3px 11px),repeating-linear-gradient(25deg,rgba(0,0,0,.08) 0 2px,transparent 2px 17px),radial-gradient(ellipse at 50% 28%,#9a6638,#5e381a 58%,#2c1809)';
+const CASINO={
+  felt:{n:'Tapetes',items:[
+    {id:'f_verde',n:'Verde clásico',cost:0,c:['#287f53','#16573a','#0b3423']},
+    {id:'f_azul',n:'Azul real',cost:300,c:['#2b5fa8','#183d75','#0b2147']},
+    {id:'f_turq',n:'Turquesa',cost:350,c:['#1f8a8a','#115c5c','#073333']},
+    {id:'f_rojo',n:'Rojo casino',cost:300,c:['#a62a2a','#701515','#3d0909']},
+    {id:'f_morado',n:'Morado',cost:400,c:['#6a3fa0','#432567','#211131']},
+    {id:'f_negro',n:'Negro elegante',cost:450,c:['#3a3a40','#202024','#0c0c0e']}]},
+  rim:{n:'Bordes de mesa',items:[
+    {id:'r_roble',n:'Roble oscuro',cost:0,bg:RIM_DEF,ring:'#b07a43'},
+    {id:'r_clara',n:'Madera clara',cost:300,bg:'repeating-linear-gradient(115deg,rgba(255,245,220,.08) 0 3px,transparent 3px 11px),repeating-linear-gradient(25deg,rgba(90,50,10,.08) 0 2px,transparent 2px 17px),radial-gradient(ellipse at 50% 28%,#e0b47c,#b07f45 58%,#6b4519)',ring:'#f0cf98'},
+    {id:'r_ebano',n:'Ébano',cost:400,bg:'repeating-linear-gradient(115deg,rgba(255,255,255,.04) 0 2px,transparent 2px 9px),radial-gradient(ellipse at 50% 28%,#4a3a34,#231a17 58%,#0b0807)',ring:'#7c6a5f'},
+    {id:'r_marmol',n:'Mármol',cost:600,bg:'linear-gradient(118deg,transparent 30%,rgba(120,120,130,.35) 31%,transparent 33%),linear-gradient(64deg,transparent 55%,rgba(110,110,120,.3) 56%,transparent 57.5%),linear-gradient(150deg,transparent 70%,rgba(140,140,150,.3) 71%,transparent 72%),radial-gradient(ellipse at 50% 28%,#ffffff,#e4e2de 58%,#a9a6a0)',ring:'#ffffff'},
+    {id:'r_oro',n:'Oro',cost:900,bg:'repeating-linear-gradient(100deg,rgba(255,255,255,.12) 0 2px,transparent 2px 14px),radial-gradient(ellipse at 50% 22%,#fff1b0,#e0aa2e 45%,#9a6a0e 75%,#5a3b04)',ring:'#fff1b0'}]},
+  chips:{n:'Fichas',items:[
+    {id:'c_rojo',n:'Rojo clásico',cost:0,c:['#b91c1c','#5c0d0d','#ffffff','#fde68a']},
+    {id:'c_azul',n:'Azul',cost:250,c:['#1d4ed8','#0b2263','#ffffff','#bfdbfe']},
+    {id:'c_menta',n:'Verde menta',cost:250,c:['#34c79a','#0f5e45','#ffffff','#e6fff6']},
+    {id:'c_oro',n:'Negro y oro',cost:500,c:['#1a1a1a','#000000','#e2b33a','#e2b33a']},
+    {id:'c_calavera',n:'Calavera',cost:600,c:['#26262b','#09090b','#f2f2f2','#f2f2f2'],skull:1},
+    {id:'c_arcoiris',n:'Arcoíris',cost:700,rainbow:1}]},
+  back:{n:'Reversos de cartas',items:[
+    {id:'b_rombo',n:'Rombos rojos',cost:0,defs:'<pattern id="kb-rombo" width="8" height="8" patternUnits="userSpaceOnUse"><rect width="8" height="8" fill="#7a1d1d"/><path d="M4 0L8 4 4 8 0 4Z" fill="#a83030"/></pattern>',fill:'url(#kb-rombo)',extra:'<ellipse cx="30" cy="42" rx="12" ry="16" fill="#7a1d1d" stroke="#e2b33a" stroke-width="2"/><path d="M30 31 L36 42 30 53 24 42Z" fill="#e2b33a"/>'},
+    {id:'b_azul',n:'Azul clásico',cost:250,defs:'<pattern id="kb-azul" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="6" height="6" fill="#1f3f7a"/><path d="M0 0H6M0 0V6" stroke="#9db8e8" stroke-width=".9"/></pattern>',fill:'url(#kb-azul)',extra:'<rect x="9" y="9" width="42" height="66" rx="3" fill="none" stroke="#dbe6fb" stroke-width="1.4"/>'},
+    {id:'b_cuadros',n:'Cuadros verdes',cost:250,defs:'<pattern id="kb-cuad" width="10" height="10" patternUnits="userSpaceOnUse"><rect width="10" height="10" fill="#14532d"/><rect width="5" height="5" fill="#1f7a45"/><rect x="5" y="5" width="5" height="5" fill="#1f7a45"/></pattern>',fill:'url(#kb-cuad)',extra:'<rect x="9" y="9" width="42" height="66" rx="3" fill="none" stroke="#f3e3bf" stroke-width="1.4"/>'},
+    {id:'b_brujula',n:'Pergamino con brújula',cost:400,defs:'<radialGradient id="kb-perg" cx=".5" cy=".5" r=".7"><stop offset="0" stop-color="#f3e2b8"/><stop offset="1" stop-color="#c9a66b"/></radialGradient>',fill:'url(#kb-perg)',extra:'<circle cx="30" cy="42" r="17" fill="none" stroke="#6b4a22" stroke-width="1.4"/><circle cx="30" cy="42" r="13" fill="none" stroke="#6b4a22" stroke-width=".8" stroke-dasharray="2 2"/><path d="M30 22 L33 39 L30 42 L27 39Z M30 62 L33 45 L30 42 L27 45Z" fill="#6b4a22"/><path d="M10 42 L27 39 L30 42 L27 45Z M50 42 L33 39 L30 42 L33 45Z" fill="#a8743f"/>'},
+    {id:'b_negro',n:'Negro y oro',cost:450,fill:'#141416',extra:'<rect x="8" y="8" width="44" height="68" rx="3" fill="none" stroke="#e2b33a" stroke-width="1.6"/><rect x="11" y="11" width="38" height="62" rx="2" fill="none" stroke="#e2b33a" stroke-width=".6"/><path d="M30 28 L40 42 30 56 20 42Z" fill="none" stroke="#e2b33a" stroke-width="1.6"/><circle cx="30" cy="42" r="3" fill="#e2b33a"/>'},
+    {id:'b_galaxia',n:'Galaxia',cost:700,defs:'<radialGradient id="kb-gal" cx=".4" cy=".4" r=".8"><stop offset="0" stop-color="#7b3fc4"/><stop offset=".45" stop-color="#2c1660"/><stop offset="1" stop-color="#070418"/></radialGradient>',fill:'url(#kb-gal)',extra:'<g fill="#fff">'+[[12,14,1],[44,10,.8],[22,30,.6],[48,34,1.1],[15,52,.9],[36,58,.7],[26,70,1],[46,66,.6],[33,22,.5],[10,38,.5],[40,46,.5],[20,62,.4]].map(([x,y,r])=>`<circle cx="${x}" cy="${y}" r="${r}"/>`).join('')+'</g><ellipse cx="31" cy="42" rx="18" ry="5" fill="none" stroke="#c7a4ff" stroke-width=".8" opacity=".7" transform="rotate(-28 31 42)"/><circle cx="31" cy="42" r="5" fill="#f5d36b"/>'}]},
+  dice:{n:'Dados de Botín',items:[
+    {id:'d_clasico',n:'Clásicos',cost:0,d:'Los de siempre.'},
+    {id:'d_gema',n:'Gema',cost:500,d:'Tallados como piedras preciosas, con brillos.'},
+    {id:'d_metal',n:'Metal',cost:600,d:'Metal cepillado con reflejos.'},
+    {id:'d_marmol',n:'Mármol',cost:600,d:'Con vetas de piedra pulida.'},
+    {id:'d_neon',n:'Neón',cost:700,d:'Cuerpo negro con el color del dado brillando. Los números huecos restan.'}]},
+};
+const casinoSkin=slot=>{const L=CASINO[slot].items,id=P.eq['cs_'+slot];return L.find(x=>x.id===id&&(x.cost===0||owns(x.id)))||L[0]};
+function tableVars(){const f=casinoSkin('felt').c,r=casinoSkin('rim');return`--f1:${f[0]};--f2:${f[1]};--f3:${f[2]};--rimbg:${r.bg};--ring:${r.ring}`}
+const CHIPV={RB:['#e23b3b','#f59e0b','#22a559','#2f6fe0','#9b4dff','#ec4899'],
+  svg(k,sk){const s=sk||casinoSkin('chips');let c=s.c;if(s.rainbow){const m=CHIPV.RB[(k||0)%6];c=[m,'#00000088','#ffffff','#ffffff']}
+    const inner=s.skull?`<circle cx="20" cy="19" r="10" fill="${c[1]}" stroke="${c[3]}" stroke-width="1.2"/><path d="M15 18a5 5 0 0 1 10 0v2l-1.5 1.5V24h-7v-2.5L15 20z" fill="${c[2]}"/><circle cx="18" cy="19" r="1.4" fill="${c[1]}"/><circle cx="22" cy="19" r="1.4" fill="${c[1]}"/>`
+      :`<circle cx="20" cy="19" r="10" fill="${c[0]}" stroke="${c[3]}" stroke-width="1.5"/><circle cx="20" cy="19" r="7" fill="none" stroke="${c[3]}" stroke-width=".6" opacity=".7"/>`;
+    return`<svg viewBox="0 0 40 40"><circle cx="20" cy="21" r="18" fill="${s.rainbow?'#00000066':c[1]}"/><circle cx="20" cy="21" r="18" fill="${s.rainbow?c[0]:'none'}" opacity="${s.rainbow?.55:0}"/><circle cx="20" cy="19" r="18" fill="${c[0]}"/><circle cx="20" cy="19" r="18" fill="none" stroke="${c[2]}" stroke-width="5" stroke-dasharray="5 6.3"/>${inner}</svg>`}};
+/* el dado de Botín con su acabado: la piel cambia el material, nunca el color */
+const DSKIN={
+  defs:`<pattern id="ds-metal" width="100" height="6" patternUnits="userSpaceOnUse"><rect width="100" height="6" fill="none"/><path d="M0 1.5H100" stroke="#fff" stroke-width=".9" opacity=".42"/><path d="M0 4.2H100" stroke="#000" stroke-width=".6" opacity=".14"/></pattern>
+    <linearGradient id="ds-metal2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".55"/><stop offset=".35" stop-color="#fff" stop-opacity="0"/><stop offset=".55" stop-color="#fff" stop-opacity=".35"/><stop offset=".7" stop-color="#000" stop-opacity=".15"/><stop offset="1" stop-color="#fff" stop-opacity=".2"/></linearGradient>
+    <pattern id="ds-marble" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M-5 30 C20 22 30 44 52 36 S82 18 105 28" stroke="#fff" stroke-width="2.8" fill="none" opacity=".75"/><path d="M-5 68 C14 60 36 80 58 66 S90 72 105 60" stroke="#fff" stroke-width="1.4" fill="none" opacity=".6"/><path d="M30 -5 C26 20 44 30 38 52" stroke="#000" stroke-width="1" fill="none" opacity=".18"/><path d="M70 105 C76 84 60 74 68 52" stroke="#fff" stroke-width="1" fill="none" opacity=".35"/></pattern>
+    <linearGradient id="ds-gem" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".6"/><stop offset=".3" stop-color="#fff" stop-opacity=".05"/><stop offset=".62" stop-color="#fff" stop-opacity=".28"/><stop offset=".64" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".2"/></linearGradient>`,
+  cur:()=>casinoSkin('dice').id};
 const BTV={
   mat(t){const c=BT.T[t].c;return t==='BB'?'br':t==='RB'?'rb':t==='RM'?'rm':c},
   defs(){let g='';Object.entries(BTM).forEach(([k,c])=>{
@@ -1220,24 +1336,30 @@ const BTV={
     else if(k==='k')g+=`<linearGradient id="bm-k" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff3fa"/><stop offset=".45" stop-color="#f6a8d2"/><stop offset=".7" stop-color="#e7c6ff"/><stop offset="1" stop-color="#c77ac9"/></linearGradient>`;
     else g+=`<linearGradient id="bm-${k}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${c[0]}"/><stop offset=".5" stop-color="${c[1]}"/><stop offset="1" stop-color="${c[2]}"/></linearGradient>`});
     return`<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>${g}<radialGradient id="bt-felt" cx=".5" cy=".45" r=".6"><stop offset="0" stop-color="#1f6b45"/><stop offset=".7" stop-color="#124a30"/><stop offset="1" stop-color="#0a2e1d"/></radialGradient>
-      <filter id="bt-noise"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" stitchTiles="stitch"/><feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .22 0"/></filter></defs></svg>`},
+      ${DSKIN.defs}<filter id="bt-noise"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" stitchTiles="stitch"/><feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .22 0"/></filter></defs></svg>`},
   hex:[[50,3],[93,27],[93,75],[50,99],[7,75],[7,27]],
   poly:pts=>pts.map(p=>p.join(',')).join(' '),
   ring(n,r,off){return Array.from({length:n},(_,k)=>{const a=(off+360*k/n)*Math.PI/180;return[+(50+r*Math.cos(a)).toFixed(1),+(51+r*Math.sin(a)).toFixed(1)]})},
   PIP:{1:[[45,45]],2:[[24,24],[66,66]],3:[[24,24],[45,45],[66,66]],4:[[24,24],[66,24],[24,66],[66,66]],5:[[24,24],[66,24],[45,45],[24,66],[66,66]],6:[[24,24],[66,24],[24,45],[66,45],[24,66],[66,66]]},
   /* dibuja un dado de verdad: cubo con puntos o poliedro con su número */
-  die(t,v){const dt=BT.T[t],m=BTV.mat(t),c=BTM[m],f=dt.f;if(v==null)v=f;const neg=dt.c==='r'&&v<=dt.neg,glass=m==='t';
-    const nc=dt.c==='r'?(neg?c[4]:c[3]):c[3],st=glass?'rgba(255,255,255,.75)':c[2],F=`url(#bm-${m})`;let s='';
+  die(t,v,sk){const dt=BT.T[t],m=BTV.mat(t),c=BTM[m],f=dt.f;if(v==null)v=f;const neg=dt.c==='r'&&v<=dt.neg,glass=m==='t';sk=sk||DSKIN.cur();const neon=sk==='d_neon';
+    const nl=neon?(m==='n'||m==='o'?'#d9d9e0':m==='a'?'#ffe17a':m==='t'?'#bfe3ff':c[0]):null;
+    const nc=neon?nl:dt.c==='r'?(neg?c[4]:c[3]):c[3],st=neon?nl:glass?'rgba(255,255,255,.75)':c[2],F=neon?'#101016':`url(#bm-${m})`;let s='';const hol=neon&&neg;
     const shade=(pts,o,w)=>`<polygon points="${BTV.poly(pts)}" fill="${w?'#fff':'#000'}" opacity="${o}"/>`;
-    const num=(x,y,size)=>{const outl=m==='rm'&&neg?' stroke="#ff8d8d" stroke-width="1.4" paint-order="stroke"':'';return`<text x="${x}" y="${y}" font-size="${size}" text-anchor="middle" dominant-baseline="central" fill="${nc}" font-weight="800" font-family="Georgia,'Times New Roman',serif"${outl}${glass?' style="text-shadow:0 0 3px rgba(0,40,80,.8)"':''}>${v}</text>`+((v===6||v===9)&&f>6?`<rect x="${x-size*.22}" y="${y+size*.42}" width="${size*.44}" height="${size*.08}" fill="${nc}"/>`:'')};
-    if(f===6){s=`<rect x="13" y="13" width="84" height="84" rx="17" fill="${glass?'rgba(30,60,90,.35)':c[2]}"/><rect x="4" y="4" width="84" height="84" rx="17" fill="${F}" stroke="${st}" stroke-width="2.5"/><rect x="12" y="9" width="58" height="16" rx="8" fill="#fff" opacity="${glass?.35:.22}"/>`;
-      s+=(BTV.PIP[v]||[]).map(([x,y])=>`<circle cx="${x+1}" cy="${y+1.5}" r="7.6" fill="#000" opacity=".25"/><circle cx="${x}" cy="${y}" r="7.4" fill="${nc}"/>`).join('')}
+    const num=(x,y,size)=>{const outl=m==='rm'&&neg?' stroke="#ff8d8d" stroke-width="1.4" paint-order="stroke"':'';return`<text x="${x}" y="${y}" font-size="${size}" text-anchor="middle" dominant-baseline="central" fill="${hol?'none':nc}"${hol?` stroke="${nc}" stroke-width="1.6"`:''} font-weight="800" font-family="Georgia,'Times New Roman',serif"${outl}${glass?' style="text-shadow:0 0 3px rgba(0,40,80,.8)"':''}>${v}</text>`+((v===6||v===9)&&f>6?`<rect x="${x-size*.22}" y="${y+size*.42}" width="${size*.44}" height="${size*.08}" fill="${nc}"/>`:'')};
+    const shp=f===6?a=>`<rect x="4" y="4" width="84" height="84" rx="17" ${a}/>`:f===12?a=>`<polygon points="${BTV.poly(BTV.ring(10,47,-90))}" ${a}/>`:a=>`<polygon points="${BTV.poly(BTV.hex)}" ${a}/>`;
+    if(f===6){s=`<rect x="13" y="13" width="84" height="84" rx="17" fill="${neon?'#000':glass?'rgba(30,60,90,.35)':c[2]}"/><rect x="4" y="4" width="84" height="84" rx="17" fill="${F}" stroke="${st}" stroke-width="2.5"/><rect x="12" y="9" width="58" height="16" rx="8" fill="#fff" opacity="${neon?.06:glass?.35:.22}"/>`;
+      s+=(BTV.PIP[v]||[]).map(([x,y])=>`<circle cx="${x+1}" cy="${y+1.5}" r="7.6" fill="#000" opacity=".25"/><circle cx="${x}" cy="${y}" r="${hol?6.4:7.4}" fill="${hol?'none':nc}"${hol?` stroke="${nc}" stroke-width="2"`:''}/>`).join('')}
     else if(f===8){const P=BTV.hex,T=[P[0],P[2],P[4]];s=`<polygon points="${BTV.poly(P)}" fill="${F}" stroke="${st}" stroke-width="2.5" stroke-linejoin="round"/>`+shade([P[0],P[1],P[2]],.22)+shade([P[2],P[3],P[4]],.36)+shade([P[4],P[5],P[0]],.12)+shade(T,glass?.1:.12,1)+`<polygon points="${BTV.poly(T)}" fill="none" stroke="${st}" stroke-width="1.6" opacity=".7"/>`+num(50,54,34)}
     else if(f===20){const P=BTV.hex,T=[[50,25],[79,72],[21,72]];const fc=[[P[0],P[1],T[0],.18],[P[1],T[1],T[0],.08],[P[1],P[2],T[1],.3],[P[2],P[3],T[1],.38],[P[3],T[2],T[1],.26],[P[3],P[4],T[2],.34],[P[4],P[5],T[2],.2],[P[5],T[0],T[2],.06],[P[5],P[0],T[0],.12]];
       s=`<polygon points="${BTV.poly(P)}" fill="${F}" stroke="${st}" stroke-width="2.5" stroke-linejoin="round"/>`+fc.map(q=>shade(q.slice(0,3),q[3])).join('')+shade(T,.12,1)+fc.map(q=>`<polygon points="${BTV.poly(q.slice(0,3))}" fill="none" stroke="${st}" stroke-width="1" opacity=".55"/>`).join('')+num(50,57,27)}
     else{const D=BTV.ring(10,47,-90),C=BTV.ring(5,27,-90);s=`<polygon points="${BTV.poly(D)}" fill="${F}" stroke="${st}" stroke-width="2.5" stroke-linejoin="round"/>`;
       for(let k=0;k<5;k++){const q=[C[k],D[2*k],D[2*k+1],D[(2*k+2)%10],C[(k+1)%5]];s+=shade(q,[.1,.24,.36,.3,.16][k])+`<polygon points="${BTV.poly(q)}" fill="none" stroke="${st}" stroke-width="1" opacity=".55"/>`}
       s+=shade(C,.12,1)+num(50,52,30)}
+    if(sk==='d_metal')s=s.replace(/(<text|<circle cx="\d+(\.\d+)?" cy="\d+(\.\d+)?" r="7.6")/,shp('fill="url(#ds-metal)" pointer-events="none"')+shp('fill="url(#ds-metal2)"')+'$1');
+    else if(sk==='d_marmol')s=s.replace(/(<text|<circle cx="\d+(\.\d+)?" cy="\d+(\.\d+)?" r="7.6")/,shp('fill="url(#ds-marble)"')+'$1');
+    else if(sk==='d_gema')s+=shp('fill="url(#ds-gem)"')+`<path d="M80 12 l2.4 6 6 2.4 -6 2.4 -2.4 6 -2.4 -6 -6 -2.4 6 -2.4z" fill="#fff" opacity=".9" class="spark"/>`;
+    else if(neon)s=`<g style="filter:drop-shadow(0 0 3px ${nl}) drop-shadow(0 0 7px ${nl}88)">${s.replace(/(<text|<circle cx="\d+(\.\d+)?" cy="\d+(\.\d+)?" r="7.6")/,shp(`fill="${glass?'#9fc3e0':c[1]}" opacity=".3"`)+'$1')}</g>`;
     if(m==='o')s+=`<path d="M74 14 Q86 2 96 6" stroke="#8a5a1c" stroke-width="5" fill="none" stroke-linecap="round"/><circle cx="96" cy="6" r="4.5" fill="#ffcf4a" class="spark"/>`;
     if(m==='x')s+=`<path d="M14 80 C26 62 18 50 32 40 S44 26 38 14" stroke="#7ff5e6" stroke-width="2.6" fill="none" opacity=".35"/><path d="M84 86 C74 70 86 60 72 52 S62 36 70 24" stroke="#7ff5e6" stroke-width="2.6" fill="none" opacity=".3"/>`;
     if(glass)s+=`<path d="M20 70 L60 18" stroke="#fff" stroke-width="2" opacity=".25"/>`;
@@ -1346,7 +1468,7 @@ reg({id:'botin',name:'Botín',emoji:'🏴‍☠️',cat:'grupo',tag:'2-10 jugado
   const SCOLS=[['y','Amarillo','Y6'],['p','Morado','P8'],['b','Azul','B8'],['r','Rojo','R6'],['g','Verde','G20'],['t','Transparente','T6'],['k','Rosado','K12']];
   function scoreTable(){const tab=U.tab==null?me():U.tab,caos=S.cfg.events||S.cfg.dice||S.cfg.black||S.cfg.bet,cols=SCOLS.concat(caos?[['o','Otros',null]]:[]);
     const cell=v=>v==null?'<td class="emp">·</td>':v===0?'<td class="zero">—</td>':`<td class="${v<0?'neg':''}">${v}</td>`;
-    const head=`<tr><th>${tab==='all'?'Jugador':'Ronda'}</th>${cols.map(([k,l,t])=>`<th title="${l}">${t?`<span class="sh">${BTV.die(t,null)}</span>`:'<span class="oth">otros</span>'}</th>`).join('')}<th class="tt">Total</th></tr>`;
+    const head=`<tr><th>${tab==='all'?'Jugador':'Ronda'}</th>${cols.map(([k,l,t])=>`<th title="${l}">${t?`<span class="sh">${BTV.die(t,null,'d_clasico')}</span>`:'<span class="oth">otros</span>'}</th>`).join('')}<th class="tt">Total</th></tr>`;
     let body='',foot='';
     if(tab==='all'){body=S.players.map((p,i)=>{const sc=p.sc||[],sum=k=>sc.reduce((a,r)=>a+(r[k]||0),0);return`<tr${i===me()?' class="mine"':''}><td class="rn">${nm(i)}</td>${cols.map(([k])=>cell(sc.length?sum(k):null)).join('')}<td class="tt">${p.total}</td></tr>`}).join('')}
     else{const sc=S.players[tab].sc||[];for(let r=0;r<10;r++){const row=sc[r];body+=`<tr${r===S.round-1?' class="cur"':''}><td class="rn">${r+1}</td>${cols.map(([k])=>cell(row?row[k]:null)).join('')}<td class="tt">${row?row.tot:'·'}</td></tr>`}
@@ -1364,7 +1486,7 @@ reg({id:'botin',name:'Botín',emoji:'🏴‍☠️',cat:'grupo',tag:'2-10 jugado
     ['BO',6,'Bomba','Suma el doble, pero si saca un 1 explota y lo pierdes.',['BO'],'dice'],['ES',5,'Espejo','Copia el dado más alto del jugador de tu izquierda.',['ES'],'dice'],
     ['KR',3,'Kraken','Cada cara hace algo: ×2 a tu ronda, robo gratis, −10, +10, los demás −5 o pasa a tu izquierda.',['KR'],'dice']];
   function glossary(){const inBag=t=>S.bag.filter(d=>d.t===t).length;
-    const row=([t,v,n,d,types])=>`<div class="gl-r"><span class="gl-d">${BTV.die(t,v)}</span><div><b>${n}</b><div class="gl-t">${d}</div>${types.length?`<div class="gl-b">en la bolsa: ${types.reduce((a,x)=>a+inBag(x),0)}</div>`:''}</div></div>`;
+    const row=([t,v,n,d,types])=>`<div class="gl-r"><span class="gl-d">${BTV.die(t,v,'d_clasico')}</span><div><b>${n}</b><div class="gl-t">${d}</div>${types.length?`<div class="gl-b">en la bolsa: ${types.reduce((a,x)=>a+inBag(x),0)}</div>`:''}</div></div>`;
     return`<div class="ph">Glosario de dados</div>${GLOS.map(row).join('')}${GLOS_C.filter(g=>S.cfg[g[5]]).map(row).join('')}`}
   let geomCache=null;
   function cur(){let v=-1;if(S.phase==='steal')v=S.sq[S.si];else if(S.phase==='draft')v=S.dq[S.di];else if(S.phase==='reroll')v=S.prevLeader;return v==null||v<0?-1:v}
@@ -1400,7 +1522,7 @@ reg({id:'botin',name:'Botín',emoji:'🏴‍☠️',cat:'grupo',tag:'2-10 jugado
       const list=showRolls?S.roll[i]:p.dice;return`<div class="bt-sheet"><div class="sh-h">${BTV.face(i,3)}<b>${nm(i)}</b><span class="sp"></span><button class="wbtn sm" data-unfocus>cerrar</button></div><div class="sh-d" data-drop="zone:${i}">${list.map(d=>{const can=tgt&&BT.canTake(S,i,d);return dieEl(d,showRolls?d.v:lastVal(i,d),40,can?`data-drop="die:${i}:${d.id}" data-st="${i}:${d.id}"`:'',can?'pick':'')}).join('')||'<span class="pnote">sin dados</span>'}</div></div>`})():'';
     const side=`<aside class="bt-side parch">${glossary()}</aside>`;
     host.innerHTML=`<div class="bt-layout${wide()?' wide':''}"><div class="bt-mainc"><div class="bt-room"><div class="bt-ribbon">${ribbon()}</div>
-      <div class="bt-table${G.narrow?' nrw':''}" style="height:${G.H}px">
+      <div class="bt-table${G.narrow?' nrw':''}" style="height:${G.H}px;${tableVars()}">
         <div class="bt-rim" style="left:${G.cx-G.rx-14}px;top:${G.cy-G.ry-14}px;width:${2*G.rx+28}px;height:${2*G.ry+28}px"></div>
         <div class="bt-felt" style="left:${G.cx-G.rx}px;top:${G.cy-G.ry}px;width:${2*G.rx}px;height:${2*G.ry}px"></div>
         <div class="bt-center${ph==='draft'?' drafting':''}" style="left:${G.cx}px;top:${G.ccy}px;${G.narrow?`width:${G.W-(ph==='draft'?130:60)}px`:''}">${card}<div class="bt-mid">${mid}</div><div class="bt-bag" data-bag><div class="bagw">${BTV.bag()}</div><span>${S.bag.length}</span></div>${S.leader<0?`<div class="bt-coinslot">${coin}</div>`:''}</div>
@@ -1513,6 +1635,367 @@ reg({id:'botin',name:'Botín',emoji:'🏴‍☠️',cat:'grupo',tag:'2-10 jugado
 }});
 
 /* ================= 2048 ================= */
+/* ================= PÓKER: motor (sin DOM) ================= */
+const PK={
+  RN:['2','3','4','5','6','7','8','9','10','J','Q','K','A'],
+  PL:['doses','treses','cuatros','cincos','seises','sietes','ochos','nueves','dieces','jotas','reinas','reyes','ases'],
+  SG:['dos','tres','cuatro','cinco','seis','siete','ocho','nueve','diez','jota','reina','rey','as'],
+  HN:['Carta alta','Pareja','Doble pareja','Trío','Escalera','Color','Full','Póker','Escalera de color'],
+  LEVELS:[[10,20],[15,30],[25,50],[50,100],[75,150],[100,200],[150,300],[200,400],[300,600],[500,1000],[800,1600],[1000,2000],[1500,3000],[2500,5000]],
+  HPL:8,START:1500,
+  DIFF:{normal:{n:'Normal',sims:90},dificil:{n:'Difícil',sims:240},pro:{n:'Súper profesional',sims:480}},
+  shuffle(){const d=[...Array(52).keys()];for(let i=51;i>0;i--){const j=Math.floor(Math.random()*(i+1));[d[i],d[j]]=[d[j],d[i]]}return d},
+  /* escalera más alta dentro de una máscara de rangos (el as también vale como 1) */
+  sHigh(m){for(let h=12;h>=4;h--)if(((m>>(h-4))&31)===31)return h;if((m&0x100F)===0x100F)return 3;return-1},
+  /* mejor jugada de 5 cartas entre 7: devuelve un número comparable */
+  eval7(cs){const rc=new Array(13).fill(0),sc=[0,0,0,0],sm=[0,0,0,0];let m=0;
+    for(const c of cs){const r=c%13,s=(c/13)|0;rc[r]++;sc[s]++;sm[s]|=1<<r;m|=1<<r}
+    const enc=(cat,ks)=>{let v=cat;for(let i=0;i<5;i++)v=v*16+(ks[i]!=null?ks[i]:0);return v};
+    let fs=-1;for(let s=0;s<4;s++)if(sc[s]>=5)fs=s;
+    if(fs>=0){const h=PK.sHigh(sm[fs]);if(h>=0)return enc(8,[h])}
+    const q=[],t=[],p=[],sg=[];for(let r=12;r>=0;r--){if(rc[r]===4)q.push(r);else if(rc[r]===3)t.push(r);else if(rc[r]===2)p.push(r);else if(rc[r]===1)sg.push(r)}
+    const kick=(ex,n)=>{const k=[];for(let r=12;r>=0&&k.length<n;r--)if(rc[r]&&!ex.includes(r))k.push(r);return k};
+    if(q.length)return enc(7,[q[0],...kick([q[0]],1)]);
+    if(t.length&&(t.length>1||p.length)){const pr=Math.max(t.length>1?t[1]:-1,p.length?p[0]:-1);return enc(6,[t[0],pr])}
+    if(fs>=0){const ks=[];for(let r=12;r>=0&&ks.length<5;r--)if(sm[fs]>>r&1)ks.push(r);return enc(5,ks)}
+    const sh=PK.sHigh(m);if(sh>=0)return enc(4,[sh]);
+    if(t.length)return enc(3,[t[0],...kick([t[0]],2)]);
+    if(p.length>=2)return enc(2,[p[0],p[1],...kick([p[0],p[1]],1)]);
+    if(p.length)return enc(1,[p[0],...kick([p[0]],3)]);
+    return enc(0,kick([],5))},
+  best5(cs){let bv=-1,bc=null;const n=cs.length;for(let a=0;a<n;a++)for(let b=a+1;b<n;b++){const five=cs.filter((x,k)=>k!==a&&k!==b);const v=PK.eval7(five);if(v>bv){bv=v;bc=five}}return n<=5?cs:bc},
+  cat:v=>Math.floor(v/1048576),
+  part:(v,i)=>Math.floor(v/Math.pow(16,4-i))%16,
+  name(v){const c=PK.cat(v),a=PK.part(v,0),b=PK.part(v,1);
+    switch(c){case 8:return a===12?'Escalera real':'Escalera de color al '+PK.SG[a];case 7:return'Póker de '+PK.PL[a];case 6:return'Full de '+PK.PL[a]+' y '+PK.PL[b];
+      case 5:return'Color al '+PK.SG[a];case 4:return'Escalera al '+PK.SG[a];case 3:return'Trío de '+PK.PL[a];case 2:return'Doble pareja: '+PK.PL[a]+' y '+PK.PL[b];
+      case 1:return'Pareja de '+PK.PL[a];default:return'Carta alta: '+PK.SG[a]}},
+  /* probabilidad de ganar contra n rivales con cartas al azar (Monte Carlo) */
+  equity(hole,board,nOpp,sims){const known=new Set(hole.concat(board)),rest=[];for(let c=0;c<52;c++)if(!known.has(c))rest.push(c);
+    const need=5-board.length,take=need+2*nOpp;let w=0;
+    for(let s=0;s<sims;s++){for(let i=0;i<take;i++){const j=i+Math.floor(Math.random()*(rest.length-i));const t=rest[i];rest[i]=rest[j];rest[j]=t}
+      const bd=board.concat(rest.slice(0,need)),me=PK.eval7(hole.concat(bd));let best=0,ties=0,lose=false;
+      for(let o=0;o<nOpp;o++){const v=PK.eval7([rest[need+2*o],rest[need+2*o+1]].concat(bd));if(v>me){lose=true;break}if(v===me)ties++}
+      if(!lose)w+=1/(ties+1)}
+    return w/sims},
+
+  /* ---------- torneo ---------- */
+  newGame(names,diff,hpl){const G={v:1,diff,hpl:hpl||PK.HPL,hand:0,level:0,dealer:-1,phase:'idle',log:[],out:[],hs:{faced:0,foldTo:0,hands:0,vpip:0},
+    players:names.map((n,i)=>({name:n,bot:i>0,stack:PK.START,hole:[],bet:0,total:0,folded:false,allin:false,out:false,shown:false}))};return G},
+  act_(G){return G.players.map((p,i)=>i).filter(i=>!G.players[i].out)},
+  next(G,i,pred){const n=G.players.length;for(let k=1;k<=n;k++){const j=(i+k)%n;if(pred(j))return j}return-1},
+  inHand:(G,i)=>!G.players[i].out&&!G.players[i].folded,
+  canAct:(G,i)=>PK.inHand(G,i)&&!G.players[i].allin,
+  pot:G=>G.players.reduce((a,p)=>a+p.total,0),
+  put(G,i,amt){const p=G.players[i];amt=Math.min(amt,p.stack);p.stack-=amt;p.bet+=amt;p.total+=amt;if(p.stack===0)p.allin=true;return amt},
+  startHand(G){G.hand++;G.level=Math.min(PK.LEVELS.length-1,Math.floor((G.hand-1)/(G.hpl||PK.HPL)));const[sb,bb]=PK.LEVELS[G.level];G.sbAmt=sb;G.bbAmt=bb;
+    G.players.forEach(p=>{p.hole=[];p.bet=0;p.total=0;p.folded=p.out;p.allin=false;p.shown=false;p.last=null});
+    G.dealer=G.dealer<0?PK.act_(G)[Math.floor(Math.random()*PK.act_(G).length)]:PK.next(G,G.dealer,j=>!G.players[j].out);
+    const alive=PK.act_(G);G.sbPos=alive.length===2?G.dealer:PK.next(G,G.dealer,j=>!G.players[j].out);G.bbPos=PK.next(G,G.sbPos,j=>!G.players[j].out);
+    G.deck=PK.shuffle();G.board=[];G.street='pre';G.result=null;G.raises=0;
+    PK.put(G,G.sbPos,sb);PK.put(G,G.bbPos,bb);G.curBet=Math.max(G.players[G.sbPos].bet,G.players[G.bbPos].bet,bb);G.minRaise=bb;
+    let i=G.dealer;for(let r=0;r<2;r++)for(let k=0;k<alive.length;k++){i=PK.next(G,i,j=>!G.players[j].out);G.players[i].hole.push(G.deck.pop())}
+    G.needs=alive.filter(j=>PK.canAct(G,j));G.toAct=PK.next(G,G.bbPos,j=>G.needs.includes(j));G.phase='bet';
+    if(!G.players[0].out){G.hs.hands++;G.vpipHand=false}
+    if(G.needs.length<=1&&G.players.filter((p,j)=>PK.canAct(G,j)).length<=1&&G.toAct>=0&&G.players[G.toAct].bet>=G.curBet){G.needs=[];return PK.endStreet(G)}
+    if(G.toAct<0)return PK.endStreet(G);
+    return null},
+  toCall:(G,i)=>Math.max(0,G.curBet-G.players[i].bet),
+  minTo:G=>G.curBet+G.minRaise,
+  /* a: fold | check | call | raise (to = apuesta total en esta calle) */
+  act(G,i,a,to){const p=G.players[i],tc=PK.toCall(G,i);if(G.phase!=='bet'||G.toAct!==i)return false;
+    if(i===0)PK.trackHuman(G,a,tc);
+    if(a==='check'&&tc>0)a='call';
+    if(a==='fold'){p.folded=true;p.last='fold'}
+    else if(a==='check'){p.last='check'}
+    else if(a==='call'){PK.put(G,i,tc);p.last=tc?'call':'check'}
+    else{const max=p.stack+p.bet;to=Math.max(Math.min(to,max),Math.min(PK.minTo(G),max));if(to<=G.curBet){PK.put(G,i,tc);p.last='call'}else{
+      const inc=to-G.curBet;PK.put(G,i,to-p.bet);if(inc>=G.minRaise)G.minRaise=inc;G.curBet=to;G.raises++;p.last=p.allin?'allin':'raise';
+      G.needs=G.players.map((q,j)=>j).filter(j=>j!==i&&PK.canAct(G,j))}}
+    if(p.allin&&p.last!=='raise')p.last='allin';
+    G.lastAct=p.last;
+    G.needs=G.needs.filter(j=>j!==i&&PK.canAct(G,j));
+    const live=G.players.filter((q,j)=>PK.inHand(G,j));
+    if(live.length===1)return PK.win1(G);
+    if(!G.needs.length)return PK.endStreet(G);
+    G.toAct=PK.next(G,i,j=>G.needs.includes(j));return null},
+  trackHuman(G,a,tc){const s=G.hs;if(tc>0&&G.street!=='pre'){s.faced++;if(a==='fold')s.foldTo++}if(G.street==='pre'&&(a==='call'||a==='raise')&&!G.vpipHand){G.vpipHand=true;s.vpip++}},
+  endStreet(G){G.players.forEach(p=>{p.bet=0});G.curBet=0;G.minRaise=G.bbAmt;G.raises=0;
+    if(G.street==='river')return PK.showdown(G);
+    const deal=n=>{for(let k=0;k<n;k++)G.board.push(G.deck.pop())};
+    if(G.street==='pre'){deal(3);G.street='flop'}else if(G.street==='flop'){deal(1);G.street='turn'}else{deal(1);G.street='river'}
+    G.players.forEach(p=>{if(!p.folded&&!p.allin)p.last=null});
+    G.needs=G.players.map((p,j)=>j).filter(j=>PK.canAct(G,j));
+    if(G.needs.length<=1){G.needs=[];G.runout=true;return PK.endStreet(G)}
+    G.toAct=PK.next(G,G.dealer,j=>G.needs.includes(j));return null},
+  win1(G){const w=G.players.findIndex((p,j)=>PK.inHand(G,j)),amt=PK.pot(G);G.players[w].stack+=amt;G.players.forEach(p=>{p.bet=0;p.total=0});
+    G.result={pots:[{amt,winners:[w],hand:null}],uncontested:true};G.phase='done';return PK.finishHand(G)},
+  showdown(G){const live=G.players.map((p,j)=>j).filter(j=>PK.inHand(G,j)),score={};live.forEach(j=>{score[j]=PK.eval7(G.players[j].hole.concat(G.board));G.players[j].shown=true});
+    const levels=[...new Set(G.players.filter(p=>p.total>0).map(p=>p.total))].sort((a,b)=>a-b);let prev=0;const pots=[];
+    for(const L of levels){let amt=0;G.players.forEach(p=>{amt+=Math.max(0,Math.min(p.total,L)-prev)});const el=live.filter(j=>G.players[j].total>=L);prev=L;if(!amt)continue;
+      if(!el.length){const last=pots[pots.length-1];if(last)last.amt+=amt;continue}
+      const best=Math.max(...el.map(j=>score[j])),ws=el.filter(j=>score[j]===best);const lastP=pots[pots.length-1];
+      if(lastP&&lastP.winners.join()===ws.join())lastP.amt+=amt;else pots.push({amt,winners:ws,hand:best})}
+    pots.forEach(pt=>{const share=Math.floor(pt.amt/pt.winners.length);let rem=pt.amt-share*pt.winners.length;
+      const ord=[];let k=G.dealer;for(let s=0;s<G.players.length;s++){k=(k+1)%G.players.length;if(pt.winners.includes(k))ord.push(k)}
+      ord.forEach(j=>{G.players[j].stack+=share+(rem>0?1:0);if(rem>0)rem--})});
+    G.players.forEach(p=>{p.bet=0;p.total=0});G.result={pots,scores:score,uncontested:false};G.phase='done';return PK.finishHand(G)},
+  finishHand(G){const busted=G.players.map((p,j)=>j).filter(j=>!G.players[j].out&&G.players[j].stack<=0);
+    busted.sort((a,b)=>0).forEach(j=>{G.players[j].out=true;G.out.push(j)});
+    const alive=PK.act_(G);G.over=alive.length<=1||G.players[0].out;if(G.over&&alive.length===1)G.champion=alive[0];
+    return G.result},
+  place(G,i){if(!G.players[i].out)return 1+G.players.filter((p,j)=>j!==i&&!p.out&&p.stack>G.players[i].stack).length;return G.players.length-G.out.indexOf(i)},
+
+  /* ---------- IA ---------- */
+  decide(G,i){const p=G.players[i],d=G.diff,bb=G.bbAmt,tc=PK.toCall(G,i),pot=PK.pot(G),R=Math.random(),st=G.street;
+    const opp=G.players.filter((q,j)=>j!==i&&PK.inHand(G,j)).length,stackBB=(p.stack+p.bet)/bb;
+    let eq=PK.equity(p.hole,G.board,Math.max(1,opp),PK.DIFF[d].sims);
+    const odds=tc>0?tc/(pot+tc):0,rel=eq*(opp+1);
+    const R_=f=>({a:'raise',to:G.curBet+Math.max(G.minRaise,Math.round((pot+tc)*f/ (bb/2))*(bb/2))});
+    const call=()=>tc>0?{a:'call'}:{a:'check'},fold=()=>tc>0?{a:'fold'}:{a:'check'},allin={a:'raise',to:p.stack+p.bet};
+    const capR=o=>o.a==='raise'&&G.raises>=4?call():o;
+    if(d!=='normal'&&tc>pot*.55)eq-=d==='pro'?.07:.035;
+    /* con pocas fichas: todo o nada */
+    if(d!=='normal'&&stackBB<=10){if(rel>(opp>2?1.25:1.1)||eq>.5)return allin;return tc===0?{a:'check'}:(eq>odds+.05?call():{a:'fold'})}
+    if(d==='normal'){
+      if(rel>1.5&&R<.55)return capR(R_(.5));
+      if(tc===0)return R<.04?capR(R_(.5)):{a:'check'};
+      if(eq>odds*.75||(tc<=2*bb&&rel>.8))return call();
+      return {a:'fold'}}
+    if(d==='dificil'){
+      if(rel>1.6)return R<.75?capR(R_(.6+R*.4)):call();
+      if(rel>1.2){if(tc===0)return R<.6?capR(R_(.5)):{a:'check'};return eq>odds+.12&&R<.25?capR(R_(.7)):call()}
+      if(tc===0){if(st!=='pre'&&opp<=2&&R<.1)return capR(R_(.5));if(st==='flop'&&rel>.75&&R<.3)return capR(R_(.5));return{a:'check'}}
+      if(eq>=odds+.04)return call();
+      return fold()}
+    /* súper profesional: se adapta a cómo juegas tú */
+    const hs=G.hs,foldRate=hs.faced>=4?hs.foldTo/hs.faced:.4,humanIn=PK.inHand(G,0)&&i!==0;
+    let bluff=humanIn?Math.min(.3,Math.max(.03,.08+(foldRate-.4)*.7)):.07;const valueTh=humanIn&&foldRate<.3?1.08:1.18;
+    const size=[.33,.66,.66,1][Math.floor(R*4)];
+    if(rel>1.75){if(tc===0&&st!=='river'&&R<.25)return{a:'check'};return capR(R_(rel>2.1&&R<.25?1.5:size))}
+    if(rel>valueTh){if(tc>0&&st!=='pre'&&R<.2)return capR(R_(.8));return tc===0?capR(R_(size)):call()}
+    if(tc===0){if(R<bluff)return capR(R_(size));if(st!=='river'&&rel>.8&&R<.35)return capR(R_(.5));return{a:'check'}}
+    const implied=st==='flop'||st==='turn'?.04:0;
+    if(eq+implied>=odds)return call();
+    if(st!=='pre'&&R<bluff*.35)return capR(R_(1));
+    return {a:'fold'}},
+};
+/* cartas dibujadas a mano: sin imágenes ni emojis */
+const PKV={
+  SUIT:['<circle cx="10" cy="6" r="4.3"/><circle cx="5.1" cy="11.7" r="4.3"/><circle cx="14.9" cy="11.7" r="4.3"/><path d="M8.7 10.5 L6.6 19.3 H13.4 L11.3 10.5Z"/>',
+    '<path d="M10 .6 L17.8 10 L10 19.4 L2.2 10Z"/>',
+    '<path d="M10 18.8 C4 13.8 .8 10.4 .8 6.6 A4.7 4.7 0 0 1 10 4.5 A4.7 4.7 0 0 1 19.2 6.6 C19.2 10.4 16 13.8 10 18.8Z"/>',
+    '<path d="M10 .8 C6.4 5.4 .8 8.6 .8 12.4 A4.2 4.2 0 0 0 8.5 14.6 L6.8 19.3 H13.2 L11.5 14.6 A4.2 4.2 0 0 0 19.2 12.4 C19.2 8.6 13.6 5.4 10 .8Z"/>'],
+  SN:['tréboles','diamantes','corazones','picas'],
+  col:s=>s===1||s===2?'#c0262d':'#18181c',
+  face(c){const r=c%13,s=(c/13)|0,col=PKV.col(s),R=PK.RN[r],ten=R==='10',court=r>=9&&r<=11;
+    return`<svg viewBox="0 0 60 84"><rect x=".8" y=".8" width="58.4" height="82.4" rx="6" fill="#fbf8f1" stroke="#cbbf9f" stroke-width="1.6"/>`+
+      `<text x="${ten?3.5:6.5}" y="20" font-size="${ten?17:20}" font-weight="800" font-family="Georgia,'Times New Roman',serif" fill="${col}" letter-spacing="${ten?-1.5:0}">${R}</text><g fill="${col}" transform="translate(6.6 24.5) scale(.6)">${PKV.SUIT[s]}</g>`+
+      (court?`<rect x="20" y="22" width="34" height="56" rx="4" fill="${col}" opacity=".07" stroke="${col}" stroke-opacity=".45" stroke-width="1.2"/><text x="37" y="47" font-size="22" text-anchor="middle" font-weight="800" font-family="Georgia,serif" fill="${col}" opacity=".9">${R}</text><g fill="${col}" transform="translate(29.5 54) scale(.75)">${PKV.SUIT[s]}</g>`
+        :`<g fill="${col}" transform="translate(${r===12?19:21} ${r===12?33:37}) scale(${r===12?1.75:1.5})">${PKV.SUIT[s]}</g>`)+`</svg>`},
+  back(sk){const b=sk||casinoSkin('back');return`<svg viewBox="0 0 60 84"><defs>${b.defs||''}</defs><rect x=".8" y=".8" width="58.4" height="82.4" rx="6" fill="#f4efe4" stroke="#00000044" stroke-width="1"/><rect x="4.5" y="4.5" width="51" height="75" rx="4" fill="${b.fill}"/>${b.extra||''}</svg>`},
+  card(c,w,up,cls,attrs){return`<div class="pk-card${cls?' '+cls:''}" style="--w:${w}px" ${attrs||''}>${up?PKV.face(c):PKV.back()}</div>`},
+  stack(amt,bb){const n=Math.max(1,Math.min(7,Math.ceil(Math.log2(amt/Math.max(1,bb)+1))));let h='';for(let k=0;k<n;k++)h+=`<i style="bottom:${k*3.6}px">${CHIPV.svg(k)}</i>`;return`<span class="pk-stack" style="height:${22+(n-1)*3.6}px">${h}</span>`},
+};
+reg({id:'poker',name:'Póker',emoji:'🃏',cat:'grupo',tag:'contra bots',desc:'Texas Hold’em en una mesa de casino contra bots: normal, difícil o súper profesional. Fichas de mentira, nervios de verdad.',bestFmt:v=>v+(v===1?' torneo ganado':' torneos ganados'),init(root,A){
+  const NAMES=['Valeria','El Tahúr','Doña Pepa','Gafas','Nico','La Rubia','Don Ramiro','Cuervo'];
+  const DIFF=[['normal','Normal','Bots predecibles que casi nunca se tiran faroles. Para aprender.'],['dificil','Difícil','Juegan con cabeza: posición, probabilidades y algún farol.'],['pro','Súper profesional','Te estudian: si te retiras mucho, te apretarán; si pagas todo, solo apostarán con jugadas buenas.']];
+  let G=A.get('g',null),setup=A.get('setup',{n:4,diff:'normal',fast:false,help:true});
+  const U={gen:0,busy:false,alive:true,mute:A.get('mute',false),raise:false,amt:0,shownBoard:0,reveal:false,tab:0,flash:{}};
+  const save=()=>A.set('g',G);
+  const nm=i=>esc(G.players[i].name);
+  const sfx=k=>{if(!U.mute)Music.sfx(k)};
+  const wait=ms=>new Promise(r=>setTimeout(r,ms)),ok=g=>U.alive&&g===U.gen;
+  const N=n=>n.toLocaleString('es-ES');
+  const host=document.createElement('div');host.className='bt-host pk';root.appendChild(host);const wrapEl=root.closest('.wrap');if(wrapEl)wrapEl.classList.add('wide');
+  host.insertAdjacentHTML('beforebegin',BTV.defs());
+  const wide=()=>(host.clientWidth||0)>=1040;
+  const stats=()=>A.get('stats',{played:0,wins:{normal:0,dificil:0,pro:0},best:{}});
+
+  /* ---------- la entrada al casino ---------- */
+  function renderSetup(){Music.amb(false);const st=stats();
+    host.innerHTML=`<div class="bt-setup"><div class="bt-sign pk-sign"><div class="bt-sign-t">Póker</div><div class="bt-sign-s">Texas Hold’em · torneo contra bots</div></div>
+    ${G&&!G.over?`<div class="parch mb tc"><b>Tienes un torneo a medias</b> · mano ${G.hand} · ${N(G.players[0].stack)} fichas<div class="bar mt1" style="justify-content:center"><button class="wbtn wgold" data-resume>volver a la mesa</button><button class="wbtn" data-discard>abandonarlo</button></div></div>`:''}
+    <div class="parch"><div class="ph">Dificultad</div>${DIFF.map(([k,l,d])=>`<label class="pk-opt${setup.diff===k?' on':''}" data-diff="${k}"><b>${l}</b><span>${d}</span>${st.wins[k]?`<em>${st.wins[k]} ${st.wins[k]===1?'victoria':'victorias'}</em>`:''}</label>`).join('')}
+      <div class="ph" style="margin-top:14px">Rivales <small>${setup.n} en la mesa</small></div><div class="bar">${[1,2,3,4,5].map(k=>`<button class="tg${setup.n===k?' on':''}" data-nr="${k}">${k}</button>`).join('')}</div>
+      <div class="crew" style="border:0;margin-top:8px"><div style="flex:1"><b>Ciegas rápidas</b><div class="pnote">Las ciegas suben cada 5 manos en vez de cada 8. Torneos más cortos.</div></div><button class="sw${setup.fast?' on':''}" data-fast><i></i></button></div>
+      <div class="crew" style="border:0"><div style="flex:1"><b>Ayuda</b><div class="pnote">Te dice qué jugada tienes en cada momento.</div></div><button class="sw${setup.help?' on':''}" data-help><i></i></button></div>
+      <button class="wbtn wgold lg full mt1" data-start>Sentarse a jugar</button></div>
+    <details class="parch mt1"><summary><b>Cómo se juega</b></summary><div class="rules" style="margin-top:8px">
+      <p>Todos empiezan con <b>1.500 fichas</b>. Las fichas son de la mesa: no se compran ni se cambian por nada, y en cada torneo empiezas de cero.</p>
+      <p>Cada uno recibe <b>dos cartas</b> que solo ve él. En la mesa salen <b>cinco cartas comunes</b>: tres (el flop), una (el turn) y una más (el river). Antes de cada carta nueva hay una ronda de apuestas: puedes <b>pasar</b>, <b>igualar</b>, <b>subir</b> o <b>retirarte</b>.</p>
+      <p>Gana el bote quien forme la mejor jugada de cinco cartas con sus dos y las cinco de la mesa, o el último que quede si los demás se retiran. Las ciegas (apuestas obligatorias) suben con el tiempo. Pierdes cuando te quedas sin fichas; ganas el torneo si te quedas con todas.</p></div></details>
+    ${st.played?`<p class="pnote tc mt1" style="color:#e9d6ad">Torneos jugados: ${st.played} · ganados: ${st.wins.normal+st.wins.dificil+st.wins.pro}</p>`:''}</div>`}
+
+  /* ---------- geometría ---------- */
+  function geom(){const W=Math.max(300,(host.clientWidth||root.clientWidth||360)-(wide()?296:0)),n=G.players.length,narrow=W<640;
+    const H=narrow?Math.round(Math.min(W*1.72,760)):Math.round(Math.max(520,Math.min(W*.62,640)));
+    const rx=W/2-(narrow?42:84),ry=H/2-(narrow?52:58),cx=W/2,cy=H/2;
+    const NP=[null,[[0,-1]],[[-.55,-.95],[.55,-.95]],[[-.86,-.55],[0,-1],[.86,-.55]],[[-.9,-.3],[-.44,-.94],[.44,-.94],[.9,-.3]],[[-.92,-.27],[-.68,-.76],[0,-1],[.68,-.76],[.92,-.27]]];
+    const seats=G.players.map((p,i)=>{if(narrow&&i>0){const[x,y]=NP[n-1][i-1];return{px:clamp(cx+rx*x,48,W-48),py:cy+ry*y,bx:cx+rx*x*.55,by:cy+ry*y*.5,dx:cx+rx*(x*.66+(x<0?.18:x>0?-.18:.22)),dy:cy+ry*(y*.72+.04)}}
+      const deg=i===0?90:90+360*i/n;
+      const a=deg*Math.PI/180,ca=Math.cos(a),sa=Math.sin(a),bf=.58,df=.8,da=a+.16;
+      return{px:cx+rx*ca,py:cy+ry*sa,bx:cx+rx*bf*ca,by:cy+ry*bf*sa,dx:cx+rx*df*Math.cos(da),dy:cy+ry*df*Math.sin(da),deg}});
+    if(narrow){seats[0].bx=cx-Math.min(96,rx*.7);seats[0].by=cy+ry*.44;seats[0].dx=cx-62;seats[0].dy=cy+ry*.93}
+    else{seats[0].bx=cx;seats[0].by=cy+ry*.5;seats[0].dx=cx-110;seats[0].dy=cy+ry*.86}
+    const cw=narrow?Math.min(46,Math.floor((W-78)/5.5)):58;
+    return{W,H,rx,ry,cx,cy,ccy:narrow?cy+ry*.12:cy-8,seats,narrow,cw,mini:narrow&&n>3,
+      hx:narrow?cx:cx+Math.min(170,rx*.36),hy:narrow?cy+ry*.64:cy+ry*.86,hw:narrow?Math.min(62,W*.17):70}}
+
+  /* ---------- textos ---------- */
+  const ACT={fold:'Se retira',check:'Pasa',call:'Iguala',raise:'Sube',allin:'All-in'};
+  function preName(){const p=G.players[0],[a,b]=p.hole.map(c=>c%13),s=(p.hole[0]/13|0)===(p.hole[1]/13|0);return a===b?'Pareja de '+PK.PL[a]:`${PK.RN[Math.max(a,b)]} y ${PK.RN[Math.min(a,b)]}${s?' del mismo palo':''}`}
+  function helpTxt(){const p=G.players[0];if(!setup.help||p.out||p.folded||!p.hole.length)return'';const k=Math.min(U.shownBoard,G.board.length);return`<span class="pk-help">Tienes: <b>${k<3?preName():PK.name(PK.eval7(p.hole.concat(G.board.slice(0,k))))}</b></span>`}
+  function ribbon(){const lv=PK.LEVELS[G.level],left=G.hpl-((G.hand-1)%G.hpl);
+    const info=`<span class="pk-info">Mano ${G.hand} · ciegas ${N(lv[0])}/${N(lv[1])}${G.level<PK.LEVELS.length-1?` · suben en ${left} ${left===1?'mano':'manos'}`:''}</span>`;
+    if(G.phase==='done'&&G.result&&U.reveal){const r=G.result,p0=r.pots[0];let t;
+      if(r.uncontested)t=`${nm(p0.winners[0])} se lleva ${N(p0.amt)} fichas`;
+      else{const main=r.pots.reduce((a,b)=>b.amt>a.amt?b:a,p0);t=main.winners.length>1?`Bote repartido entre ${main.winners.map(nm).join(' y ')}`:`${nm(main.winners[0])} gana ${N(main.amt)} fichas`}
+      const mainP=r.pots.reduce((a,b)=>b.amt>a.amt?b:a,p0),hn=!r.uncontested?PK.name(mainP.hand):'todos los demás se han retirado';
+      return`<div class="rb-t">${t}</div><div class="rb-s">${r.uncontested?hn:'con '+hn.charAt(0).toLowerCase()+hn.slice(1)}${r.pots.length>1?` · ${r.pots.length} botes`:''}</div>${info}`}
+    if(G.phase==='done')return`<div class="rb-t">Se ven las cartas…</div>${info}`;
+    const c=G.toAct;if(c===0){const tc=PK.toCall(G,0);return`<div class="rb-t">Te toca</div><div class="rb-s">${tc?`Para seguir tienes que poner ${N(Math.min(tc,G.players[0].stack))}.`:'Nadie ha apostado: puedes pasar gratis.'} ${helpTxt()}</div>${info}`}
+    const me=G.players[0];return`<div class="rb-t">${nm(c)} está pensando…</div><div class="rb-s">${me.folded&&!me.out?'Te has retirado de esta mano. ':''}${helpTxt()}</div>${info}`}
+
+  /* ---------- la mesa ---------- */
+  let geomCache=null;
+  function render(){if(!G)return renderSetup();if(G.over&&G.phase==='done'&&U.reveal&&U.endReady)return renderEnd();
+    if(!U.mute&&!BOSS)Music.amb(true);
+    const before=snap(),g=geom();geomCache=g;const n=G.players.length,done=G.phase==='done',r=G.result,turn=G.phase==='bet'?G.toAct:-1;
+    const winners=done&&U.reveal&&r?new Set(r.pots.flatMap(p=>p.winners)):new Set();
+    const best=done&&U.reveal&&r&&!r.uncontested?new Set(PK.best5(G.players[r.pots[0].winners[0]].hole.concat(G.board))):null;
+    let seats='';
+    G.players.forEach((p,i)=>{const s=g.seats[i],me=i===0;if(p.out&&!me){seats+=`<div class="bt-plate pk-plate out${g.mini?' mini':''}" style="left:${s.px}px;top:${s.py}px">${BTV.face(i+1,5)}<div class="pl-t"><div class="pl-n">${nm(i)}</div><div class="pl-s"><span class="cnt">eliminado</span></div></div></div>`;return}
+      const show=(p.shown&&U.reveal)||(U.live&&!p.folded),cards=!p.out&&p.hole.length&&!p.folded&&!me?`<div class="pk-hole">${p.hole.map((c,k)=>PKV.card(c,g.mini?(show?27:17):g.narrow?(show?30:22):(show?42:34),show,(show&&U.flash[i]?'reveal ':'')+(best&&show?(best.has(c)?'hi':'dim'):''),`data-cid="h${i}_${k}"`)).join('')}</div>`:'';
+      const tag=p.last&&!done?`<span class="pk-tag ${p.last}">${ACT[p.last]}</span>`:done&&U.reveal&&winners.has(i)?'<span class="pk-tag win">Gana</span>':'';
+      seats+=`<div class="bt-plate pk-plate${i===turn?' turn':''}${p.folded&&!p.out?' fold':''}${winners.has(i)?' win':''}${g.mini&&!me?' mini':''}${s.py<g.cy?' lo':''}" data-seat="${i}" style="left:${s.px}px;top:${s.py}px">${BTV.face(i+1,5)}<div class="pl-t"><div class="pl-n">${me?'Tú':nm(i)}</div><div class="pl-s"><b data-st="${i}">${N(U.shownStack&&U.shownStack[i]!=null?U.shownStack[i]:p.stack)}</b></div></div>${cards}${tag}</div>`;
+      const bt=G.ui.tot[i]-G.ui.base[i];if(bt>0)seats+=`<div class="pk-bet" data-fid="bet${i}" style="left:${s.bx}px;top:${s.by}px">${PKV.stack(bt,G.bbAmt)}<span>${N(bt)}</span></div>`;
+      if(i===G.dealer)seats+=`<div class="pk-dealer" data-fid="dealer" style="left:${s.dx}px;top:${s.dy}px">D</div>`});
+    const me=G.players[0];
+    const mine=!me.out&&me.hole.length?`<div class="pk-mine${me.folded?' fold':''}" style="left:${g.hx}px;top:${g.hy}px">${me.hole.map((c,k)=>PKV.card(c,g.hw,true,best?(best.has(c)?'hi':'dim'):'',`data-cid="h0_${k}"`)).join('')}</div>`:'';
+    const board=[0,1,2,3,4].map(k=>k<U.shownBoard&&G.board[k]!=null?PKV.card(G.board[k],g.cw,true,(U.newBoard&&k>=U.newBoard[0]&&k<U.newBoard[1]?'reveal ':'')+(best?(best.has(G.board[k])?'hi':'dim'):''),`data-cid="b${k}"`):`<div class="pk-slot" style="--w:${g.cw}px"></div>`).join('');
+    const pot=G.ui.base.reduce((a,b)=>a+b,0);
+    const center=`<div class="pk-center" style="left:${g.cx}px;top:${g.ccy}px">${g.narrow?'':`<div class="pk-deck" data-deck>${PKV.back()}</div>`}<div><div class="pk-board">${board}</div><div class="pk-pot" data-pot>${pot>0?PKV.stack(pot,G.bbAmt)+`<span>Bote ${N(pot)}</span>`:'<span class="pnote">&nbsp;</span>'}</div></div></div>`;
+    host.innerHTML=`<div class="bt-layout${wide()?' wide':''}"><div class="bt-mainc"><div class="bt-room pk-room"><div class="bt-ribbon">${ribbon()}</div>
+      <div class="bt-table pk-table${g.narrow?' nrw':''}" style="height:${g.H}px;${tableVars()}">
+        <div class="bt-rim" style="left:${g.cx-g.rx-14}px;top:${g.cy-g.ry-14}px;width:${2*g.rx+28}px;height:${2*g.ry+28}px"></div>
+        <div class="bt-felt" style="left:${g.cx-g.rx}px;top:${g.cy-g.ry}px;width:${2*g.rx}px;height:${2*g.ry}px"></div>
+        ${g.narrow?`<div class="pk-deck nd" data-deck style="left:${g.cx}px;top:${g.cy-g.ry*.25}px"></div>`:''}
+        ${center}${seats}${mine}</div>
+      <div class="bt-actions">${actions()}</div>
+      <div class="bt-foot"><div class="bt-log">${G.log.slice(0,5).map((l,k)=>`<div style="opacity:${1-k*.16}">${l}</div>`).join('')}</div><div class="bar"><button class="wbtn sm" data-mute>${U.mute?'Sonido: no':'Sonido: sí'}</button><button class="wbtn sm" data-quit>Levantarse</button></div></div></div></div>
+      ${wide()?`<aside class="bt-side parch">${ranking()}</aside>`:`<details class="bt-side parch"${U.glos?' open':''}><summary><span class="ph">Ranking de jugadas</span></summary><div>${ranking(true)}</div></details>`}</div>`;
+    flip(before);U.flash={};U.newBoard=null;
+    const rg=host.querySelector('[data-amt]');if(rg)syncRaise()}
+
+  /* jugadas de mejor a peor con un ejemplo dibujado */
+  const RANK=[['Escalera real','A K Q J 10 del mismo palo',[51,50,49,48,47]],['Escalera de color','cinco seguidas del mismo palo',[33,32,31,30,29]],['Póker','cuatro iguales',[11,24,37,50,2]],['Full','trío y pareja',[12,25,38,4,17]],['Color','cinco del mismo palo',[25,22,19,15,14]],['Escalera','cinco seguidas',[8,20,32,5,17]],['Trío','tres iguales',[5,18,31,12,41]],['Doble pareja','dos parejas',[10,23,3,42,51]],['Pareja','dos iguales',[12,38,7,22,44]],['Carta alta','nada de lo anterior',[51,9,20,32,15]]];
+  function ranking(inner){return`${inner?'':'<div class="ph">Ranking de jugadas</div>'}<div class="pnote" style="margin-bottom:6px">De mejor a peor. Cuentan tus 2 cartas y las 5 de la mesa.</div>${RANK.map(([t,d,cs])=>`<div class="pk-rk"><div class="pk-rkc">${cs.map(c=>PKV.card(c,24,true)).join('')}</div><div><b>${t}</b><br><span class="pnote">${d}</span></div></div>`).join('')}`}
+
+  function actions(){if(G.phase==='done'){if(!U.reveal)return'<div class="bt-wait">Se ven las cartas…</div>';
+      if(G.over)return`<button class="wbtn wgold big" data-endt>Ver cómo acaba el torneo</button>`;return`<button class="wbtn wgold big" data-nexth>Siguiente mano</button>`}
+    if(G.toAct!==0||U.busy)return`<div class="bt-wait">${G.players[0].folded?'Esperando a que termine la mano…':'Esperando tu turno…'}</div>`;
+    const p=G.players[0],tc=PK.toCall(G,0),max=p.stack+p.bet,canR=p.stack>tc&&G.players.some((q,j)=>j!==0&&PK.canAct(G,j)),minTo=Math.min(PK.minTo(G),max);
+    if(U.raise&&canR){const pot=PK.pot(G)+tc;return`<div class="pk-raise"><div class="pk-rq"><button class="wbtn sm" data-q="min">Mín.</button><button class="wbtn sm" data-q="half">½ bote</button><button class="wbtn sm" data-q="pot">Bote</button><button class="wbtn sm red" data-q="all">Todo</button></div>
+      <div class="pk-rr"><input type="range" min="${minTo}" max="${max}" step="${Math.max(1,G.bbAmt/2)}" value="${clamp(U.amt||minTo,minTo,max)}" data-amt aria-label="cantidad"><b data-amtv></b></div>
+      <div class="pk-rq"><button class="wbtn sm" data-cancel>Volver</button><button class="wbtn wgold" data-doraise></button></div></div>`}
+    return`${tc>0?'<button class="wbtn red lg" data-fold>Retirarse</button>':''}<button class="wbtn ${tc>0?'':'wgold '}lg" data-call>${tc===0?'Pasar':tc>=p.stack?`All-in ${N(p.stack)}`:`Igualar ${N(tc)}`}</button>${canR?`<button class="wbtn wgold lg" data-raise>${G.curBet===0?'Apostar':'Subir'}</button>`:''}`}
+  function syncRaise(){const rg=host.querySelector('[data-amt]'),v=+rg.value,p=G.players[0],max=p.stack+p.bet;U.amt=v;host.querySelector('[data-amtv]').textContent=N(v);
+    host.querySelector('[data-doraise]').textContent=v>=max?`All-in ${N(max)}`:`${G.curBet===0?'Apostar':'Subir a'} ${N(v)}`}
+
+  /* animaciones */
+  function snap(){const m={};host.querySelectorAll('[data-cid],[data-fid]').forEach(el=>{m[el.dataset.cid||el.dataset.fid]=el.getBoundingClientRect()});const d=host.querySelector('[data-deck]');if(d)m.__deck=d.getBoundingClientRect();return m}
+  function flip(prev){let k=0;host.querySelectorAll('[data-cid],[data-fid]').forEach(el=>{const id=el.dataset.cid||el.dataset.fid;let a=prev[id],from=a;
+      if(!a&&el.dataset.cid&&U.deal&&prev.__deck)from=prev.__deck;if(!from)return;const b=el.getBoundingClientRect(),dx=from.left+from.width/2-(b.left+b.width/2),dy=from.top+from.height/2-(b.top+b.height/2);
+      if(Math.abs(dx)<2&&Math.abs(dy)<2)return;const delay=!a&&U.deal?(k++)*70:0;el.animate([{translate:`${dx}px ${dy}px`,scale:a?1:.6,rotate:a?'0deg':'-14deg'},{translate:'0 0',scale:1,rotate:'0deg'}],{duration:420,delay,easing:'cubic-bezier(.2,.8,.2,1)',fill:'backwards'})});U.deal=false}
+  /* fichas que vuelan de un sitio a otro */
+  function fly(fromEl,toEl,amt){if(!fromEl||!toEl)return;const a=fromEl.getBoundingClientRect(),b=toEl.getBoundingClientRect(),el=document.createElement('div');el.className='pk-fly';el.innerHTML=PKV.stack(amt,G.bbAmt);
+    el.style.left=a.left+a.width/2+'px';el.style.top=a.top+a.height/2+'px';document.body.appendChild(el);
+    el.animate([{translate:'0 0'},{translate:`${b.left+b.width/2-a.left-a.width/2}px ${b.top+b.height/2-a.top-a.height/2}px`}],{duration:520,easing:'cubic-bezier(.3,.7,.3,1)',fill:'forwards'}).onfinish=()=>el.remove()}
+  function bump(i,from,to){const el=host.querySelector(`[data-st="${i}"]`);if(!el)return;const t0=performance.now();const st=t=>{if(!el.isConnected)return;const k=Math.min(1,(t-t0)/700);el.textContent=N(Math.round(from+(to-from)*(1-Math.pow(1-k,3))));if(k<1)requestAnimationFrame(st)};requestAnimationFrame(st)}
+
+  /* ---------- flujo ---------- */
+  const log=m=>{G.log.unshift(m);G.log.length=Math.min(G.log.length,30)};
+  function start(){const names=['Tú',...shuffle(NAMES.slice()).slice(0,setup.n)];G=PK.newGame(names,setup.diff,setup.fast?5:8);G.log=[];const st=stats();st.played++;A.set('stats',st);
+    log(`Empieza el torneo · ${PK.DIFF[setup.diff].n}`);newHand()}
+  async function newHand(){const g0=U.gen;U.reveal=false;U.live=false;U.endReady=false;U.raise=false;U.amt=0;U.shownStack=null;G.runout=false;
+    const lv=G.level;PK.startHand(G);G.ui={tot:G.players.map(p=>p.total),base:G.players.map(()=>0),street:'pre'};if(G.level!==lv)log(`Suben las ciegas: ${N(G.sbAmt)}/${N(G.bbAmt)}`);
+    U.shownBoard=0;U.deal=true;save();sfx('rattle');render();setTimeout(()=>sfx('flip'),200);await wait(700);if(!ok(g0))return;loop()}
+  /* muestra las cartas de la mesa que tocan, de una calle en una */
+  async function dealBoard(){const g0=U.gen;let k=U.shownBoard;const tgt=G.board.length;const showLive=G.runout&&!U.live&&G.players.filter((p,j)=>PK.inHand(G,j)).length>1;
+    if(showLive&&k<tgt){U.live=true;G.players.forEach((p,j)=>{if(PK.inHand(G,j)&&j!==0)U.flash[j]=1});sfx('flip');render();await wait(1100);if(!ok(g0))return}
+    while(k<tgt){const nk=k===0?3:k+1;U.newBoard=[k,nk];U.shownBoard=nk;U.deal=true;sfx('flip');render();await wait(k===0?900:1000);if(!ok(g0))return;k=nk}}
+  async function collect(){const g0=U.gen;const pot=host.querySelector('[data-pot]');let any=false;G.players.forEach((p,i)=>{const b=host.querySelector(`[data-fid="bet${i}"]`);if(b&&pot){any=true;fly(b,pot,G.ui.tot[i]-G.ui.base[i]);b.style.visibility='hidden'}});
+    if(any){sfx('clack');await wait(480);if(!ok(g0))return}G.ui.base=G.ui.tot.slice();G.ui.street=G.street;save();render()}
+  async function loop(){const g0=U.gen;if(!ok(g0)||U.busy)return;U.busy=true;
+    try{while(ok(g0)&&G.phase==='bet'){
+      if(G.street!==G.ui.street||G.board.length>U.shownBoard){await collect();await dealBoard();if(!ok(g0))return}
+      const i=G.toAct;if(i===0){U.busy=false;render();return}
+      render();const fast=G.players[0].folded||G.players[0].out;await wait(fast?320:520+Math.random()*450);if(!ok(g0))return;
+      const p=G.players[i],before=p.stack,pb=p.bet,d=PK.decide(G,i);const prevBet=G.curBet,street=G.street;PK.act(G,i,d.a,d.to);const put=before-p.stack;G.ui.tot[i]+=put;
+      logAct(i,G.lastAct,put,prevBet,pb+put);sfx(G.lastAct==='fold'?'slide':G.lastAct==='check'?'clack':'coin');save();
+      render();if(G.street!==street||G.phase!=='bet')await wait(450)}
+    if(G.phase==='done'){await showdown()}}finally{U.busy=false}
+    if(ok(g0))render()}
+  function logAct(i,a,put,prevBet,to){const p=G.players[i],who=i===0?'Tú':nm(i);
+    if(a==='fold')log(`${who} ${i===0?'te retiras':'se retira'}`);else if(a==='check')log(`${who} ${i===0?'pasas':'pasa'}`);else if(a==='call')log(`${who} ${i===0?'igualas':'iguala'} ${N(put)}`);
+    else if(a==='allin')log(`<b>${who} ${i===0?'vas':'va'} all-in</b> con ${N(to)}`);else log(`${who} ${i===0?(prevBet?'subes':'apuestas'):(prevBet?'sube':'apuesta')} a ${N(to)}`)}
+  async function showdown(){const g0=U.gen;const r=G.result;
+    const old=G.players.map(p=>p.stack);r.pots.forEach(pt=>{const sh=Math.floor(pt.amt/pt.winners.length);pt.winners.forEach(w=>{old[w]-=sh})});
+    old.forEach((v,i)=>{if(v<0)old[i]=0});U.shownStack=old;
+    await collect();if(!ok(g0))return;if(!r.uncontested&&G.board.length>U.shownBoard){await dealBoard();if(!ok(g0))return}
+    if(!r.uncontested&&!U.live){G.players.forEach((p,j)=>{if(p.shown&&j!==0)U.flash[j]=1})}
+    U.reveal=true;if(!r.uncontested)sfx('flip');render();await wait(r.uncontested?300:900);if(!ok(g0))return;
+    const potEl=host.querySelector('[data-pot]');r.pots.forEach(pt=>pt.winners.forEach(w=>fly(potEl,host.querySelector(`[data-seat="${w}"]`),pt.amt)));sfx('coin');
+    G.ui.base=G.ui.base.map(()=>0);G.ui.tot=G.ui.base.slice();render();await wait(500);if(!ok(g0))return;G.players.forEach((p,i)=>{if(U.shownStack[i]!==p.stack)bump(i,U.shownStack[i],p.stack)});U.shownStack=null;
+    const p0=r.pots[0];if(r.uncontested)log(`${p0.winners[0]===0?'Te llevas':nm(p0.winners[0])+' se lleva'} ${N(p0.amt)}`);
+    else r.pots.forEach(pt=>log(`${pt.winners.map(w=>w===0?'Tú':nm(w)).join(' y ')} ${pt.winners.length>1?'reparten':pt.winners[0]===0?'ganas':'gana'} ${N(pt.amt)} · ${PK.name(pt.hand)}`));
+    if(r.pots.some(pt=>pt.winners.includes(0)))sfx('win');
+    G.out.forEach(j=>{if(!G.players[j].logged){G.players[j].logged=1;log(`<b>${j===0?'Te quedas sin fichas':nm(j)+' queda eliminado'}</b>`)}});
+    save();if(G.over)finish();U.busy=false;render()}
+  function finish(){if(G.paid)return;G.paid=true;const pl=PK.place(G,0),n=G.players.length,m={normal:1,dificil:1.6,pro:2.4}[G.diff];
+    const st=stats();if(pl===1){st.wins[G.diff]++;A.record(st.wins.normal+st.wins.dificil+st.wins.pro);A.ev('win',1);A.reward(Math.round(180*m+30*n),Math.round((30+8*n)*m))}
+    else A.reward(Math.round((25+40*(n-pl)/(n-1))*m),Math.round((4+14*(n-pl)/(n-1))*m));
+    st.best[G.diff]=Math.min(st.best[G.diff]||99,pl);A.set('stats',st);save()}
+  function renderEnd(){Music.amb(false);const pl=PK.place(G,0),n=G.players.length,ord=G.players.map((p,i)=>i).sort((a,b)=>PK.place(G,a)-PK.place(G,b));
+    host.innerHTML=`<div class="bt-setup"><div class="bt-sign pk-sign"><div class="bt-sign-t">${pl===1?'¡Campeón!':pl+'º de '+n}</div><div class="bt-sign-s">${pl===1?`Te has quedado con todas las fichas en ${G.hand} manos · ${PK.DIFF[G.diff].n}`:`Te has quedado sin fichas en la mano ${G.hand} · ${PK.DIFF[G.diff].n}`}</div></div>
+      <div class="parch">${ord.map(i=>`<div class="crew${i===0?' win':''}">${BTV.face(i+1,5)}<div style="flex:1"><b>${PK.place(G,i)}. ${i===0?'Tú':nm(i)}</b></div><b>${G.players[i].out?'fuera':N(G.players[i].stack)}</b></div>`).join('')}</div>
+      <div class="bar mt1" style="justify-content:center"><button class="wbtn wgold lg" data-again>Otro torneo</button><button class="wbtn" data-setup>Cambiar mesa</button></div></div>`}
+
+  async function human(a,to){const g0=U.gen;if(U.busy||G.phase!=='bet'||G.toAct!==0)return;const p=G.players[0],before=p.stack,pb=p.bet,prevBet=G.curBet;U.raise=false;
+    PK.act(G,0,a,to);G.ui.tot[0]+=before-p.stack;logAct(0,G.lastAct,before-p.stack,prevBet,pb+before-p.stack);sfx(G.lastAct==='fold'?'slide':G.lastAct==='check'?'clack':'coin');save();render();await wait(250);if(!ok(g0))return;loop()}
+
+  /* ---------- eventos ---------- */
+  host.addEventListener('click',e=>{const q=s=>e.target.closest(s);
+    const df=q('[data-diff]');if(df){setup.diff=df.dataset.diff;A.set('setup',setup);renderSetup();return}
+    const nr=q('[data-nr]');if(nr){setup.n=+nr.dataset.nr;A.set('setup',setup);renderSetup();return}
+    if(q('[data-fast]')){setup.fast=!setup.fast;A.set('setup',setup);renderSetup();return}
+    if(q('[data-help]')){setup.help=!setup.help;A.set('setup',setup);renderSetup();return}
+    if(q('[data-start]')||q('[data-again]')){start();return}
+    if(q('[data-setup]')){G=null;A.set('g',null);renderSetup();return}
+    if(q('[data-resume]')){resume();return}
+    if(q('[data-discard]')){G=null;A.set('g',null);renderSetup();return}
+    if(q('[data-quit]')){U.gen++;U.busy=false;save();renderSetup();return}
+    if(q('[data-mute]')){U.mute=!U.mute;A.set('mute',U.mute);Music.amb(!U.mute);render();return}
+    if(q('[data-fold]')){human('fold');return}
+    if(q('[data-call]')){human('call');return}
+    if(q('[data-raise]')){U.raise=true;U.amt=Math.min(PK.minTo(G)+Math.round(PK.pot(G)*.25/(G.bbAmt/2))*(G.bbAmt/2),G.players[0].stack+G.players[0].bet);render();return}
+    if(q('[data-cancel]')){U.raise=false;render();return}
+    const qk=q('[data-q]');if(qk){const p=G.players[0],max=p.stack+p.bet,tc=PK.toCall(G,0),pot=PK.pot(G)+tc,k=qk.dataset.q,half=G.bbAmt/2;
+      let v=k==='min'?PK.minTo(G):k==='half'?G.curBet+pot/2:k==='pot'?G.curBet+pot:max;v=Math.round(v/half)*half;const rg=host.querySelector('[data-amt]');rg.value=clamp(v,+rg.min,max);if(k==='all')rg.value=max;syncRaise();return}
+    if(q('[data-doraise]')){human('raise',U.amt);return}
+    if(q('[data-nexth]')){if(!U.busy)newHand();return}
+    if(q('[data-endt]')){U.endReady=true;render();return}
+    if(q('details.bt-side summary')){setTimeout(()=>{const d=host.querySelector('details.bt-side');U.glos=!!(d&&d.open)},0);return}
+  });
+  host.addEventListener('input',e=>{if(e.target.matches('[data-amt]'))syncRaise()});
+  const offK=onKey(e=>{if(!G||G.phase!=='bet'||G.toAct!==0||U.busy||U.raise||e.target.matches('input'))return;
+    if(e.key==='c'||e.key==='C'){human('call')}else if((e.key==='f'||e.key==='F')&&PK.toCall(G,0)>0){human('fold')}});
+  let rt=null;const onR=()=>{clearTimeout(rt);rt=setTimeout(()=>{if(!G||!geomCache||U.busy)return;const w=host.clientWidth-(wide()?296:0);if(Math.abs(w-geomCache.W)>4)render()},200)};window.addEventListener('resize',onR);
+  function resume(){if(!G)return renderSetup();U.gen++;U.busy=false;U.shownBoard=(G.board||[]).length;if(!G.ui)G.ui={tot:G.players.map(p=>p.total),base:G.players.map(()=>0),street:G.street};if(G.phase==='bet'){G.ui.base=G.players.map(p=>p.total-p.bet);G.ui.tot=G.players.map(p=>p.total);G.ui.street=G.street}if(G.phase==='done'){U.reveal=true;U.endReady=!!G.over;if(G.over)finish();render()}else if(G.phase==='bet'){render();loop()}else newHand()}
+  if(G&&!G.over)resume();else{G=null;renderSetup()}
+  return()=>{U.alive=false;if(wrapEl)wrapEl.classList.remove('wide');Music.amb(false);offK();window.removeEventListener('resize',onR);document.querySelectorAll('.pk-fly').forEach(x=>x.remove())};
+}});
 reg({id:'2048',name:'2048',emoji:'🔢',cat:'mente',tag:'1 jugador',desc:'Junta fichas iguales hasta llegar a 2048… y sigue todo lo que puedas.',bestFmt:v=>fmt(v),init(root,A){
   root.innerHTML=`<div class="narrow"><div class="bar"><span class="chip">puntos <b data-s>0</b></span><span class="chip">récord <b data-b>0</b></span><span class="sp"></span><button class="btn sm" data-new>nueva partida</button></div><div class="g2048" data-g></div><p class="hint">Flechas o WASD · en el móvil desliza sobre el tablero</p></div>`;
   const g=$('[data-g]',root),sEl=$('[data-s]',root),bEl=$('[data-b]',root);
@@ -2349,6 +2832,9 @@ document.addEventListener('click',e=>{
   const cb=e.target.closest('[data-cb]');if(cb){buyCosm(cb.dataset.cb);return}
   const ct=e.target.closest('[data-ct]');if(ct){const k=ct.dataset.ct;P.on[k]=!P.on[k];saveP();applyCosm();openShop();return}
   const ce=e.target.closest('[data-ce]');if(ce){const it=COSM.find(x=>x.id===ce.dataset.ce);P.eq[it.slot]=P.eq[it.slot]===it.id?null:it.id;saveP();applyCosm();openShop();if(it.slot==='pet'&&P.eq.pet)petWalk();return}
+  const kb=e.target.closest('[data-kb]');if(kb){const id=kb.dataset.kb;let slot,it;Object.entries(CASINO).forEach(([k,g])=>{const x=g.items.find(y=>y.id===id);if(x){slot=k;it=x}});
+    if(!it||owns(id)||P.coins<it.cost)return;P.coins-=it.cost;P.inv.push(id);P.eq['cs_'+slot]=id;saveP();renderBar();toast(it.n+' comprado');openShop();return}
+  const ke=e.target.closest('[data-ke]');if(ke){const[slot,id]=ke.dataset.ke.split(':');P.eq['cs_'+slot]=id;saveP();openShop();return}
   const mp=e.target.closest('[data-mp]');if(mp){const id=mp.dataset.mp;if(P.music.on&&P.music.track===id)Music.stop();else{P.music.track=id;Music.stop();Music.play()}saveP();applyCosm();openShop();return}
   const t=e.target.closest('[data-theme]');if(t){const k=t.dataset.theme;if(!P.themes.includes(k)){if(P.coins<400){toast('Necesitas 400 🪙');return}P.coins-=400;P.themes.push(k)}P.theme=k;saveP();applyTheme();renderBar();openShop();return}
 });
