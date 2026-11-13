@@ -163,6 +163,43 @@ button.peg{width:42px;height:42px;border:2px solid rgba(255,255,255,.25)}
 .dmo{padding:20px 10px;border-radius:14px;background:var(--s2);border:2px solid var(--bd2);font-size:clamp(1.05rem,4.5vw,1.45rem);font-weight:800;display:flex;flex-direction:column;gap:4px;align-items:center;font-variant-numeric:tabular-nums;touch-action:manipulation}
 .dmo:hover:not(:disabled){border-color:var(--ac)}.dmo small{font-size:.65rem;color:var(--mu);font-weight:600}
 .dmo.ok{border-color:var(--ok);background:rgba(34,197,94,.1)}.dmo.no{border-color:var(--bad);background:rgba(239,68,68,.1)}
+/* cosméticos */
+.ttl{font-size:.7rem;color:var(--mu);font-weight:600;padding:3px 9px;border:1px solid var(--bd);border-radius:99px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:40vw}
+@media(max-width:600px){.ttl{display:none}}
+body.comic,body.comic button,body.comic input{font-family:"Comic Sans MS","Comic Sans","Chalkboard SE","Comic Neue",var(--sans)}
+body.alreves .logo{display:inline-block;transform:rotate(180deg)}
+body.torcida #home,body.torcida #shell{transform:rotate(.7deg)}
+body.brillo .logo{animation:glow 2s ease-in-out infinite}
+@keyframes glow{50%{text-shadow:0 0 14px var(--ac),0 0 28px var(--ac)}}
+body.gigante #st-coins{font-size:1.5rem;line-height:1}
+.conf{position:fixed;top:-12px;width:8px;height:12px;z-index:150;pointer-events:none;border-radius:2px;animation:confall linear forwards}
+@keyframes confall{to{transform:translate(var(--dx),105vh) rotate(720deg)}}
+.trail{position:fixed;z-index:140;pointer-events:none;font-size:14px;transform:translate(-50%,-50%);animation:trailfade .8s ease-out forwards}
+@keyframes trailfade{to{opacity:0;transform:translate(-50%,10px) scale(.4)}}
+.pet{position:fixed;bottom:6px;z-index:120;font-size:34px;animation-duration:15s;animation-timing-function:linear;animation-fill-mode:forwards;line-height:1;padding:0}
+.pet.hop{animation-timing-function:steps(30)}
+@keyframes petR{from{left:-60px}to{left:calc(100vw + 20px)}}
+@keyframes petL{from{left:calc(100vw + 20px)}to{left:-60px}}
+.wx{position:fixed;top:-30px;z-index:5;pointer-events:none;opacity:.7;animation:wxfall linear forwards}
+@keyframes wxfall{to{transform:translate(40px,110vh) rotate(260deg)}}
+.shop .mt{margin-top:6px}
+#modal .seg{flex-wrap:wrap}
+/* botín */
+.dz{display:inline-flex;align-items:center;justify-content:center;min-width:30px;height:30px;padding:0 5px;border-radius:7px;font-weight:800;font-size:.8rem;font-variant-numeric:tabular-nums;color:#111;border:2px solid rgba(0,0,0,.25);margin:0 4px 4px 0;line-height:1}
+button.dz.pk{cursor:pointer;transition:transform .1s}button.dz.pk:hover{transform:translateY(-2px) scale(1.08);box-shadow:0 0 0 2px var(--ac)}
+.c-y{background:#facc15}.c-p{background:#a855f7;color:#fff}.c-b{background:#3b82f6;color:#fff}.c-b.br{background:#38bdf8;color:#04121f;box-shadow:0 0 10px #38bdf8}
+.c-r{background:#ef4444;color:#fff}.c-r.blk{color:#111}.c-r.bend{background:#fb7185}.c-r.mald{background:#7f1d1d;color:#fca5a5}.c-r.mald.blk{color:#000}
+.c-g{background:#22c55e}.c-t{background:rgba(255,255,255,.14);color:#fff;border-color:rgba(255,255,255,.55)}.c-k{background:#f9a8d4}.c-n{background:#0a0a0a;color:#ef4444;border-color:#444}
+.c-a{background:linear-gradient(135deg,#ef4444,#facc15,#22c55e,#3b82f6,#a855f7);color:#fff;text-shadow:0 1px 2px #000}.c-o{background:#27272a;color:#fbbf24}.c-e{background:linear-gradient(135deg,#e5e7eb,#9ca3af)}.c-x{background:#0f766e;color:#ccfbf1}
+.pls{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:8px}
+.pl{background:var(--s1);border:1px solid var(--bd);border-radius:12px;padding:10px}.pl.on{border-color:var(--ac);box-shadow:0 0 0 1px var(--ac)}
+.plh{display:flex;align-items:center;gap:6px;margin-bottom:6px;font-size:.88rem}.plh .pt{font-size:1.1rem;font-variant-numeric:tabular-nums}
+.rs{font-size:.78rem;font-weight:700;color:var(--ok)}.rs.neg{color:var(--bad)}
+.bd{font-size:.72rem;color:var(--tx2);margin-top:2px;line-height:1.5}
+.evc{display:flex;gap:12px;align-items:center;padding:12px 14px;margin-bottom:10px;border-radius:14px;background:linear-gradient(135deg,#3b2a12,#1c1c21);border:1px solid #a16207}
+.evc .ei{font-size:2rem}
+.act b{font-size:.95rem}.ll{font-size:.78rem;color:var(--tx2);padding:3px 0;border-bottom:1px solid var(--bd)}
+.rules{font-size:.84rem;color:var(--tx2);margin-top:8px}.rules p{margin:6px 0}.rules ul{margin:4px 0 4px 18px}
 /* ===== per-game styles ===== */
 .g2048{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:8px;padding:8px;background:var(--s2);border-radius:14px;aspect-ratio:1;font-size:clamp(20px,7vw,34px);touch-action:none;user-select:none}
 .g2048 .t{border-radius:9px;background:var(--s3);display:flex;align-items:center;justify-content:center;font-weight:800;font-variant-numeric:tabular-nums}
@@ -272,11 +309,12 @@ button.peg{width:42px;height:42px;border:2px solid rgba(255,255,255,.25)}
 </head>
 <body>
 <header class="top">
-  <a class="logo" href="#">clase<span>.</span>fun</a>
+  <a class="logo" href="#">clase<span>.</span>fun</a><span id="st-title" class="ttl" hidden></span>
   <div class="stats">
     <button class="chip" data-act="missions" title="Racha diaria">🔥 <b id="st-streak">0</b></button>
     <span class="chip lvl" title="Nivel">⭐ <b id="st-lvl">1</b><span class="xpbar"><i id="st-xp"></i></span></span>
     <button class="chip" data-act="shop" title="Tienda de perks">🪙 <b id="st-coins">0</b></button>
+    <button class="chip ghost" id="st-music" data-act="music" title="Música" hidden>🎵</button>
     <button class="chip ghost" data-act="boss" title="Modo profe (Esc)">🙈</button>
   </div>
 </header>
@@ -371,7 +409,7 @@ function onSwipe(el,cb){let sx=null,sy=0;el.addEventListener('touchstart',e=>{co
 
 /* ================= perfil: XP, monedas, racha, misiones ================= */
 const THEMES={naranja:'#ff6b35',cian:'#22d3ee',lima:'#a3e635',rosa:'#f472b6',violeta:'#a78bfa',oro:'#fbbf24',rojo:'#f43f5e'};
-const P=Object.assign({xp:0,coins:0,streak:0,best:0,last:0,shields:0,hints:0,magnet:0,xp2:0,theme:'naranja',themes:['naranja'],played:{},mis:null,today:[]},Store.get('profile',{}));
+const P=Object.assign({xp:0,coins:0,streak:0,best:0,last:0,shields:0,hints:0,magnet:0,xp2:0,theme:'naranja',themes:['naranja'],played:{},mis:null,today:[],inv:[],eq:{},on:{},nada:0,music:{track:null,vol:.6,on:false}},Store.get('profile',{}));
 const saveP=()=>Store.set('profile',P);
 const xpFor=l=>60*(l-1)*(l-1);
 const level=()=>Math.floor(Math.sqrt(P.xp/60))+1;
@@ -402,6 +440,7 @@ const MPOOL=[
   {k:'nerdle',t:'Adivina una operación en Nerdle',g:1,game:'nerdle',type:'win'},
   {k:'mm',t:'Descifra un código en Mastermind',g:1,game:'mastermind',type:'win'},
   {k:'dinero',t:'Llega a 1 M € en Dinero rápido',g:1e6,game:'dinero',type:'max'},
+  {k:'botin',t:'Gana una partida de Botín a los bots',g:1,game:'botin',type:'win'},
 ];
 function genMissions(){return[{k:'distinct',p:0,d:false},...shuffle(MPOOL.filter(m=>m.k!=='distinct')).slice(0,2).map(m=>({k:m.k,p:0,d:false}))]}
 
@@ -412,15 +451,21 @@ function daily(){
   else if(P.last&&P.last<d-1){const missed=d-1-P.last;if(P.shields>=missed){P.shields-=missed;P.streak++;note=' · 🛡️ escudo usado'}else P.streak=1}
   else P.streak=1;
   P.best=Math.max(P.best,P.streak);P.last=d;P.today=[];P.mis=genMissions();
-  const bonus=20+Math.min(P.streak,30)*5;P.coins+=bonus;saveP();
+  const bonus=10+Math.min(P.streak,30)*2;P.coins+=bonus;saveP();
   setTimeout(()=>toast(`🔥 Racha de ${P.streak} día${P.streak>1?'s':''} · +${bonus} 🪙${note}`),500);
 }
-function reward(xp,coins){
-  xp=Math.max(0,Math.round((xp||0)*(Date.now()<P.xp2?2:1)));coins=Math.max(0,Math.round((coins||0)*(1+.05*P.magnet)));
+/* economía: las monedas cuestan. Cada juego da un 30 % de lo que daba y, cuando
+   un mismo juego ya te ha dado 40 🪙 hoy, el resto se reduce a la cuarta parte */
+const COIN_RATE=.3,GAME_DAY_CAP=40;
+function reward(xp,coins,gid){
+  xp=Math.max(0,Math.round((xp||0)*(Date.now()<P.xp2?2:1)));
+  let c=Math.max(0,(coins||0)*COIN_RATE*(1+.05*P.magnet));
+  if(gid){const d=dayNum();if(!P.gd||P.gd.d!==d)P.gd={d,m:{}};const got=P.gd.m[gid]||0,full=Math.max(0,Math.min(c,GAME_DAY_CAP-got));c=full+(c-full)*.25;P.gd.m[gid]=got+c}
+  coins=Math.round(c);
   if(!xp&&!coins)return;
   const lv=level();P.xp+=xp;P.coins+=coins;
   if(coins)ev('*','coins',coins);
-  if(level()>lv){P.coins+=50;toast(`⭐ ¡Nivel ${level()}! +50 🪙`)}else toast(`+${xp} XP · +${coins} 🪙`);
+  if(level()>lv){P.coins+=20;toast(`⭐ ¡Nivel ${level()}! +20 🪙`);fx('level')}else toast(`+${xp} XP`+(coins?` · +${coins} 🪙`:''));
   saveP();renderBar();
 }
 function ev(game,type,val){
@@ -436,7 +481,7 @@ function ev(game,type,val){
       else if(d.type==='count'&&type==='count')m.p+=val;
     }
     const done=d.type==='min'?(m.p>0&&m.p<d.g):m.p>=d.g;
-    if(done){m.d=true;P.coins+=60;P.xp+=120;toast(`✅ Misión cumplida · +60 🪙 +120 XP`)}
+    if(done){m.d=true;P.coins+=25;P.xp+=120;toast(`✅ Misión cumplida · +25 🪙 +120 XP`);fx('win')}
     if(m.p!==before||m.d)changed=true;
   });
   if(changed){saveP();renderBar();if(!$('#home').hidden)renderMissions()}
@@ -450,7 +495,7 @@ function renderMissions(){
   const el=$('#missions');if(!P.mis){el.innerHTML='';return}
   const left=Math.ceil((864e5-(Date.now()-new Date().getTimezoneOffset()*6e4)%864e5)/36e5);
   el.innerHTML=`<div class="streakbig"><div class="n">🔥 ${P.streak}</div><div class="l">racha · récord ${P.best}</div><div class="l" style="margin-top:4px">🛡️ ${P.shields} escudos</div></div>
-  <div><div class="mt"><span>misiones de hoy</span><span>se renuevan en ~${left} h</span></div><div class="mlist">${P.mis.map(m=>{const d=MPOOL.find(x=>x.k===m.k);if(!d)return'';const pct=d.type==='min'?(m.d?100:0):clamp(m.p/d.g*100,0,100);const pr=d.type==='min'?(m.p?m.p+' ms':'—'):`${Math.min(m.p,d.g)}/${d.g}`;return`<div class="mi${m.d?' done':''}"><span>${m.d?'✅ ':''}${d.t}</span><span class="muted">${m.d?'+60 🪙':pr}</span><div class="pb"><i style="width:${pct}%"></i></div></div>`}).join('')}</div></div>`;
+  <div><div class="mt"><span>misiones de hoy</span><span>se renuevan en ~${left} h</span></div><div class="mlist">${P.mis.map(m=>{const d=MPOOL.find(x=>x.k===m.k);if(!d)return'';const pct=d.type==='min'?(m.d?100:0):clamp(m.p/d.g*100,0,100);const pr=d.type==='min'?(m.p?m.p+' ms':'—'):`${Math.min(m.p,d.g)}/${d.g}`;return`<div class="mi${m.d?' done':''}"><span>${m.d?'✅ ':''}${d.t}</span><span class="muted">${m.d?'+25 🪙':pr}</span><div class="pb"><i style="width:${pct}%"></i></div></div>`}).join('')}</div></div>`;
 }
 
 /* diarios */
@@ -458,16 +503,17 @@ const DAILIES=[['wordle','🟩 Palabra','#/wordle'],['sudoku-facil','🔢 Sudoku
 function dailyDone(k){return P.dd&&P.dd.d===dayNum()&&P.dd.list.includes(k)}
 function markDaily(k){const d=dayNum();if(!P.dd||P.dd.d!==d)P.dd={d,list:[]};if(P.dd.list.includes(k))return false;P.dd.list.push(k);
   if(P.dsLast!==d){P.ds=P.dsLast===d-1?(P.ds||0)+1:1;P.dsLast=d;P.dsBest=Math.max(P.dsBest||0,P.ds);toast(`📅 Racha de diarios: ${P.ds} día${P.ds>1?'s':''}`)}
-  P.coins+=15;saveP();renderBar();return true}
+  P.coins+=5;saveP();renderBar();return true}
 function dStreak(){return P.dsLast>=dayNum()-1?(P.ds||0):0}
 function renderDaily(){const n=DAILIES.filter(x=>dailyDone(x[0])).length;
-  $('#daily').innerHTML=`<div class="mt"><span>📅 diarios de hoy · ${n}/${DAILIES.length} · racha ${dStreak()} (récord ${P.dsBest||0})</span><span>nuevos en ${fmtTime(untilTomorrow())}</span></div><div class="dl">${DAILIES.map(([k,l,h])=>`<a href="${h}" class="${dailyDone(k)?'ok':''}">${dailyDone(k)?'✓ ':''}${l}</a>`).join('')}</div><p class="muted" style="font-size:.74rem;margin-top:8px">Los mismos puzzles para todo el mundo cada día. Cada uno completado da +15 🪙; completa al menos uno al día para mantener la racha de diarios.</p>`}
+  $('#daily').innerHTML=`<div class="mt"><span>📅 diarios de hoy · ${n}/${DAILIES.length} · racha ${dStreak()} (récord ${P.dsBest||0})</span><span>nuevos en ${fmtTime(untilTomorrow())}</span></div><div class="dl">${DAILIES.map(([k,l,h])=>`<a href="${h}" class="${dailyDone(k)?'ok':''}">${dailyDone(k)?'✓ ':''}${l}</a>`).join('')}</div><p class="muted" style="font-size:.74rem;margin-top:8px">Los mismos puzzles para todo el mundo cada día. Cada uno completado da +5 🪙; completa al menos uno al día para mantener la racha de diarios.</p>`}
 /* desafío diario: mismo juego y misma semilla para todos */
 const RETO_GAMES=['flappy','2048','runner','snake','bubble'];
 const retoGame=()=>RETO_GAMES[dayNum()%RETO_GAMES.length];
 let RETO=false;
 function retoState(){let r=Store.get('reto',null);if(!r||r.d!==dayNum())r={d:dayNum(),att:0,best:null,scores:[]};return r}
 
+const cpick=a=>a[Math.floor(RAND0()*a.length)],crnd=(a,b)=>Math.floor(RAND0()*(b-a+1))+a;
 /* tienda */
 const SHOP=[
   {ic:'🛡️',n:'Escudo de racha',d:'Si un día no entras, tu racha no se pierde. Se acumulan.',cost:()=>150,own:()=>`${P.shields} en reserva`,buy(){P.shields++}},
@@ -475,32 +521,150 @@ const SHOP=[
   {ic:'💡',n:'Pista de Palabra',d:'Revela una letra en la Palabra del día.',cost:()=>80,own:()=>`${P.hints} pistas`,buy(){P.hints++}},
   {ic:'🧲',n:'Imán de monedas',d:'+5 % de monedas en todos los juegos. Hasta nivel 10.',cost:()=>P.magnet>=10?Infinity:Math.round(250*Math.pow(1.6,P.magnet)),own:()=>`nivel ${P.magnet}/10`,buy(){P.magnet++}},
 ];
-function openShop(){
-  const themes=Object.entries(THEMES).map(([k,c])=>{const owned=P.themes.includes(k),act=P.theme===k;return`<div class="si"><span class="ic" style="width:26px;height:26px;border-radius:50%;background:${c}"></span><div><div class="t">Color ${k}</div><div class="d">Cambia el color de acento de todo el sitio.</div></div><button class="btn sm${act?'':' ac'}" data-theme="${k}" ${act?'disabled':''}>${act?'en uso':owned?'usar':'300 🪙'}</button></div>`}).join('');
-  openModal(`<h3>Tienda de perks</h3><p class="muted" style="font-size:.82rem">Tienes <b style="color:var(--tx)">${fmt(P.coins)} 🪙</b> · nivel ${level()} · ${fmt(P.xp)} XP</p>
-  <div class="shop">${SHOP.map((s,i)=>{const c=s.cost();return`<div class="si"><span class="ic">${s.ic}</span><div><div class="t">${s.n}</div><div class="d">${s.d}</div><div class="o">${s.own()}</div></div><button class="btn sm ac" data-buy="${i}" ${P.coins<c?'disabled':''}>${c===Infinity?'máx.':fmt(c)+' 🪙'}</button></div>`}).join('')}${themes}</div>`);
+/* cosméticos: slot = se equipa uno de cada tipo; toggle = se activa/desactiva; rep = se puede comprar infinitas veces */
+const COSM=[
+  {id:'confeti',kind:'toggle',ic:'🎉',n:'Confeti',d:'Lluvia de confeti al subir de nivel, cumplir una misión o batir un récord.',cost:250},
+  {id:'comic',kind:'toggle',ic:'🔤',n:'Letra cómica',d:'Toda la web con una letra de lo más seria. Totalmente inútil.',cost:150},
+  {id:'alreves',kind:'toggle',ic:'🙃',n:'Logo al revés',d:'Pone el logo boca abajo. Ya está. Eso es todo.',cost:100},
+  {id:'torcida',kind:'toggle',ic:'📐',n:'Web torcida',d:'Inclina la web un pelín. Lo justo para que moleste.',cost:120},
+  {id:'brillo',kind:'toggle',ic:'💫',n:'Logo brillante',d:'El logo brilla. No sirve de nada, pero brilla.',cost:200},
+  {id:'gigante',kind:'toggle',ic:'🪙',n:'Monedas gigantes',d:'Tu contador de monedas se ve enorme. Las monedas siguen siendo las mismas.',cost:180},
+  {id:'nada',kind:'rep',ic:'📦',n:'Absolutamente nada',d:'No hace nada. De verdad. Se puede comprar todas las veces que quieras.',cost:500},
+  {id:'t_proc',slot:'title',ic:'🏷️',n:'Título: Procrastinador profesional',d:'Aparece junto al logo.',cost:120,v:'Procrastinador profesional'},
+  {id:'t_techo',slot:'title',ic:'🏷️',n:'Título: Inspector de techos',d:'Aparece junto al logo.',cost:120,v:'Inspector de techos'},
+  {id:'t_siesta',slot:'title',ic:'🏷️',n:'Título: Doctor en siestas',d:'Aparece junto al logo.',cost:200,v:'Doctor en siestas'},
+  {id:'t_minuto',slot:'title',ic:'🏷️',n:'Título: Leyenda del último minuto',d:'Aparece junto al logo.',cost:200,v:'Leyenda del último minuto'},
+  {id:'t_millo',slot:'title',ic:'🏷️',n:'Título: Millonario de mentira',d:'Aparece junto al logo.',cost:350,v:'Millonario de mentira'},
+  {id:'t_nada',slot:'title',ic:'🏷️',n:'Título: Coleccionista de nada',d:'Necesitas haber comprado «Absolutamente nada» 3 veces.',cost:100,v:'Coleccionista de nada',req:()=>(P.nada||0)>=3},
+  {id:'tr_star',slot:'trail',ic:'✨',n:'Rastro de estrellas',d:'El ratón deja estrellas al moverse.',cost:300,v:['✨','⭐','🌟']},
+  {id:'tr_bub',slot:'trail',ic:'🫧',n:'Rastro de burbujas',d:'El ratón deja burbujas al moverse.',cost:300,v:['🫧','◦','○']},
+  {id:'tr_fire',slot:'trail',ic:'🔥',n:'Rastro de fuego',d:'El ratón va dejando fuego. Tranquilo, no quema.',cost:400,v:['🔥','✦']},
+  {id:'tr_rain',slot:'trail',ic:'🌈',n:'Rastro arcoíris',d:'Una estela de todos los colores.',cost:500,v:'rainbow'},
+  {id:'p_pato',slot:'pet',ic:'🦆',n:'Mascota: pato',d:'Cruza la pantalla de vez en cuando. Si lo tocas, hace cuac.',cost:250,v:'🦆'},
+  {id:'p_gato',slot:'pet',ic:'🐈',n:'Mascota: gato',d:'Pasea por abajo ignorándote, como todos los gatos.',cost:250,v:'🐈'},
+  {id:'p_rana',slot:'pet',ic:'🐸',n:'Mascota: rana',d:'Va dando saltos por la pantalla.',cost:250,v:'🐸'},
+  {id:'p_pulpo',slot:'pet',ic:'🐙',n:'Mascota: pulpo',d:'Nadie sabe qué hace aquí.',cost:350,v:'🐙'},
+  {id:'p_dino',slot:'pet',ic:'🦖',n:'Mascota: dinosaurio',d:'Se escapó del Runner.',cost:400,v:'🦖'},
+  {id:'w_nieve',slot:'weather',ic:'❄️',n:'Clima: nieve',d:'Nieva en la portada.',cost:300,v:['❄️','❅','❆']},
+  {id:'w_hojas',slot:'weather',ic:'🍂',n:'Clima: otoño',d:'Caen hojas en la portada.',cost:300,v:['🍂','🍁']},
+  {id:'w_flor',slot:'weather',ic:'🌸',n:'Clima: pétalos',d:'Caen pétalos en la portada.',cost:300,v:['🌸','💮']},
+  {id:'w_coin',slot:'weather',ic:'💸',n:'Clima: lluvia de dinero',d:'Llueven billetes en la portada. No se pueden coger.',cost:600,v:['💸','💵','🪙']},
+];
+const MUSIC=[
+  {id:'m_lofi',ic:'🎧',n:'Lo-fi tranquilo',d:'Acordes suaves y ritmo lento para concentrarse (o no).',cost:400},
+  {id:'m_chip',ic:'👾',n:'Chiptune arcade',d:'Música de consola antigua, rápida y con energía.',cost:400},
+  {id:'m_space',ic:'🌌',n:'Ambiente espacial',d:'Sonidos flotantes y relajados, sin percusión.',cost:500},
+];
+const SLOTN={title:'Títulos',trail:'Rastros del ratón',pet:'Mascotas',weather:'Clima de la portada'};
+let shopTab='util';
+const owns=id=>P.inv.includes(id);
+function shopBtn(attrs,label,on){return`<button class="btn sm${on?' ac':''}" ${attrs}>${label}</button>`}
+function cosmRow(it){const own=owns(it.id),locked=it.req&&!it.req();let btn;
+  if(it.kind==='rep')btn=shopBtn(`data-cb="${it.id}" ${P.coins<it.cost?'disabled':''}`,fmt(it.cost)+' 🪙',1);
+  else if(!own)btn=shopBtn(`data-cb="${it.id}" ${P.coins<it.cost||locked?'disabled':''}`,locked?'🔒':fmt(it.cost)+' 🪙',1);
+  else if(it.kind==='toggle')btn=shopBtn(`data-ct="${it.id}"`,P.on[it.id]?'activado':'desactivado',P.on[it.id]);
+  else{const eq=P.eq[it.slot]===it.id;btn=shopBtn(`data-ce="${it.id}"`,eq?'quitar':'equipar',!eq)}
+  const extra=it.id==='nada'&&P.nada?`<div class="o">Comprado ${P.nada} ${P.nada===1?'vez':'veces'}. Sigue sin hacer nada.</div>`:own&&it.slot&&P.eq[it.slot]===it.id?'<div class="o">equipado</div>':'';
+  return`<div class="si"><span class="ic">${it.ic}</span><div><div class="t">${it.n}</div><div class="d">${it.d}</div>${extra}</div>${btn}</div>`}
+function openShop(tab){if(tab)shopTab=tab;
+  const tabs=[['util','Útiles'],['cosm','Cosméticos'],['music','Música'],['color','Colores']];
+  let body='';
+  if(shopTab==='util')body=SHOP.map((s,i)=>{const c=s.cost();return`<div class="si"><span class="ic">${s.ic}</span><div><div class="t">${s.n}</div><div class="d">${s.d}</div><div class="o">${s.own()}</div></div><button class="btn sm ac" data-buy="${i}" ${P.coins<c?'disabled':''}>${c===Infinity?'máx.':fmt(c)+' 🪙'}</button></div>`}).join('');
+  else if(shopTab==='cosm'){body='<p class="muted" style="font-size:.78rem">Todo esto es completamente inútil. Por eso mola.</p>'+COSM.filter(x=>!x.slot).map(cosmRow).join('');
+    Object.entries(SLOTN).forEach(([k,l])=>{body+=`<div class="mt" style="margin-top:8px"><span>${l}</span></div>`+COSM.filter(x=>x.slot===k).map(cosmRow).join('')})}
+  else if(shopTab==='music'){const any=MUSIC.some(m=>owns(m.id));
+    body=`<p class="muted" style="font-size:.78rem">Música generada en directo por tu navegador, sin descargas. Se para sola en el modo profe. Cuando tengas una, aparece el botón 🎵 arriba.</p>`+MUSIC.map(m=>{const own=owns(m.id),cur=P.music.track===m.id&&P.music.on;return`<div class="si"><span class="ic">${m.ic}</span><div><div class="t">${m.n}</div><div class="d">${m.d}</div>${cur?'<div class="o">sonando ahora</div>':''}</div>${own?shopBtn(`data-mp="${m.id}"`,cur?'⏸ parar':'▶ poner',!cur):shopBtn(`data-cb="${m.id}" ${P.coins<m.cost?'disabled':''}`,fmt(m.cost)+' 🪙',1)}</div>`}).join('')+
+      (any?`<div class="row2" style="border:0"><span>🔊 Volumen</span><input type="range" min="0" max="100" value="${Math.round(P.music.vol*100)}" data-vol style="width:55%"></div>`:'')}
+  else body=Object.entries(THEMES).map(([k,c])=>{const owned=P.themes.includes(k),act=P.theme===k;return`<div class="si"><span class="ic" style="width:26px;height:26px;border-radius:50%;background:${c}"></span><div><div class="t">Color ${k}</div><div class="d">Cambia el color de acento de todo el sitio.</div></div><button class="btn sm${act?'':' ac'}" data-theme="${k}" ${act?'disabled':''}>${act?'en uso':owned?'usar':'400 🪙'}</button></div>`}).join('');
+  openModal(`<h3>Tienda</h3><p class="muted" style="font-size:.82rem">Tienes <b style="color:var(--tx)">${fmt(P.coins)} 🪙</b> · nivel ${level()} · ${fmt(P.xp)} XP</p><div class="seg mt1">${tabs.map(([k,l])=>`<button data-stab="${k}" class="${k===shopTab?'on':''}">${l}</button>`).join('')}</div><div class="shop">${body}</div>`);
 }
+function buyCosm(id){const it=COSM.find(x=>x.id===id)||MUSIC.find(x=>x.id===id);if(!it||P.coins<it.cost||(it.req&&!it.req()))return;
+  P.coins-=it.cost;
+  if(it.kind==='rep'){P.nada=(P.nada||0)+1;toast(cpick(['📦 Has comprado nada. Enhorabuena.','📦 Sigue sin hacer nada.','📦 Gran inversión.','📦 Nada nuevo bajo el sol.']))}
+  else{P.inv.push(id);if(it.kind==='toggle')P.on[id]=true;else if(it.slot)P.eq[it.slot]=id;else if(MUSIC.includes(it)){P.music.track=id;P.music.on=true;Music.play()}toast(it.ic+' '+it.n.replace(/^[^:]+: /,'')+' comprado')}
+  saveP();renderBar();applyCosm();openShop()}
+
+/* efectos cosméticos */
+function applyCosm(){const b=document.body;b.classList.toggle('comic',!!P.on.comic);b.classList.toggle('alreves',!!P.on.alreves);b.classList.toggle('torcida',!!P.on.torcida);b.classList.toggle('brillo',!!P.on.brillo);b.classList.toggle('gigante',!!P.on.gigante);
+  const t=COSM.find(x=>x.id===P.eq.title);$('#st-title').textContent=t?t.v:'';$('#st-title').hidden=!t;
+  $('#st-music').hidden=!MUSIC.some(m=>owns(m.id));$('#st-music').textContent=P.music.on?'🎵':'🔇';
+  petSchedule()}
+function fx(kind){if(!P.on.confeti||BOSS)return;const cols=['#ff6b35','#22d3ee','#a3e635','#f472b6','#facc15','#a78bfa'];const n=kind==='level'?90:55;
+  for(let i=0;i<n;i++){const d=document.createElement('i');d.className='conf';d.style.left=RAND0()*100+'vw';d.style.background=cpick(cols);d.style.animationDuration=(1.6+RAND0()*1.6)+'s';d.style.animationDelay=RAND0()*.4+'s';d.style.setProperty('--dx',(RAND0()*160-80)+'px');document.body.appendChild(d);setTimeout(()=>d.remove(),3800)}}
+let trailT=0;
+document.addEventListener('pointermove',e=>{const it=COSM.find(x=>x.id===P.eq.trail);if(!it||e.pointerType!=='mouse'||BOSS)return;const now=performance.now();if(now-trailT<40)return;trailT=now;
+  const s=document.createElement('span');s.className='trail';s.style.left=e.clientX+'px';s.style.top=e.clientY+'px';
+  if(it.v==='rainbow'){s.textContent='●';s.style.color=`hsl(${(now/4)%360},90%,60%)`}else s.textContent=cpick(it.v);document.body.appendChild(s);setTimeout(()=>s.remove(),800)});
+let petTo=null;
+function petSchedule(){clearTimeout(petTo);if(!P.eq.pet)return;petTo=setTimeout(petWalk,crnd(8,25)*1000)}
+function petWalk(){const it=COSM.find(x=>x.id===P.eq.pet);if(!it)return;if(BOSS||document.hidden){petSchedule();return}
+  const p=document.createElement('button');p.className='pet'+(it.id==='p_rana'?' hop':'');p.textContent=it.v;const ltr=RAND0()<.5;p.style.animationName=ltr?'petR':'petL';if(!ltr)p.style.transform='scaleX(-1)';
+  p.onclick=()=>{toast(it.id==='p_pato'?'🦆 ¡Cuac!':it.id==='p_gato'?'🐈 …(te ignora)':it.id==='p_rana'?'🐸 ¡Croac!':it.id==='p_pulpo'?'🐙 *ruidos de pulpo*':'🦖 ¡RAWR!');Music.blip(it.id==='p_pato'?520:it.id==='p_rana'?180:300)};
+  document.body.appendChild(p);setTimeout(()=>{p.remove();petSchedule()},15000)}
+setInterval(()=>{const it=COSM.find(x=>x.id===P.eq.weather);if(!it||BOSS||$('#home').hidden||document.hidden)return;if(document.querySelectorAll('.wx').length>22)return;
+  const f=document.createElement('span');f.className='wx';f.textContent=cpick(it.v);f.style.left=RAND0()*100+'vw';f.style.animationDuration=(7+RAND0()*6)+'s';f.style.fontSize=(12+RAND0()*12)+'px';document.body.appendChild(f);setTimeout(()=>f.remove(),13500)},450);
+
+/* música generativa con Web Audio */
+const Music=(()=>{let ctx=null,master=null,delay=null,noise=null,iv=null,step=0,nextT=0,cur=null,rng=Math.random;
+  const mtof=m=>440*Math.pow(2,(m-69)/12);
+  function init(){if(ctx)return true;const AC=window.AudioContext||window.webkitAudioContext;if(!AC)return false;ctx=new AC();master=ctx.createGain();master.gain.value=P.music.vol*.5;master.connect(ctx.destination);
+    delay=ctx.createDelay(1);delay.delayTime.value=.42;const fb=ctx.createGain();fb.gain.value=.38;const dg=ctx.createGain();dg.gain.value=.5;delay.connect(fb);fb.connect(delay);delay.connect(dg);dg.connect(master);
+    noise=ctx.createBuffer(1,ctx.sampleRate,ctx.sampleRate);const d=noise.getChannelData(0);for(let i=0;i<d.length;i++)d[i]=RAND0()*2-1;return true}
+  function tone(f,t,dur,type,vol,o){o=o||{};const os=ctx.createOscillator(),g=ctx.createGain();os.type=type;os.frequency.value=f;if(o.det)os.detune.value=o.det;let out=g;
+    if(o.lp){const fl=ctx.createBiquadFilter();fl.type='lowpass';fl.frequency.value=o.lp;g.connect(fl);out=fl}
+    const a=o.a||.005,r=o.r||dur*.8;g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(vol,t+a);g.gain.setValueAtTime(vol,t+Math.max(a,dur-r));g.gain.exponentialRampToValueAtTime(.0001,t+dur);
+    os.connect(g);out.connect(master);if(o.echo)out.connect(delay);os.start(t);os.stop(t+dur+.05)}
+  function kick(t,v){const os=ctx.createOscillator(),g=ctx.createGain();os.frequency.setValueAtTime(140,t);os.frequency.exponentialRampToValueAtTime(40,t+.14);g.gain.setValueAtTime(v,t);g.gain.exponentialRampToValueAtTime(.001,t+.2);os.connect(g);g.connect(master);os.start(t);os.stop(t+.22)}
+  function nz(t,dur,v,hp){const s=ctx.createBufferSource(),f=ctx.createBiquadFilter(),g=ctx.createGain();s.buffer=noise;f.type='highpass';f.frequency.value=hp;g.gain.setValueAtTime(v,t);g.gain.exponentialRampToValueAtTime(.001,t+dur);s.connect(f);f.connect(g);g.connect(master);s.start(t);s.stop(t+dur+.02)}
+  const TR={
+    m_lofi:{bpm:76,swing:.18,prog:[[50,53,57,60,64],[43,53,57,59,64],[48,52,55,59,62],[45,52,55,60,64]],
+      step(s,t,d){const bar=Math.floor(s/16)%4,i=s%16,ch=this.prog[bar];if(i===0){if(s%64===0)rng=seeded('lofi'+Math.floor(s/64)%3);ch.slice(1).forEach(n=>tone(mtof(n),t,d*15,'triangle',.05,{a:.25,lp:900}))}
+        if(i===0||i===10)tone(mtof(ch[0]-12),t,d*5,'sine',.22,{a:.01,lp:400});
+        if(i===0||i===7||i===10)kick(t,.5);if(i===4||i===12)nz(t,.14,.12,1800);if(i%2===0)nz(t,.04,.05,7000);
+        if(i%2===0&&rng()<.28){const sc=[0,3,5,7,10,12,15];tone(mtof(ch[0]+12+cpick(sc)),t,d*crnd(2,4),'sine',.06,{a:.02,echo:1})}}},
+    m_chip:{bpm:138,swing:0,prog:[[57,60,64],[53,57,60],[48,52,55],[55,59,62]],mel:[],
+      step(s,t,d){const bar=Math.floor(s/16)%4,i=s%16,ch=this.prog[bar];if(s%64===0){rng=seeded('chip'+Math.floor(s/128)%4);this.mel=Array.from({length:32},()=>rng()<.45?cpick([0,2,3,5,7,8,10,12]):null)}
+        tone(mtof(ch[i%3]+12),t,d*.9,'square',.035,{a:.002});
+        if(i%4===0)tone(mtof(ch[0]-12+(i===8?7:0)),t,d*3,'triangle',.18,{a:.002});
+        if(i===0||i===8)kick(t,.45);if(i===4||i===12)nz(t,.1,.13,2500);if(i%2===1)nz(t,.03,.04,8000);
+        const m=this.mel[(s%32)];if(m!=null&&i%2===0)tone(mtof(69+m),t,d*1.8,'square',.05,{a:.002})}},
+    m_space:{bpm:58,swing:0,prog:[[48,55,59,64],[45,52,55,60],[41,48,52,57],[40,47,50,55]],
+      step(s,t,d){const bar=Math.floor(s/32)%4,i=s%32,ch=this.prog[bar];if(i===0)ch.forEach((n,k)=>{tone(mtof(n),t,d*31,'sine',.045,{a:2,r:3,det:k%2?6:-6});tone(mtof(n+12),t,d*31,'sine',.015,{a:3,r:3})});
+        if(i%4===2&&RAND0()<.35)tone(mtof(cpick(ch)+24),t,d*6,'sine',.05,{a:.005,r:d*5,echo:1})}}
+  };
+  function tick(){if(!cur||!ctx)return;const tr=TR[cur],d=60/tr.bpm/4;while(nextT<ctx.currentTime+.15){const sw=(step%2)?d*tr.swing:0;try{tr.step(step,nextT+sw,d)}catch(e){}nextT+=d;step++}}
+  return{
+    play(){if(!P.music.track||!owns(P.music.track))return;if(!init())return;if(cur!==P.music.track){cur=P.music.track;step=0;nextT=ctx.currentTime+.1}
+      if(ctx.state==='suspended')ctx.resume();clearInterval(iv);iv=setInterval(tick,30);P.music.on=true},
+    stop(){clearInterval(iv);iv=null;cur=null;if(ctx)ctx.suspend();P.music.on=false},
+    pause(on){if(!ctx)return;if(on)ctx.suspend();else if(P.music.on&&iv)ctx.resume()},
+    vol(v){P.music.vol=v;if(master)master.gain.value=v*.5},
+    blip(f){if(!init())return;if(ctx.state==='suspended')ctx.resume();tone(f,ctx.currentTime+.01,.18,'square',.08);tone(f*1.5,ctx.currentTime+.09,.14,'square',.06);if(!P.music.on)setTimeout(()=>{if(!P.music.on&&ctx)ctx.suspend()},400)}
+  }})();
+function toggleMusic(){if(P.music.on){Music.stop()}else{if(!P.music.track||!owns(P.music.track))P.music.track=(MUSIC.find(m=>owns(m.id))||{}).id;Music.play()}saveP();applyCosm()}
+/* el navegador no deja sonar nada hasta que el usuario toca la página */
+['pointerdown','keydown'].forEach(t=>document.addEventListener(t,function once(){if(P.music.on&&!BOSS)Music.play();document.removeEventListener(t,once)},{once:true}));
 function openMissionsInfo(){
-  openModal(`<h3>🔥 Racha diaria</h3><p class="muted" style="font-size:.85rem;margin:6px 0 10px">Entra cada día para mantener la racha. Cada día te da <b style="color:var(--tx)">20 + 5 × racha</b> monedas (máx. 170). Si un día no puedes, un 🛡️ escudo de la tienda la protege.</p><div class="stats3"><div class="stat"><b>${P.streak}</b><span>racha</span></div><div class="stat"><b>${P.best}</b><span>récord</span></div><div class="stat"><b>${P.shields}</b><span>escudos</span></div></div><p class="muted mt1" style="font-size:.8rem">Completa las 3 misiones diarias de la portada para ganar +60 🪙 y +120 XP cada una.</p>`);
+  openModal(`<h3>🔥 Racha diaria</h3><p class="muted" style="font-size:.85rem;margin:6px 0 10px">Entra cada día para mantener la racha. Cada día te da <b style="color:var(--tx)">10 + 2 × racha</b> monedas (máx. 70). Si un día no puedes, un 🛡️ escudo de la tienda la protege.</p><div class="stats3"><div class="stat"><b>${P.streak}</b><span>racha</span></div><div class="stat"><b>${P.best}</b><span>récord</span></div><div class="stat"><b>${P.shields}</b><span>escudos</span></div></div><p class="muted mt1" style="font-size:.8rem">Completa las 3 misiones diarias de la portada para ganar +25 🪙 y +120 XP cada una. Las monedas de cada juego se reducen cuando ese mismo juego ya te ha dado 40 🪙 en el día: ¡cambia de juego!</p>`);
 }
 function openModal(html){$('#modal-body').innerHTML=html;$('#modal').hidden=false}
 function closeModal(){$('#modal').hidden=true}
 function applyTheme(){ACC=THEMES[P.theme]||THEMES.naranja;document.documentElement.style.setProperty('--ac',ACC)}
 
 /* modo profe */
-function setBoss(on){BOSS=on;$('#boss').hidden=!on;document.title=on?'Apuntes · Tema 4 — La célula':(cur?cur.name+' · clase.fun':'clase.fun');if(on)closeModal()}
+function setBoss(on){BOSS=on;Music.pause(on);$('#boss').hidden=!on;document.title=on?'Apuntes · Tema 4 — La célula':(cur?cur.name+' · clase.fun':'clase.fun');if(on)closeModal()}
 
 /* ================= registro y navegación ================= */
 const G=[];const reg=g=>G.push(g);
 let cur=null,cleanup=null,filter='all';
 const CATS=[['all','Todos'],['diario','Diarios'],['arcade','Arcade'],['mente','Mente'],['grupo','En grupo'],['idle','Idle · Tycoon']];
 function api(g){const pre=g.id+(RETO?'_reto'+dayNum():'')+'_';return{
-  reward,ev:(t,v)=>ev(g.id,t,v),markDaily,
+  reward:(x,c)=>reward(x,c,g.id),ev:(t,v)=>ev(g.id,t,v),markDaily,
   get:(k,d)=>Store.get(pre+k,d),set:(k,v)=>Store.set(pre+k,v),
   best:d=>Store.get(g.id+'_best',d),
   record(v,low){
     if(RETO){const r=retoState();if(r.att<3){r.att++;r.scores.push(v);r.best=r.best==null?v:Math.max(r.best,v);Store.set('reto',r);if(r.att===1)markDaily('reto');setTimeout(()=>toast(`🏆 Desafío: intento ${r.att}/3 · mejor hoy ${r.best}`),900)}else setTimeout(()=>toast('Ya has usado tus 3 intentos del desafío de hoy'),900)}
-    const k=g.id+'_best',b=Store.get(k,null),n=b===null||(low?v<b:v>b);if(n)Store.set(k,v);return{best:n?v:b,isNew:n&&b!==null}}
+    const k=g.id+'_best',b=Store.get(k,null),n=b===null||(low?v<b:v>b);if(n)Store.set(k,v);if(n&&b!==null)fx('record');return{best:n?v:b,isNew:n&&b!==null}}
 }}
 function renderHome(){
   $('#count').textContent=G.length;
@@ -740,6 +904,275 @@ reg({id:'dinero',name:'Dinero rápido',emoji:'💸',cat:'mente',tag:'1 jugador',
   root.addEventListener('click',e=>{const p=e.target.closest('[data-p]');if(p&&!p.disabled){choose(+p.dataset.p);return}if(e.target.closest('[data-go]'))start()});
   const off=onKey(e=>{const k=e.key.toLowerCase();if(k==='arrowleft'||k==='a'){e.preventDefault();choose(0)}if(k==='arrowright'||k==='l'){e.preventDefault();choose(1)}if((k===' '||k==='enter')&&!running){e.preventDefault();start()}});
   money=100;lives=3;round=0;streak=0;hud();return()=>{clearInterval(timer);off()};
+}});
+
+/* ================= BOTÍN: motor (sin DOM) ================= */
+const BT={
+  /* c: color · f: caras · neg: caras que restan (rojos) */
+  T:{Y6:{c:'y',f:6,n:'Amarillo'},Y8:{c:'y',f:8,n:'Amarillo'},P8:{c:'p',f:8,n:'Morado'},P12:{c:'p',f:12,n:'Morado'},
+    B6:{c:'b',f:6,n:'Azul'},B8:{c:'b',f:8,n:'Azul'},B12:{c:'b',f:12,n:'Azul'},BB:{c:'b',f:6,br:1,n:'Azul brillante'},
+    R6:{c:'r',f:6,neg:3,n:'Rojo'},R8:{c:'r',f:8,neg:4,n:'Rojo'},RB:{c:'r',f:6,neg:2,n:'Rojo bendito'},RM:{c:'r',f:6,neg:5,n:'Rojo maldito'},
+    G20:{c:'g',f:20,n:'Verde'},T6:{c:'t',f:6,n:'Transparente'},K12:{c:'k',f:12,n:'Rosado',tmp:1},N6:{c:'n',f:6,n:'Negro',tmp:1},
+    AR:{c:'a',f:8,n:'Arcoíris'},BO:{c:'o',f:8,n:'Bomba'},ES:{c:'e',f:6,n:'Espejo'},KR:{c:'x',f:6,n:'Kraken'}},
+  /* bolsa equilibrada simulando miles de partidas entre bots con estrategias distintas */
+  BAG:{Y6:8,Y8:4,B6:10,B8:11,B12:6,BB:4,R6:6,R8:2,RB:1,RM:6,T6:17,P8:9,P12:3,G20:12},
+  CAOS_BAG:{AR:2,BO:4,ES:4,KR:1},
+  EV:[
+    {id:'viento',ic:'🌬️',n:'Viento a favor',d:'Los amarillos valen el doble.'},
+    {id:'marea',ic:'🌊',n:'Marea roja',d:'Los rojos no multiplican.'},
+    {id:'cofre',ic:'💰',n:'Cofre hallado',d:'Salen 2 dados más en la elección.'},
+    {id:'motin',ic:'🏴‍☠️',n:'Motín',d:'Tras puntuar, todos pasan un dado al azar al jugador de su izquierda.'},
+    {id:'aduana',ic:'⚓',n:'Aduana',d:'Quien más dados tenga devuelve uno al azar a la bolsa.'},
+    {id:'niebla',ic:'🌫️',n:'Niebla',d:'No hay robos esta ronda.'},
+    {id:'tormenta',ic:'⛈️',n:'Tormenta',d:'Cada 1 que saques resta 3 puntos más.'},
+    {id:'plata',ic:'🐚',n:'Mar de plata',d:'Todos los azules se duplican, tengas brillante o no.'},
+    {id:'oro',ic:'☠️',n:'Oro maldito',d:'Los morados restan en vez de sumar.'},
+    {id:'ron',ic:'🍹',n:'Ron para todos',d:'Todos ganan 5 puntos.'},
+    {id:'abordaje',ic:'⚔️',n:'Abordaje',d:'El último de la ronda roba un dado al primero.'},
+    {id:'calma',ic:'🧭',n:'Mar en calma',d:'Los dados de 20 caras se tiran dos veces y se queda el menor.'},
+    {id:'sirenas',ic:'🧜',n:'Canto de sirenas',d:'Los transparentes valen el triple.'},
+    {id:'mapa',ic:'🗺️',n:'Mapa del tesoro',d:'La elección va al revés: empieza el de menor suma amarilla.'},
+  ],
+  KF:['×2 a tu ronda','Robo gratis','−10 puntos','+10 puntos','Los demás −5','Pasa a tu izquierda'],
+  CN:{y:'amarillo',p:'morado',b:'azul',r:'rojo',g:'verde',t:'transparente'},
+  r:(n)=>1+Math.floor(Math.random()*n),
+  sh(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a},
+
+  newGame(players,cfg){let id=1;const bag=[];const add=(o)=>Object.entries(o).forEach(([t,n])=>{for(let i=0;i<n;i++)bag.push({t,id:id++})});add(BT.BAG);if(cfg.dice)add(BT.CAOS_BAG);
+    const S={v:1,cfg,round:1,phase:'pre',bag:BT.sh(bag),nid:id,leader:-1,prevLeader:-1,log:[],
+      players:players.map((p,i)=>({name:p.name,bot:!!p.bot,style:p.style||null,dice:[{t:'Y6',id:id++}],total:0,hist:[],bet:false,last:0})),
+      deck:cfg.events?BT.sh(BT.EV.map(e=>e.id)):[],event:null,roll:null,res:null,order:null,draft:null,dq:null,sq:null,free:{}};
+    S.nid=id;return S},
+  P(S,i){return S.players[i]},
+  left(S,i){return(i+1)%S.players.length},
+  canTake(S,pi,d){const p=S.players[pi],dt=BT.T[d.t];if(dt.tmp)return false;if(dt.c==='y'&&p.dice.filter(x=>BT.T[x.t].c==='y').length<=1)return false;return true},
+
+  startRound(S){S.event=S.cfg.events?BT.EV.find(e=>e.id===S.deck[(S.round-1)%S.deck.length]):null;S.free={};S.phase='pre';S.players.forEach(p=>p.bet=false)},
+  rollDie(S,d){const dt=BT.T[d.t];let v=BT.r(dt.f);if(dt.c==='g'&&S.event&&S.event.id==='calma')v=Math.min(v,BT.r(dt.f));return v},
+  rollAll(S){S.roll=S.players.map(p=>p.dice.map(d=>({id:d.id,t:d.t,v:BT.rollDie(S,d)})));S.phase='rolled'},
+  reroll(S,pi,id){const r=S.roll[pi].find(x=>x.id===id);if(r)r.v=BT.rollDie(S,r)},
+
+  /* puntuación de un jugador con una tirada dada */
+  score(S,pi,rolls,ev){ev=ev||(S.event&&S.event.id);const o={y:0,p:0,b:0,r:0,g:0,t:0,k:0,n:0,a:0,o:0,e:0,x:0,kr:0,boom:[],ysum:0,rc:0,tot:0,arc:[]};let br=false,ones=0;
+    const arcs=[];
+    rolls.forEach(d=>{const dt=BT.T[d.t],v=d.v;if(v===1)ones++;
+      switch(dt.c){case'y':o.y+=v;o.ysum+=v;break;case'p':o.p+=v;break;case'b':o.b+=v;if(dt.br)br=true;break;
+        case'r':o.r+=v<=dt.neg?-v:v;o.rc++;break;case'g':o.g+=v;break;case't':o.t+=v;break;case'k':o.k+=v;break;case'n':o.n-=v;break;
+        case'a':arcs.push(v);break;case'o':if(v===1)o.boom.push(d.id);else o.o+=2*v;break;
+        case'e':{const L=S.roll&&S.roll[(pi+1)%S.players.length];o.e+=L&&L.length?Math.max(...L.filter(x=>BT.T[x.t].c!=='e').map(x=>x.v),0):0;break}
+        case'x':o.kr=v;break}});
+    const total=(q)=>{const ym=ev==='viento'?2:1,pm=ev==='oro'?-2:2,bm=(q.br||ev==='plata')?2:1,rm=ev==='marea'?1:q.rc,tm=ev==='sirenas'?3:1;
+      return q.y*ym+q.p*pm+q.b*bm+q.r*rm+q.g+q.t*tm+q.k+q.n+q.o+q.e};
+    /* el arcoíris se convierte en el color que más puntos te dé */
+    let best={...o,br},bestT=total(best);
+    if(arcs.length){const cs=['y','p','b','r','g','t'];const rec=(k,q)=>{if(k===arcs.length){const t=total(q);if(t>bestT){bestT=t;best=q}return}
+      for(const c of cs){const q2={...q,arc:q.arc.concat(c)},v=arcs[k];if(c==='r'){q2.r+=v<=4?-v:v;q2.rc++}else q2[c]+=v;rec(k+1,q2)}};rec(0,{...o,br})}
+    let t=bestT;if(ev==='tormenta')t-=3*ones;if(ev==='ron')t+=5;
+    best.base=t;best.ones=ones;return best},
+
+  scoreRound(S){const n=S.players.length,res=S.players.map((p,i)=>BT.score(S,i,S.roll[i]));const ev=S.event&&S.event.id;
+    res.forEach((q,i)=>{q.tot=q.base;if(q.kr===1)q.tot*=2;if(q.kr===3)q.tot-=10;if(q.kr===4)q.tot+=10});
+    res.forEach((q,i)=>{if(q.kr===5)res.forEach((q2,j)=>{if(j!==i)q2.tot-=5})});
+    /* apuesta: ganar la ronda */
+    const mx=Math.max(...res.map(q=>q.tot));
+    res.forEach((q,i)=>{q.betOk=null;if(S.players[i].bet){q.betOk=q.tot===mx;q.tot+=q.betOk?10:-5}});
+    res.forEach((q,i)=>{const p=S.players[i];p.total+=q.tot;p.hist.push(q.tot);p.last=q.tot});
+    /* orden por suma amarilla con desempates relanzando amarillos */
+    const key=res.map(q=>[q.ysum]),tb=[];let groups=true,guard=0;
+    while(groups&&guard++<50){groups=false;const ord=[...Array(n).keys()].sort((a,b)=>BT.cmp(key[b],key[a]));
+      for(let i=0;i<n;){let j=i;while(j+1<n&&BT.cmp(key[ord[j+1]],key[ord[i]])===0)j++;if(j>i){groups=true;const g=ord.slice(i,j+1),line=[];
+        g.forEach(pi=>{const ys=S.players[pi].dice.filter(d=>BT.T[d.t].c==='y');const v=ys.reduce((s,d)=>s+BT.r(BT.T[d.t].f),0);key[pi].push(v);line.push(S.players[pi].name+' '+v)});tb.push(line.join(' · '))}i=j+1}}
+    const order=[...Array(n).keys()].sort((a,b)=>BT.cmp(key[b],key[a]));
+    S.res=res;S.order=order;S.tb=tb;S.prevLeader=S.leader;S.leader=order[0];S.phase='scored';return res},
+  cmp(a,b){for(let i=0;i<Math.max(a.length,b.length);i++){const x=a[i]??-1,y=b[i]??-1;if(x!==y)return x-y}return 0},
+
+  /* después de puntuar: quitar temporales, explosiones, consuelo, castigo, kraken, eventos */
+  afterScore(S){const n=S.players.length,log=[],ev=S.event&&S.event.id,res=S.res;
+    S.players.forEach((p,i)=>{p.dice=p.dice.filter(d=>!BT.T[d.t].tmp);if(res[i].boom.length){p.dice=p.dice.filter(d=>!res[i].boom.includes(d.id));log.push(`💣 ¡La bomba de ${p.name} explota!`)}});
+    if(S.round>=10)return log;
+    const byScore=[...Array(n).keys()].sort((a,b)=>res[a].tot-res[b].tot||S.order.indexOf(b)-S.order.indexOf(a));
+    const nk=Math.max(1,Math.floor(n/2));byScore.slice(0,nk).forEach(i=>{S.players[i].dice.push({t:'K12',id:S.nid++})});log.push('🩷 Consuelo para '+byScore.slice(0,nk).map(i=>S.players[i].name).join(', '));
+    if(S.cfg.black){const top=byScore[n-1];S.players[top].dice.push({t:'N6',id:S.nid++});log.push(`🖤 ${S.players[top].name} recibe el dado negro`)}
+    S.players.forEach((p,i)=>{const k=res[i].kr;if(k===2)S.free[i]=1;if(k===6){const kd=p.dice.find(d=>d.t==='KR');if(kd){p.dice=p.dice.filter(d=>d!==kd);S.players[BT.left(S,i)].dice.push(kd);log.push(`🐙 El Kraken pasa a ${S.players[BT.left(S,i)].name}`)}}});
+    if(ev==='motin'){const give=S.players.map((p,i)=>{const c=p.dice.filter(d=>BT.canTake(S,i,d));return c.length?c[Math.floor(Math.random()*c.length)]:null});
+      give.forEach((d,i)=>{if(d)S.players[i].dice=S.players[i].dice.filter(x=>x!==d)});give.forEach((d,i)=>{if(d)S.players[BT.left(S,i)].dice.push(d)});log.push('🏴‍☠️ ¡Motín! Cada uno pasa un dado a su izquierda')}
+    if(ev==='aduana'){const cnt=S.players.map(p=>p.dice.filter(d=>!BT.T[d.t].tmp).length),m=Math.max(...cnt);S.players.forEach((p,i)=>{if(cnt[i]!==m)return;const c=p.dice.filter(d=>BT.canTake(S,i,d));if(!c.length)return;const d=c[Math.floor(Math.random()*c.length)];p.dice=p.dice.filter(x=>x!==d);S.bag.push(d);log.push(`⚓ ${p.name} devuelve un ${BT.T[d.t].n.toLowerCase()} a la bolsa`)})}
+    if(ev==='abordaje'&&n>1){const last=byScore[0],first=byScore[n-1];if(last!==first){const pick=BT.bestSteal(S,last,first,true);if(pick){BT.move(S,first,last,pick.id);log.push(`⚔️ ${S.players[last].name} aborda a ${S.players[first].name} y le quita un ${BT.T[pick.t].n.toLowerCase()}`)}}}
+    return log},
+  move(S,from,to,id){const d=S.players[from].dice.find(x=>x.id===id);if(!d)return null;S.players[from].dice=S.players[from].dice.filter(x=>x!==d);S.players[to].dice.push(d);return d},
+
+  /* robos: orden desde la izquierda del líder, el líder el último */
+  stealQueue(S){const n=S.players.length,q=[];for(let k=1;k<=n;k++)q.push((S.leader+k)%n);return q},
+  canSteal(S,pi){if(S.event&&S.event.id==='niebla')return false;return S.free[pi]||S.players[pi].dice.some(d=>d.t==='T6')},
+  steal(S,pi,target,id){const p=S.players[pi],d=S.players[target].dice.find(x=>x.id===id);if(!d||!BT.canTake(S,target,d))return null;
+    if(S.free[pi]){S.free[pi]=0;BT.move(S,target,pi,id);return{d,free:true}}
+    const tr=p.dice.find(x=>x.t==='T6'&&x.id!==id);if(!tr)return null;BT.move(S,target,pi,id);BT.move(S,pi,target,tr.id);return{d,free:false}},
+
+  drawDraft(S){const n=S.players.length+1+(S.event&&S.event.id==='cofre'?2:0);S.draft=S.bag.splice(0,Math.min(n,S.bag.length));
+    S.dq=S.event&&S.event.id==='mapa'?S.order.slice().reverse():S.order.slice();S.phase='draft'},
+  take(S,pi,id){const d=S.draft.find(x=>x.id===id);if(!d)return null;S.draft=S.draft.filter(x=>x!==d);S.players[pi].dice.push(d);return d},
+  endDraft(S){S.bag.push(...S.draft);BT.sh(S.bag);S.draft=null;S.round++;BT.startRound(S)},
+
+  final(S){const out=S.players.map((p,i)=>{let bonus=0,why=[];if(S.cfg.coll){const cnt={};let wild=0;p.dice.forEach(d=>{const c=BT.T[d.t].c;if(c==='a')wild++;else cnt[c]=(cnt[c]||0)+1});
+      const miss=['y','p','b','r','g','t'].filter(c=>!cnt[c]).length;if(miss<=wild){bonus+=15;why.push('🌈 un dado de cada color +15')}
+      Object.entries(cnt).forEach(([c,k])=>{if(k>=4&&BT.CN[c]){bonus+=10;why.push(`4+ ${BT.CN[c]} +10`)}})}
+      return{i,name:p.name,bot:p.bot,total:p.total+bonus,bonus,why,last:p.last}});
+    out.sort((a,b)=>b.total-a.total||b.last-a.last);S.phase='end';S.final=out;return out},
+
+  /* ---------- IA ---------- */
+  /* valor esperado aproximado de una colección en una tirada */
+  evOf(dice,style){let y=0,p=0,b=0,br=false,r=0,rc=0,g=0,t=0,k=0,o=0,e=0,a=0,x=0;
+    dice.forEach(d=>{const dt=BT.T[d.t],m=(dt.f+1)/2;switch(dt.c){case'y':y+=m;break;case'p':p+=m;break;case'b':b+=m;if(dt.br)br=true;break;
+      case'r':{let s=0;for(let v=1;v<=dt.f;v++)s+=v<=dt.neg?-v:v;r+=s/dt.f;rc++;break}case'g':g+=m;break;case't':t+=m;break;case'k':k+=m;break;case'n':k-=m;break;
+      case'o':o+=2*35/8;break;case'e':e+=6;break;case'a':a++;break;case'x':x=1;break}});
+    let v=y+p*2+b*(br?2:1)+r*rc+g+t+k+o+e+a*9;if(x)v+=v/6+1;
+    if(style){const w={y:y,p:p*2,b:b*(br?2:1),r:r*rc,g:g};v+=(w[style]||0)*1.5}return v},
+  /* valor de un dado para un jugador (por las rondas que quedan) */
+  worth(S,pi,d,without){const p=S.players[pi],base=p.dice.filter(x=>!BT.T[x.t].tmp&&x.id!==without),left=Math.max(1,10-S.round),st=p.style;
+    const dt=BT.T[d.t];let gain=BT.evOf(base.concat(d),st)-BT.evOf(base,st);
+    if(dt.c==='y')gain+=1.6+(st==='y'?2:0);if(dt.c==='t')gain+=st==='t'?6:3;if(d.t==='BO'){gain=gain*(1-Math.pow(7/8,left))*8/left}
+    return gain*left},
+  bestSteal(S,pi,target,free){let best=null,bv=0;const myT=S.players[pi].dice.find(x=>x.t==='T6');
+    S.players[target].dice.forEach(d=>{if(!BT.canTake(S,target,d)||d.t==='T6')return;const v=BT.worth(S,pi,d,free?null:myT&&myT.id)-(free?0:BT.worth(S,pi,myT||d))+BT.worth(S,target,d)*.35;if(v>bv){bv=v;best=d}});
+    return best&&bv>2?best:null},
+  botSteal(S,pi){let best=null;for(let j=0;j<S.players.length;j++){if(j===pi)continue;const d=BT.bestSteal(S,pi,j,!!S.free[pi]);if(d){const v=BT.worth(S,pi,d)+(S.players[j].total>=Math.max(...S.players.map(p=>p.total))?4:0);if(!best||v>best.v)best={j,d,v}}}return best},
+  /* elige el dado que más le conviene, pero también le quita al líder lo que más le sirve */
+  botPick(S,pi){let best=null,bv=-1e9;const top=Math.max(...S.players.map(p=>p.total));
+    S.draft.forEach(d=>{let deny=0;S.players.forEach((p,j)=>{if(j===pi)return;const w=BT.worth(S,j,d)*(p.total>=top*.92?.45:.15);if(w>deny)deny=w});
+      const v=BT.worth(S,pi,d)+deny+Math.random()*1.5;if(v>bv){bv=v;best=d}});return best},
+  botBet(S,pi){const e=S.players.map(p=>BT.evOf(p.dice)),me=e[pi],mx=Math.max(...e.filter((_,i)=>i!==pi));return me>mx*1.25||(me>mx*1.05&&Math.random()<.4)},
+  botReroll(S,pi){const rolls=S.roll[pi];let best=null,bg=0;const cur=BT.score(S,pi,rolls).base;
+    rolls.forEach(r=>{const dt=BT.T[r.t];let s=0;for(let v=1;v<=dt.f;v++){const alt=rolls.map(x=>x===r?{...x,v}:x);s+=BT.score(S,pi,alt).base}const g=s/dt.f-cur;if(g>bg){bg=g;best=r}});return bg>1.5?best:null},
+
+  /* partida completa entre bots (para simular el equilibrio) */
+  simulate(players,cfg){const S=BT.newGame(players,cfg);BT.startRound(S);
+    while(true){S.players.forEach((p,i)=>{if(cfg.bet)p.bet=BT.botBet(S,i)});BT.rollAll(S);
+      if(cfg.reroll&&S.leader>=0){const d=BT.botReroll(S,S.leader);if(d)BT.reroll(S,S.leader,d.id)}
+      BT.scoreRound(S);BT.afterScore(S);if(S.round>=10)break;
+      BT.stealQueue(S).forEach(pi=>{let g=0;while(BT.canSteal(S,pi)&&g++<3){const s=BT.botSteal(S,pi);if(!s)break;BT.steal(S,pi,s.j,s.d.id)}});
+      BT.drawDraft(S);S.dq.forEach(pi=>{const d=BT.botPick(S,pi);if(d)BT.take(S,pi,d.id)});BT.endDraft(S)}
+    return BT.final(S)},
+};
+
+/* ================= BOTÍN: interfaz ================= */
+reg({id:'botin',name:'Botín',emoji:'🏴‍☠️',cat:'grupo',tag:'2-10 jugadores',desc:'Juego de dados pirata: consigue dados nuevos cada ronda, roba a tus rivales y suma más botín en 10 rondas. Contra bots o en grupo.',bestFmt:v=>v+' pts',init(root,A){
+  const CAOS=[['events','🃏 Cartas de evento','Cada ronda se revela una carta que cambia las reglas.'],['dice','🎲 Dados especiales','Arcoíris, bomba, espejo y el Kraken entran en la bolsa.'],['black','🖤 Castigo al primero','Quien más puntos hace recibe un dado negro que resta.'],['coll','🌈 Colecciones','Al final: +15 por un dado de cada color, +10 por cada color con 4 o más.'],['bet','🎯 Apuesta de ronda','Antes de tirar puedes apostar a ganar la ronda: +10 / −5.'],['reroll','🧭 Relanzamiento del capitán','El capitán puede volver a tirar uno de sus dados.']];
+  const BOTN=['Barbanegra','Calico Jack','Ana Bonny','Morgan','Drake','Mary Read','Cheng','Kidd','Grace'];
+  let S=A.get('g',null),setup=A.get('setup',{players:[{name:'Tú',bot:false},{name:'Barbanegra',bot:true},{name:'Ana Bonny',bot:true},{name:'Morgan',bot:true}],caos:false,opt:{events:1,dice:1,black:1,coll:1,bet:1,reroll:1}});
+  let sel=null;
+  const save=()=>A.set('g',S);
+  const log=m=>{S.log.unshift(m);S.log.length=Math.min(S.log.length,40)};
+  const nm=i=>esc(S.players[i].name);
+  const humans=()=>S.players.filter(p=>!p.bot).length;
+  function dieHtml(d,o){o=o||{};const dt=BT.T[d.t];let txt,cls='dz c-'+dt.c+(dt.br?' br':'');
+    if(o.v!=null){txt=o.v;if(dt.c==='r'&&o.v<=dt.neg)cls+=' blk';if(dt.c==='x')txt='🐙'+o.v}
+    else txt=dt.c==='a'?'🌈':dt.c==='o'?'💣':dt.c==='e'?'🪞':dt.c==='x'?'🐙':'d'+dt.f;
+    if(d.t==='RB')cls+=' bend';if(d.t==='RM')cls+=' mald';
+    const title=dt.n+' d'+dt.f+(dt.c==='r'?` (1-${dt.neg} restan)`:'')+(dt.c==='x'&&o.v?' · '+BT.KF[o.v-1]:'');
+    return o.btn?`<button class="${cls} pk" ${o.btn} title="${title}">${txt}</button>`:`<span class="${cls}" title="${title}">${txt}</span>`}
+  function breakdown(q){const parts=[];const ev=S.event&&S.event.id;
+    if(q.y)parts.push(`🟡${q.y}${ev==='viento'?'×2':''}`);if(q.p)parts.push(`🟣${q.p}×${ev==='oro'?'−2':'2'}`);if(q.b)parts.push(`🔵${q.b}${q.br||ev==='plata'?'×2':''}`);
+    if(q.rc)parts.push(`🔴${q.r}${ev==='marea'?'':'×'+q.rc}`);if(q.g)parts.push(`🟢${q.g}`);if(q.t)parts.push(`⚪${q.t}${ev==='sirenas'?'×3':''}`);if(q.k)parts.push(`🩷${q.k}`);if(q.n)parts.push(`🖤${q.n}`);
+    if(q.o)parts.push(`💣${q.o}`);if(q.e)parts.push(`🪞${q.e}`);if(q.arc&&q.arc.length)parts.push('🌈→'+q.arc.map(c=>BT.CN[c]).join(','));if(q.kr)parts.push('🐙 '+BT.KF[q.kr-1]);
+    if(ev==='tormenta'&&q.ones)parts.push(`⛈️−${3*q.ones}`);if(ev==='ron')parts.push('🍹+5');if(q.betOk!=null)parts.push(q.betOk?'🎯+10':'🎯−5');return parts.join(' · ')}
+
+  /* ---------- configuración ---------- */
+  function renderSetup(){const pl=setup.players;
+    root.innerHTML=`<div style="max-width:620px;margin:0 auto">
+    ${S&&S.phase!=='end'?`<div class="card mb tc"><b>Tienes una partida a medias</b> · ronda ${S.round}/10<div class="bar mt1" style="justify-content:center"><button class="btn ac" data-resume>continuar</button><button class="btn bad" data-drop>descartarla</button></div></div>`:''}
+    <div class="card"><div class="mt"><span>jugadores (${pl.length}/10)</span><span>${pl.filter(p=>!p.bot).length} humanos · ${pl.filter(p=>p.bot).length} bots</span></div>
+    ${pl.map((p,i)=>`<div class="row2"><input type="text" value="${esc(p.name)}" data-pn="${i}" maxlength="14" style="flex:1"><button class="btn sm" data-pt="${i}">${p.bot?'🤖 bot':'🧑 humano'}</button><button class="btn sm" data-px="${i}" ${pl.length<=2?'disabled':''}>✕</button></div>`).join('')}
+    <div class="bar mt1"><button class="btn sm" data-add="0" ${pl.length>=10?'disabled':''}>+ humano</button><button class="btn sm" data-add="1" ${pl.length>=10?'disabled':''}>+ bot</button></div>
+    <p class="hint" style="text-align:left">Varios humanos = se juega pasando el móvil. No hay nada oculto, así que todos podéis mirar.</p></div>
+    <div class="card mt1"><div class="row2" style="border:0"><span><b>🌀 Modo Caos</b><br><span class="muted" style="font-size:.78rem">Eventos, dados especiales y reglas extra.</span></span><button class="btn sm${setup.caos?' ac':''}" data-caos>${setup.caos?'activado':'desactivado'}</button></div>
+    ${setup.caos?CAOS.map(([k,l,d])=>`<div class="row2"><span>${l}<br><span class="muted" style="font-size:.74rem">${d}</span></span><button class="btn sm${setup.opt[k]?' ac':''}" data-opt="${k}">${setup.opt[k]?'sí':'no'}</button></div>`).join(''):''}</div>
+    <button class="btn ac lg full mt1" data-start ${pl.some(p=>!p.bot)?'':'disabled'}>⚓ zarpar</button>
+    <details class="card mt1"><summary style="cursor:pointer;font-weight:650">📜 Reglas</summary><div class="rules">
+      <p>10 rondas. Todos empiezan con un dado amarillo de 6 caras y consiguen uno nuevo cada ronda. Gana quien más puntos sume (empate: quien más hizo en la última ronda).</p>
+      <p><b>Cada ronda</b> todos tiran todos sus dados una vez:</p>
+      <ul><li>🟡 <b>Amarillo</b>: suma. La suma amarilla más alta es el <b>capitán</b> y decide el orden para elegir dados.</li>
+      <li>🟣 <b>Morado</b>: suma ×2.</li><li>🔵 <b>Azul</b>: suma. Con un <b>azul brillante</b> se duplica todo lo azul.</li>
+      <li>🔴 <b>Rojo</b>: la mitad baja de las caras resta y la alta suma; el total se multiplica por cuántos rojos tienes. El <b>bendito</b> casi siempre suma y el <b>maldito</b> casi siempre resta.</li>
+      <li>🟢 <b>Verde</b> (d20): suma. ⚪ <b>Transparente</b>: suma y permite robar. 🩷 <b>Rosado</b>: consuelo, suma.</li></ul>
+      <p><b>Después:</b> los que menos puntos hicieron reciben un rosado para la ronda siguiente (1 por cada 2 jugadores). Luego, empezando a la izquierda del capitán, quien tenga transparente puede darlo a otro jugador a cambio de cualquier dado suyo (menos rosados y su último amarillo). Por último salen de la bolsa jugadores + 1 dados y cada uno elige uno, de mayor a menor suma amarilla.</p>
+      <p><b>Nunca te quedas sin amarillo:</b> el último no se puede robar.</p></div></details></div>`}
+
+  /* ---------- partida ---------- */
+  function cur(){if(S.phase==='steal')return S.sq[S.si];if(S.phase==='draft')return S.dq[S.di];if(S.phase==='reroll')return S.prevLeader;return-1}
+  function render(){if(!S||S.phase==='setup')return renderSetup();if(S.phase==='end')return renderEnd();
+    const c=cur(),ev=S.event,showRoll=S.roll&&['reroll','scored'].includes(S.phase);
+    let act='';
+    if(S.phase==='pre'){act=`<div class="bar" style="justify-content:space-between"><b>Ronda ${S.round} de 10</b>${S.leader>=0?`<span class="muted">🧭 capitán: ${nm(S.leader)}</span>`:''}</div>
+      ${S.cfg.bet?`<p class="muted" style="font-size:.8rem;margin:8px 0 4px">🎯 ¿Quién apuesta a ganar esta ronda? (+10 si gana, −5 si no)</p><div class="bar">${S.players.map((p,i)=>p.bot?'':`<button class="btn sm${p.bet?' ac':''}" data-bet="${i}">${p.bet?'🎯 ':''}${nm(i)}</button>`).join('')}</div>`:''}
+      <button class="btn ac lg full mt1" data-roll>🎲 ¡Tirad los dados!</button>`}
+    else if(S.phase==='reroll')act=`<b>🧭 ${nm(c)}, eres el capitán:</b> puedes volver a tirar uno de tus dados.<div class="bar mt1">${S.roll[c].map(r=>dieHtml(r,{v:r.v,btn:`data-rr="${r.id}"`})).join('')}</div><button class="btn mt1" data-norr>no relanzar</button>`;
+    else if(S.phase==='scored'){const best=S.res.reduce((m,q)=>Math.max(m,q.tot),-1e9);act=`<b>Ronda ${S.round}: ${S.players.map((p,i)=>S.res[i].tot===best?nm(i):null).filter(Boolean).join(' y ')} ${S.res.filter(q=>q.tot===best).length>1?'empatan':'gana'} con ${best} puntos</b>
+      <p class="muted" style="font-size:.8rem;margin-top:4px">🧭 Nuevo capitán: ${nm(S.leader)} · orden para elegir: ${S.order.map(nm).join(' → ')}${S.tb.length?'<br>Desempate amarillo: '+S.tb.map(esc).join(' | '):''}</p>
+      <button class="btn ac lg full mt1" data-next>${S.round>=10?'🏁 ver resultado final':'continuar →'}</button>`}
+    else if(S.phase==='steal'){const free=S.free[c],nt=S.players[c].dice.filter(d=>d.t==='T6').length;
+      act=`<b>${humans()>1?'📱 Turno de '+nm(c)+': ':''}¿Quieres robar?</b><p class="muted" style="font-size:.8rem;margin:4px 0 8px">${free?'🐙 Tienes un <b>robo gratis</b> del Kraken: coges un dado sin dar nada.':`Tienes ${nt} transparente${nt>1?'s':''}. Si robas, la víctima se queda con uno.`} Toca un dado de otro jugador abajo.</p>
+      <button class="btn" data-nost>no robar</button>`}
+    else if(S.phase==='draft')act=`<b>${humans()>1?'📱 Turno de '+nm(c)+': ':''}elige un dado</b><p class="muted" style="font-size:.8rem;margin:4px 0 8px">Orden: ${S.dq.map((i,k)=>k<S.di?`<s>${nm(i)}</s>`:k===S.di?`<b style="color:var(--tx)">${nm(i)}</b>`:nm(i)).join(' → ')}</p><div class="bar">${S.draft.map(d=>dieHtml(d,{btn:`data-tk="${d.id}"`})+`<small class="muted" style="margin-right:6px">${BT.T[d.t].n}</small>`).join('')}</div>`;
+    const stealing=S.phase==='steal';
+    const rows=S.players.map((p,i)=>{const q=S.res&&S.phase==='scored'?S.res[i]:null;const rl=showRoll?S.roll[i]:null;
+      const dice=rl?rl.map(r=>dieHtml(r,{v:r.v})).join(''):p.dice.map(d=>stealing&&i!==c&&BT.canTake(S,i,d)?dieHtml(d,{btn:`data-st="${i}:${d.id}"`}):dieHtml(d)).join('');
+      return`<div class="pl${i===c?' on':''}"><div class="plh"><b>${p.bot?'🤖 ':''}${nm(i)}</b>${i===S.leader?' 🧭':''}${p.bet&&S.phase!=='scored'?' 🎯':''}<span class="sp"></span>${q?`<span class="rs${q.tot<0?' neg':''}">${q.tot>=0?'+':''}${q.tot}</span>`:''}<b class="pt">${p.total}</b></div><div class="dice">${dice}</div>${q?`<div class="bd">${breakdown(q)}</div>`:''}</div>`}).join('');
+    root.innerHTML=`<div class="btn-wrap">${ev?`<div class="evc"><span class="ei">${ev.ic}</span><div><b>${ev.n}</b><div class="muted" style="font-size:.8rem">${ev.d}</div></div></div>`:''}
+      <div class="card mb act">${act}</div><div class="pls">${rows}</div>
+      <div class="card mt1 lg2"><div class="mt"><span>📜 bitácora</span><button class="btn sm" data-quit>abandonar</button></div>${S.log.slice(0,10).map(l=>`<div class="ll">${l}</div>`).join('')||'<div class="muted">—</div>'}</div></div>`}
+  function renderEnd(){const f=S.final,me=f.findIndex(r=>!r.bot);
+    root.innerHTML=`<div style="max-width:560px;margin:0 auto"><div class="card result"><div style="font-size:3rem">🏴‍☠️</div><div class="big" style="font-size:2rem">${esc(f[0].name)} se lleva el botín</div><p class="muted">${f[0].total} puntos${f[1]&&f[1].total===f[0].total?' · desempate por la última ronda':''}</p></div>
+      <div class="card mt1">${f.map((r,k)=>`<div class="row2"><span>${['🥇','🥈','🥉'][k]||(k+1)+'.'} ${r.bot?'🤖 ':''}<b>${esc(r.name)}</b>${r.why.length?`<br><span class="muted" style="font-size:.74rem">${r.why.join(' · ')}</span>`:''}</span><b>${r.total}</b></div>`).join('')}</div>
+      <div class="bar mt1" style="justify-content:center"><button class="btn ac lg" data-again>otra partida</button><button class="btn" data-setup>cambiar jugadores</button></div></div>`}
+
+  /* ---------- flujo ---------- */
+  function doRoll(){S.players.forEach((p,i)=>{if(p.bot&&S.cfg.bet)p.bet=BT.botBet(S,i)});BT.rollAll(S);S.players.forEach((p,i)=>{if(p.bet)log(`🎯 ${nm(i)} apuesta a ganar la ronda`)});
+    if(S.cfg.reroll&&S.leader>=0){S.prevLeader=S.leader;if(S.players[S.leader].bot){const d=BT.botReroll(S,S.leader);if(d){const old=d.v;BT.reroll(S,S.leader,d.id);log(`🧭 ${nm(S.leader)} relanza un ${BT.T[d.t].n.toLowerCase()}: ${old} → ${d.v}`)}}else{S.phase='reroll';return after()}}
+    doScore()}
+  function doScore(){BT.scoreRound(S);S.res.forEach((q,i)=>{if(q.kr)log(`🐙 Kraken de ${nm(i)}: ${BT.KF[q.kr-1]}`)});log(`🎲 Ronda ${S.round}: ${S.order.map(i=>nm(i)+' '+S.res[i].tot).join(' · ')}`);after()}
+  function doNext(){if(S.round>=10){BT.afterScore(S);const f=BT.final(S);finish(f);return after()}
+    BT.afterScore(S).forEach(log);S.roll=null;S.sq=BT.stealQueue(S);S.si=0;S.phase='steal';advance()}
+  /* avanza solo mientras juegan bots; se para cuando le toca decidir a un humano */
+  function advance(){let guard=0;
+    while(guard++<200){
+      if(S.phase==='steal'){if(S.si>=S.sq.length){BT.drawDraft(S);S.di=0;log(`🎁 Salen de la bolsa: ${S.draft.map(d=>BT.T[d.t].n.toLowerCase()).join(', ')}`);continue}
+        const pi=S.sq[S.si];if(!BT.canSteal(S,pi)){S.si++;continue}
+        if(!S.players[pi].bot)break;
+        let g=0;while(BT.canSteal(S,pi)&&g++<3){const s=BT.botSteal(S,pi);if(!s)break;const r=BT.steal(S,pi,s.j,s.d.id);if(r)log(`🏴‍☠️ ${nm(pi)} roba un ${BT.T[s.d.t].n.toLowerCase()} a ${nm(s.j)}${r.free?' (gratis)':''}`)}S.si++;continue}
+      if(S.phase==='draft'){if(S.di>=S.dq.length||!S.draft.length){BT.endDraft(S);S.roll=null;S.res=null;log(`— Ronda ${S.round} —`);if(S.event)log(`${S.event.ic} Evento: ${S.event.n}`);break}
+        const pi=S.dq[S.di];if(!S.players[pi].bot)break;const d=BT.botPick(S,pi);if(d){BT.take(S,pi,d.id);log(`🎁 ${nm(pi)} elige ${BT.T[d.t].n.toLowerCase()}`)}S.di++;continue}
+      break}
+    after()}
+  function finish(f){const humansIdx=S.players.map((p,i)=>p.bot?-1:i).filter(i=>i>=0);const bots=S.players.some(p=>p.bot);
+    const winHuman=!S.players[f[0].i].bot;if(humansIdx.length===1){A.record(f.find(r=>r.i===humansIdx[0]).total)}
+    if(bots&&winHuman&&humansIdx.length===1){A.reward(220,60);A.ev('win',1)}else A.reward(70,15);}
+  function after(){save();render()}
+
+  root.addEventListener('click',e=>{const t=e.target;
+    const q=s=>t.closest(s);
+    if(q('[data-add]')){if(setup.players.length<10){const bot=q('[data-add]').dataset.add==='1';const used=setup.players.map(p=>p.name);setup.players.push({name:bot?(BOTN.find(n=>!used.includes(n))||'Bot'):'Jugador '+(setup.players.length+1),bot});A.set('setup',setup);renderSetup()}return}
+    if(q('[data-pt]')){const p=setup.players[+q('[data-pt]').dataset.pt];p.bot=!p.bot;A.set('setup',setup);renderSetup();return}
+    if(q('[data-px]')){setup.players.splice(+q('[data-px]').dataset.px,1);A.set('setup',setup);renderSetup();return}
+    if(q('[data-caos]')){setup.caos=!setup.caos;A.set('setup',setup);renderSetup();return}
+    if(q('[data-opt]')){const k=q('[data-opt]').dataset.opt;setup.opt[k]=setup.opt[k]?0:1;A.set('setup',setup);renderSetup();return}
+    if(q('[data-start]')||q('[data-again]')){const cfg=setup.caos?{...setup.opt}:{events:0,dice:0,black:0,coll:0,bet:0,reroll:0};S=BT.newGame(setup.players.map(p=>({name:p.name.trim()||'Pirata',bot:p.bot})),cfg);S.log=[];BT.startRound(S);log('— Ronda 1 —');if(S.event)log(`${S.event.ic} Evento: ${S.event.n}`);after();return}
+    if(q('[data-resume]')){render();return}
+    if(q('[data-drop]')||q('[data-setup]')){S=null;A.set('g',null);renderSetup();return}
+    if(q('[data-quit]')){if(t.dataset.sure){S=null;A.set('g',null);renderSetup()}else{t.dataset.sure=1;t.textContent='¿seguro?';t.classList.add('bad')}return}
+    if(!S)return;
+    if(q('[data-bet]')){const p=S.players[+q('[data-bet]').dataset.bet];p.bet=!p.bet;after();return}
+    if(q('[data-roll]')&&S.phase==='pre'){doRoll();return}
+    if(q('[data-rr]')&&S.phase==='reroll'){const id=+q('[data-rr]').dataset.rr,r=S.roll[S.prevLeader].find(x=>x.id===id),old=r.v;BT.reroll(S,S.prevLeader,id);log(`🧭 ${nm(S.prevLeader)} relanza un ${BT.T[r.t].n.toLowerCase()}: ${old} → ${r.v}`);doScore();return}
+    if(q('[data-norr]')&&S.phase==='reroll'){doScore();return}
+    if(q('[data-next]')&&S.phase==='scored'){doNext();return}
+    if(q('[data-nost]')&&S.phase==='steal'){S.si++;advance();return}
+    if(q('[data-st]')&&S.phase==='steal'){const[j,id]=q('[data-st]').dataset.st.split(':').map(Number),pi=S.sq[S.si],r=BT.steal(S,pi,j,id);
+      if(r){log(`🏴‍☠️ ${nm(pi)} roba un ${BT.T[r.d.t].n.toLowerCase()} a ${nm(j)}${r.free?' (gratis)':''}`);if(!BT.canSteal(S,pi))S.si++}advance();return}
+    if(q('[data-tk]')&&S.phase==='draft'){const pi=S.dq[S.di],d=BT.take(S,pi,+q('[data-tk]').dataset.tk);if(d){log(`🎁 ${nm(pi)} elige ${BT.T[d.t].n.toLowerCase()}`);S.di++;advance()}return}
+  });
+  root.addEventListener('change',e=>{const n=e.target.closest('[data-pn]');if(n){setup.players[+n.dataset.pn].name=n.value.slice(0,14);A.set('setup',setup)}});
+  if(S&&S.phase!=='end')render();else{S=null;renderSetup()}
+  return null;
 }});
 
 /* ================= 2048 ================= */
@@ -1572,16 +2005,22 @@ reg({id:'farm',name:'Huerto',emoji:'🌱',cat:'idle',tag:'granja · ∞',desc:'P
 /* ================= arranque ================= */
 document.addEventListener('click',e=>{
   const a=e.target.closest('[data-act]');
-  if(a){const act=a.dataset.act;if(act==='shop')openShop();else if(act==='missions')openMissionsInfo();else if(act==='boss')setBoss(true);else if(act==='close')closeModal();return}
+  if(a){const act=a.dataset.act;if(act==='music'){toggleMusic();return}if(act==='shop')openShop();else if(act==='missions')openMissionsInfo();else if(act==='boss')setBoss(true);else if(act==='close')closeModal();return}
   const f=e.target.closest('[data-f]');if(f){filter=f.dataset.f;renderHome();return}
   const b=e.target.closest('[data-buy]');if(b){const s=SHOP[+b.dataset.buy],c=s.cost();if(P.coins>=c){P.coins-=c;s.buy();saveP();renderBar();toast(s.ic+' '+s.n+' comprado');openShop()}return}
-  const t=e.target.closest('[data-theme]');if(t){const k=t.dataset.theme;if(!P.themes.includes(k)){if(P.coins<300){toast('Necesitas 300 🪙');return}P.coins-=300;P.themes.push(k)}P.theme=k;saveP();applyTheme();renderBar();openShop();return}
+  const st=e.target.closest('[data-stab]');if(st){openShop(st.dataset.stab);return}
+  const cb=e.target.closest('[data-cb]');if(cb){buyCosm(cb.dataset.cb);return}
+  const ct=e.target.closest('[data-ct]');if(ct){const k=ct.dataset.ct;P.on[k]=!P.on[k];saveP();applyCosm();openShop();return}
+  const ce=e.target.closest('[data-ce]');if(ce){const it=COSM.find(x=>x.id===ce.dataset.ce);P.eq[it.slot]=P.eq[it.slot]===it.id?null:it.id;saveP();applyCosm();openShop();if(it.slot==='pet'&&P.eq.pet)petWalk();return}
+  const mp=e.target.closest('[data-mp]');if(mp){const id=mp.dataset.mp;if(P.music.on&&P.music.track===id)Music.stop();else{P.music.track=id;Music.stop();Music.play()}saveP();applyCosm();openShop();return}
+  const t=e.target.closest('[data-theme]');if(t){const k=t.dataset.theme;if(!P.themes.includes(k)){if(P.coins<400){toast('Necesitas 400 🪙');return}P.coins-=400;P.themes.push(k)}P.theme=k;saveP();applyTheme();renderBar();openShop();return}
 });
 $('#modal').addEventListener('click',e=>{if(e.target.id==='modal')closeModal()});
+$('#modal').addEventListener('input',e=>{if(e.target.matches('[data-vol]')){Music.vol(e.target.value/100);saveP()}});
 $('#boss').addEventListener('dblclick',()=>setBoss(false));
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){e.preventDefault();if(!$('#modal').hidden&&!BOSS)closeModal();else setBoss(!BOSS)}});
 window.addEventListener('hashchange',route);
-applyTheme();daily();renderBar();route();
+applyTheme();daily();renderBar();applyCosm();route();
 </script>
 </body>
 </html>
